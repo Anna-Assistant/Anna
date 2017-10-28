@@ -4,13 +4,15 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 /////////////////////events///////////////////////////
 $(document).ready(function(){
 
-  var timevocal = 0;
-  var talking = true;
-  var recognition;
-  var txt;
-  var voicetrigger;
-  startRecognition();
-  checkOnline(); 
+    var accessToken = "326a6c78dc86439ba21c9cf3cb8a0cf0";
+    var timevocal = 0;
+    var baseUrl = "https://api.api.ai/v1/";
+    var talking = true;
+    var recognition;
+    var txt;
+    var voicetrigger;
+    startRecognition();
+    checkOnline(); 
 
     //first time when application will be loaded
      chrome.storage.local.get(/* String or Array */["firsttime"], function(items2){
@@ -182,7 +184,86 @@ function startRecognition() {
       alert('you said ' + txt);
       setResponse('you said ' + txt);
       console.log('you said ' + txt);
+      tasks();
     }
+
+
+
+//sending the data to server
+function tasks() {
+    $.ajax({
+      type: "POST",
+      url: baseUrl + "query?v=20150910",
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      headers: {
+        "Authorization": "Bearer " + accessToken
+      },
+      data: JSON.stringify({ query: txt, lang: "en", sessionId: "somerandomthing" }),
+      success: function (data) {
+        alert("intent " + data.result.metadata.intentName);
+        if (data.result.metadata.intentName === "youtube") {
+            searchYoutube(data.result.parameters.any);
+            chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
+        } else
+          if (data.result.metadata.intentName === "open") {
+            chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
+          }else
+          if (data.result.metadata.intentName === "tweet") {
+            tweet(data.result.parameters.any);
+            // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
+          }
+          else {
+            // setResponse(data.result.fulfillment.speech);
+            chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
+            // chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
+          }
+      },
+      error: function () {
+        alert("Sorry ! we are having some internal problem. Please Try again.");
+        setResponse("Sorry ! we are having some internal problem. Please Try again.");
+      }
+    });
+  }
+
+
+
+  function tweet(tweets) 
+  {
+    // var tweets=document.getElementById('tweetText').value;
+    var url = 'http://twitter.com/home?status=' +encodeURIComponent(tweets);
+    chrome.tabs.create({ 'url': url });
+    // openInNewTab(url);
+  } 
+
+  function searchYoutube(temp) {
+    var gapikey = 'AIzaSyBxg6zIGlqie7QxvFlGFTIIk4yWtgIlAak';
+    q=temp.value;
+    $.get(
+      "https://www.googleapis.com/youtube/v3/search", {
+        part: 'snippet, id',
+        q: q,
+        type: 'video',
+        key: gapikey
+      }, function(data) {
+        $.each(data.items, function(i, item) {
+          var videoID = item.id.videoId;
+          var nurl="https://www.youtube.com/watch?v="+videoID;
+          alert(temp+videoID);
+          // openInNewTab(nurl);
+          chrome.tabs.create({ 'url': nurl });
+          return false;
+        });
+      });
+  }
+
+
+
+
+
+
+
+
     function setResponse(val) {
       Speech(val);
     }
