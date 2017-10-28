@@ -1,0 +1,21 @@
+{
+
+  "manifest_version": 2,
+  "name": "Anna",
+  "version": "0.1",
+  "background" : {
+    "scripts" : ["js/jquery.min.js","background.js"],
+    "persistent" : true
+  },
+   "browser_action": {
+    "default_icon": "assets/icon.png",
+    "default_title" : "Anna",
+    "default_popup" : "popup.html"
+  },
+  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
+  "permissions": [
+    "activeTab",
+    "bookmarks",
+    "storage"
+  ]
+}
