@@ -7,7 +7,7 @@
     "persistent" : true
   },
    "browser_action": {
-    "default_icon": "assets/icon.png",
+    "default_icon": "img/icon.png",
     "default_title" : "Anna",
     "default_popup" : "popup.html"
   },
