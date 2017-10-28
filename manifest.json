@@ -1,10 +1,9 @@
 {
-
   "manifest_version": 2,
-  "name": "Anna",
+  "name": "Anna Assistant",
   "version": "0.1",
   "background" : {
-    "scripts" : ["js/jquery.min.js","background.js"],
+    "scripts" : ["js/jquery.min.js","js/on-off-switch.js","js/on-off-switch-onload.js","background.js"],
     "persistent" : true
   },
    "browser_action": {
@@ -16,6 +15,8 @@
   "permissions": [
     "activeTab",
     "bookmarks",
-    "storage"
+    "storage",
+    "https://ajax.googleapis.com/",
+    "http://clients1.google.com/complete/search"
   ]
 }
