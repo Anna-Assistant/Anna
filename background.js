@@ -4,7 +4,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 /////////////////////events///////////////////////////
 $(document).ready(function(){
 
-    var accessToken = "326a6c78dc86439ba21c9cf3cb8a0cf0";
+    var accessToken = "d680d979ca0d42f5bedbaa537c5aefa4";
     var timevocal = 0;
     var baseUrl = "https://api.api.ai/v1/";
     var talking = true;
@@ -204,7 +204,7 @@ function tasks() {
         alert("intent " + data.result.metadata.intentName);
         if (data.result.metadata.intentName === "youtube") {
             searchYoutube(data.result.parameters.any);
-            chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
+            // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
         } else
           if (data.result.metadata.intentName === "open") {
             chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
@@ -226,8 +226,6 @@ function tasks() {
     });
   }
 
-
-
   function tweet(tweets) 
   {
     // var tweets=document.getElementById('tweetText').value;
@@ -238,7 +236,7 @@ function tasks() {
 
   function searchYoutube(temp) {
     var gapikey = 'AIzaSyBxg6zIGlqie7QxvFlGFTIIk4yWtgIlAak';
-    q=temp.value;
+    q=temp;
     $.get(
       "https://www.googleapis.com/youtube/v3/search", {
         part: 'snippet, id',
