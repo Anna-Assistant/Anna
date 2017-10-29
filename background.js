@@ -215,8 +215,7 @@ function tasks() {
           }else
           if (data.result.metadata.intentName === "maps") {
             chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/?api=1&origin="+val.result.parameters["geo-city"][0]+"&destination="+val.result.parameters["geo-city"][1] });
-          }
-          else
+          }else
           if (data.result.metadata.intentName === "mapPlace") {
             chrome.tabs.create({ 'url': "http://www.google.com/maps/search/?api=1&query="+val.result.parameters.any});
           }
