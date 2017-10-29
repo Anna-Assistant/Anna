@@ -226,6 +226,10 @@ function tasks() {
           else if (data.result.metadata.intentName == "ducky") {
             duckduckgoOrGoogle(data.result.parameters.any);
           }
+          else if (data.result.action == "smalltalk.agent.acquaintance") {
+            setResponse(data.result.fulfillment.speech);
+            alert(data.result.fulfillment.speech);
+          }
           else {
 
             // wolfram(txt);
