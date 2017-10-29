@@ -212,6 +212,13 @@ function tasks() {
           if (data.result.metadata.intentName === "tweet") {
             tweet(data.result.parameters.any);
             // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
+          }else
+          if (data.result.metadata.intentName === "maps") {
+            chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/?api=1&origin="+val.result.parameters["geo-city"][0]+"&destination="+val.result.parameters["geo-city"][1] });
+          }
+          else
+          if (data.result.metadata.intentName === "mapPlace") {
+            chrome.tabs.create({ 'url': "http://www.google.com/maps/search/?api=1&query="+val.result.parameters.any});
           }
           else {
             // setResponse(data.result.fulfillment.speech);
