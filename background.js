@@ -183,6 +183,8 @@ $(document).ready(function () {
     alert('you said ' + txt);
     setResponse('you said ' + txt);
     console.log('you said ' + txt);
+    txt = txt.replace('hey ', '');
+    alert(txt);
     tasks();
   }
 
@@ -222,6 +224,9 @@ $(document).ready(function () {
                   if (data.result.metadata.intentName === "mapPlace") {
                     chrome.tabs.create({ 'url': "https://www.google.com/maps/?q=" + data.result.parameters.any });
                   }
+                  else if(data.result.metadata.intentName == "weather") {
+                  	weather(data.result.parameters.any);
+                  }
                   else if (data.result.metadata.intentName == "ducky") {
                     duckduckgoOrGoogle(data.result.parameters.any);
                   }
@@ -247,6 +252,45 @@ $(document).ready(function () {
       }
     });
   }
+
+	function processIt(data)
+	{
+		var temperature=parseInt(data.main.temp-273.15);
+		var humidity=parseInt(data.main.humidity);
+		var windSpeed=parseInt(data.wind.speed);
+		var cloudsDescription=data.weather[0].description;
+		var temperatureString="temperature is  "+temperature;
+		var humidityString="humidity is "+humidity;
+		var windSpeedString="wind speed is "+windSpeed;
+		var cloudsDescriptionString="sky description "+cloudsDescription;
+
+		var weather_response = temperatureString + ', ' +
+								humidityString + ', ' +
+								windSpeedString + ', ' +
+								cloudsDescriptionString;
+
+		setResponse(weather_response);
+		alert(weather_response);
+
+		//alert("temperature is  "+temperature);
+		//alert("humidity is "+humidity);
+		//alert("wind speed is "+windSpeed);
+		//alert("sky description "+cloudsDescription);
+	}
+
+	function weather(city)
+	{
+		var baseUrl="http://api.openweathermap.org/data/2.5/weather?q=";
+		var key="ec58b4518e2a455913f8e64a7ac16248";
+		var Url=baseUrl+city+"&APPID="+key;
+		
+		$.getJSON(Url,function(dataJson)
+		{
+			var data=JSON.stringify(dataJson); 
+			var parsedData=JSON.parse(data);
+			processIt(parsedData);
+		});
+	}
 
 
   // TO DO - Fix this
