@@ -237,7 +237,16 @@ $(document).ready(function () {
                   }
                   else if (data.result.metadata.intentName == "motivate") {
                     speakAQuote();
-                  }
+                  }else
+                  if(data.result.metadata.intentName == "close"){
+                    chrome.tabs.getSelected(null, function(tab) {
+                    tab = tab.id;
+                    chrome.tabs.remove(tab,function(){});
+                    tabUrl = tab.url;
+                    //alert(tab.url);
+                  });
+                  Speech("closing");
+                }
                   else {
                     // setResponse(data.result.fulfillment.speech);
                     chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
