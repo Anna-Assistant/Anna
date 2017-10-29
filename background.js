@@ -226,6 +226,9 @@ function tasks() {
           else if (data.result.metadata.intentName == "ducky") {
             duckduckgoOrGoogle(data.result.parameters.any);
           }
+          else if (data.result.metadata.intentName == "motivate") {
+          	speakAQuote();
+          }
           else {
             // setResponse(data.result.fulfillment.speech);
             chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
@@ -239,6 +242,22 @@ function tasks() {
     });
   }
 
+
+// TO DO - Fix this
+  function speakAQuote() {
+  	var quoteUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
+  	 $.getJSON( quoteUrl, function( data ) {
+  	 	alert("inside");
+  	 	alert(data.length);
+
+          setResponse(data.quoteText);
+          chrome.tabs.create({ 'url': data.quoteLink });
+        }).fail(function(){
+          chrome.tabs.create({ 'url': 'https://forismatic.com/en/homepage' });
+        });
+        alert('m here');
+  }
+
   function duckduckgoOrGoogle(query) {
     // alert('duckduckgoOrGoogle ' + query);
     var duckduckgoApiUrl = 'https://api.duckduckgo.com/';
@@ -248,7 +267,7 @@ function tasks() {
  $.getJSON( remote, function( data ) {
           if(data.AbstractText != '') {
             setResponse(data.AbstractText);
-            alert(data.AbstractText);
+            // alert(data.AbstractText);
             chrome.tabs.create({ 'url': 'https://duckduckgo.com/?q=' + encodeURIComponent(query) });
           }
           else {
