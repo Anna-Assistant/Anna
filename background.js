@@ -4,7 +4,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 /////////////////////events///////////////////////////
 $(document).ready(function(){
 
-    var accessToken = "d680d979ca0d42f5bedbaa537c5aefa4";
+    var accessToken = "5d60be94cfa4435ba8276a3476c9f8e0";
     var timevocal = 0;
     var baseUrl = "https://api.api.ai/v1/";
     var talking = true;
@@ -209,16 +209,19 @@ function tasks() {
           if (data.result.metadata.intentName === "open") {
             chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
           }else
+          if (data.result.metadata.intentName === "mail") {
+            chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
+          }else
           if (data.result.metadata.intentName === "tweet") {
             tweet(data.result.parameters.any);
             // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
           }else
           if (data.result.metadata.intentName === "maps") {
-            chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/?api=1&origin="+val.result.parameters["geo-city"][0]+"&destination="+val.result.parameters["geo-city"][1] });
-          }
-          else
+            // alert(val.result.parameters["geo-city"][0]);
+            // chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/"+val.result.parameters["geo-city"][0]+"/"+val.result.parameters["geo-city"][1] });
+          }else
           if (data.result.metadata.intentName === "mapPlace") {
-            chrome.tabs.create({ 'url': "http://www.google.com/maps/search/?api=1&query="+val.result.parameters.any});
+            chrome.tabs.create({ 'url': "'http://www.google.com/maps/?q='"+val.result.parameters.any});
           }
           else if (data.result.metadata.intentName == "ducky") {
             duckduckgoOrGoogle(data.result.parameters.any);
@@ -245,6 +248,7 @@ function tasks() {
  $.getJSON( remote, function( data ) {
           if(data.AbstractText != '') {
             setResponse(data.AbstractText);
+            alert(data.AbstractText);
             chrome.tabs.create({ 'url': 'https://duckduckgo.com/?q=' + encodeURIComponent(query) });
           }
           else {
