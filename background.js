@@ -226,7 +226,7 @@ $(document).ready(function () {
                     duckduckgoOrGoogle(data.result.parameters.any);
                   }
 
-                  else if (data.result.action == "smalltalk.agent.acquaintance") {
+                  else if (data.result.source == "domains") {
                     setResponse(data.result.fulfillment.speech);
                     alert(data.result.fulfillment.speech);
                   }
