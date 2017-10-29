@@ -18,6 +18,7 @@ $(document).ready(function () {
   chrome.storage.local.get(/* String or Array */["firsttime"], function (items2) {
     if (items2.firsttime === undefined || items2.firsttime === 2) {
       chrome.storage.local.set({ "firsttime": 3 }, function () {
+      	chrome.tabs.create({ 'url': 'elate/index.html' });
         getPermission();
       });
     }
