@@ -217,11 +217,11 @@ function tasks() {
             // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
           }else
           if (data.result.metadata.intentName === "maps") {
-            // alert(val.result.parameters["geo-city"][0]);
-            // chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/"+val.result.parameters["geo-city"][0]+"/"+val.result.parameters["geo-city"][1] });
+     
+            chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/"+data.result.parameters["geo-city"][0]+"/"+data.result.parameters["geo-city"][1] });
           }else
           if (data.result.metadata.intentName === "mapPlace") {
-            chrome.tabs.create({ 'url': "'http://www.google.com/maps/?q='"+val.result.parameters.any});
+            chrome.tabs.create({ 'url': "https://www.google.com/maps/?q="+data.result.parameters.any});
           }
           else if (data.result.metadata.intentName == "ducky") {
             duckduckgoOrGoogle(data.result.parameters.any);
@@ -230,6 +230,8 @@ function tasks() {
           	speakAQuote();
           }
           else {
+
+            
             // setResponse(data.result.fulfillment.speech);
             chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
             // chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
