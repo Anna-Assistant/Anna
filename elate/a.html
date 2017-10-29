@@ -1,0 +1,21 @@
+
+<body>
+<input type="text" name="enter" class="enter" value="" id="tweetText"/>
+<input type="button" value="Tweet" onclick="tweet();"/>
+</body>
+
+<script type="text/javascript">
+function openInNewTab(url) 
+{
+    var win = window.open(url, '_blank');
+    win.focus();
+}
+
+
+function tweet() 
+{
+    var tweets=document.getElementById('tweetText').value;
+    var url = 'http://twitter.com/home?status=' +encodeURIComponent(tweets);
+    openInNewTab(url);
+} 
+</script>
