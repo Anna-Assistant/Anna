@@ -181,11 +181,11 @@ $(document).ready(function () {
   }
   //sending the data to server
   function send() {
-    alert('you said ' + txt);
+    // alert('you said ' + txt);
     setResponse('you said ' + txt);
     console.log('you said ' + txt);
     txt = txt.replace('hey ', '');
-    alert(txt);
+    // alert(txt);
     tasks();
   }
 
@@ -203,7 +203,7 @@ $(document).ready(function () {
       },
       data: JSON.stringify({ query: txt, lang: "en", sessionId: "somerandomthing" }),
       success: function (data) {
-        alert("intent " + data.result.metadata.intentName);
+        // alert("intent " + data.result.metadata.intentName);
         if (data.result.metadata.intentName === "youtube") {
           searchYoutube(data.result.parameters.any);
           // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
@@ -231,17 +231,14 @@ $(document).ready(function () {
                   else if (data.result.metadata.intentName == "ducky") {
                     duckduckgoOrGoogle(data.result.parameters.any);
                   }
-
                   else if (data.result.source == "domains") {
                     setResponse(data.result.fulfillment.speech);
-                    alert(data.result.fulfillment.speech);
+                    // alert(data.result.fulfillment.speech);
                   }
                   else if (data.result.metadata.intentName == "motivate") {
                     speakAQuote();
                   }
                   else {
-
-
                     // setResponse(data.result.fulfillment.speech);
                     chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
                     // chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
@@ -298,15 +295,15 @@ $(document).ready(function () {
   function speakAQuote() {
     var quoteUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
     $.getJSON(quoteUrl, function (data) {
-      alert("inside");
-      alert(data.length);
+      // alert("inside");
+      // alert(data.length);
 
       setResponse(data.quoteText);
       chrome.tabs.create({ 'url': data.quoteLink });
     }).fail(function () {
       chrome.tabs.create({ 'url': 'https://forismatic.com/en/homepage' });
     });
-    alert('m here');
+    // alert('m here');
   }
 
   function duckduckgoOrGoogle(query) {
@@ -350,19 +347,13 @@ $(document).ready(function () {
         $.each(data.items, function (i, item) {
           var videoID = item.id.videoId;
           var nurl = "https://www.youtube.com/watch?v=" + videoID;
-          alert(temp + videoID);
+          // alert(temp + videoID);
           // openInNewTab(nurl);
           chrome.tabs.create({ 'url': nurl });
           return false;
         });
       });
   }
-
-
-
-
-
-
 
 
   function setResponse(val) {
