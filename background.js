@@ -220,6 +220,9 @@ function tasks() {
           if (data.result.metadata.intentName === "mapPlace") {
             chrome.tabs.create({ 'url': "http://www.google.com/maps/search/?api=1&query="+val.result.parameters.any});
           }
+          else if (data.result.metadata.intentName == "ducky") {
+            duckduckgoOrGoogle(data.result.parameters.any);
+          }
           else {
             // setResponse(data.result.fulfillment.speech);
             chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
@@ -231,6 +234,26 @@ function tasks() {
         setResponse("Sorry ! we are having some internal problem. Please Try again.");
       }
     });
+  }
+
+  function duckduckgoOrGoogle(query) {
+    // alert('duckduckgoOrGoogle ' + query);
+    var duckduckgoApiUrl = 'https://api.duckduckgo.com/';
+    var remote = duckduckgoApiUrl + '?q=' + encodeURIComponent(query) + '&format=json';
+    // alert(remote);
+
+ $.getJSON( remote, function( data ) {
+          if(data.AbstractText != '') {
+            setResponse(data.AbstractText);
+            chrome.tabs.create({ 'url': 'https://duckduckgo.com/?q=' + encodeURIComponent(query) });
+          }
+          else {
+            chrome.tabs.create({ 'url': 'http://google.com/search?q=' + encodeURIComponent(query) });
+          }
+        }).fail(function(){
+          chrome.tabs.create({ 'url': 'http://google.com/search?q=' + encodeURIComponent(query) });
+        });
+
   }
 
   function tweet(tweets) 
