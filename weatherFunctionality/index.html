@@ -1,0 +1,43 @@
+<body>
+	<input type="text" name="enter" class="enter" value="" id="cityText"/>
+	<input type="button" value="City" onclick="weather();"/>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+
+	function processIt(data)
+	{
+		var temperature=parseInt(data.main.temp-273.15);
+		var humidity=parseInt(data.main.humidity);
+		var windSpeed=parseInt(data.wind.speed);
+		var cloudsDescription=data.weather[0].description;
+		var temperatureString="temperature is  "+temperature;
+		var humidityString="humidity is "+humidity;
+		var windSpeedString="wind speed is "+windSpeed;
+		var cloudsDescriptionString="sky description "+cloudsDescription;
+		//alert("temperature is  "+temperature);
+		//alert("humidity is "+humidity);
+		//alert("wind speed is "+windSpeed);
+		//alert("sky description "+cloudsDescription);
+	}
+
+	function gettingJSON(Url)
+	{
+		$.getJSON(Url,function(dataJson)
+		{
+			var data=JSON.stringify(dataJson); 
+			var parsedData=JSON.parse(data);
+			processIt(parsedData);
+		});
+	}
+
+	function weather()
+	{
+		var city=document.getElementById('cityText').value;
+		var baseUrl="http://api.openweathermap.org/data/2.5/weather?q=";
+		var key="ec58b4518e2a455913f8e64a7ac16248";
+		var Url=baseUrl+city+"&APPID="+key;
+		gettingJSON(Url);
+	}
+</script>
