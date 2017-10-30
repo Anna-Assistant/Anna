@@ -4,7 +4,7 @@
 Meet Anna, The coolest chrome extension.
 All u need to do is just say "Hey" before the request and ANNA is their to do the stuff.
 
-[![Watch on Youtube](https://lh3.googleusercontent.com/rLpZasfPD2_qOhhnesx_rfZ539shp2hRRjicoaB5fA0sldYEWuTLgLxcuOsnD4SNajdknzD9AuQ8JpazITPqRPWruGDZ0g=s688)](https://www.youtube.com/watch?v=17bVrAZMgEY&t=42s)
+[![Watch on Youtube](http://www.safeducateonline.com/wp-content/uploads/2015/05/watch-demo.png)](https://www.youtube.com/watch?v=17bVrAZMgEY&t=42s)
 
 Visit Anna on [https://anna-assistant.github.io/](https://anna-assistant.github.io/)
 
