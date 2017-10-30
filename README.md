@@ -1,10 +1,11 @@
 
 # ANNA
 
-
-
-The collest chrome extension.
+Meet Anna, The coolest chrome extension.
 All u need to do is just say "Hey" before the request and ANNA is their to do the stuff.
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/17bVrAZMgEY&t=42s/0.jpg)](https://www.youtube.com/watch?v=17bVrAZMgEY&t=42s)
+
 # Explore what ANNA can do 
 
   - Small talks
