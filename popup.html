@@ -1,29 +1,42 @@
 <!doctype html>
 <html>
+
 <head>
-    <link rel="stylesheet" type="text/css" href="css/on-off-switch.css"/>
-    <style type="text/css">
-    	body {
-    		height: 150px;
-    		width: 250px;
-    	}
-    </style>
+	<link rel="stylesheet" type="text/css" href="css/on-off-switch.css" />
+	<style type="text/css">
+		body {
+			height: 150px;
+			width: 120px;
+			background: lightskyblue; 
+			
+		}
+
+		body:hover {
+			background-color: lightblue;
+			-webkit-transition: background-color 1000ms linear;
+			-ms-transition: background-color 1000ms linear;
+			transition: background-color 1000ms linear;
+		}
+	</style>
 </head>
+
 <body>
 	<div style="text-align: center; display: block;">
 		<h1>Anna</h1>
-		<h2>Your Assistant in Chrome!</h2>
+
+		<h4>Say "Hey" followed by request</h4>
+
 		<input type="checkbox" id="on-off-switch" name="switch1" class="mycheckbox">
-		<br><br>
-		<a target="_blank" href="elate/index.html">About Anna</a>
+
+		<h3><a target="_blank" href="elate/index.html">Read More</a></h3>
 	</div>
 
 
-
-    <script src="js/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="js/on-off-switch.js"></script>
-    <script type="text/javascript" src="js/on-off-switch-onload.js"></script>
-    <script type="text/javascript" src="js/background.js"></script>
-   <script type="text/javascript" src="js/on-off.js"></script>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/on-off-switch.js"></script>
+	<script type="text/javascript" src="js/on-off-switch-onload.js"></script>
+	<script type="text/javascript" src="js/background.js"></script>
+	<script type="text/javascript" src="js/on-off.js"></script>
 </body>
+
 </html>
