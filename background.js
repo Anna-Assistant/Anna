@@ -4,7 +4,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 /////////////////////events///////////////////////////
 $(document).ready(function () {
 
-  var accessToken = "5d60be94cfa4435ba8276a3476c9f8e0";
+  var accessToken = "499c4ada72d74d349bb1d8d7b8a7eb42";
   var timevocal = 0;
   var baseUrl = "https://api.api.ai/v1/";
   var talking = true;
