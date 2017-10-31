@@ -24,8 +24,8 @@ Visit Anna on [https://anna-assistant.github.io/](https://anna-assistant.github.
   - Close tabs
   
 
-> Talking to ANNA is an easier, faster and cool way to get your stuff done
-> With a redesined interface ANNA is more powerfull than ever
->And the more you use ANNA the better it knows what that need at that moment
+> Talking to ANNA is an easier, faster and cooler way to get your stuff done.
+> With a redesined interface, ANNA is more powerful than ever!
+> Also, the more you use ANNA, the better it knows what you need at that moment.
  
 
