@@ -34,15 +34,8 @@ Anna is part of KWOC : You can talk to us on Zulip or comment on issues to start
   - Close tabs
   
 
-<<<<<<< HEAD
-> Talking to ANNA is an easier, faster and cool way to get your stuff done
-> With a redesined interface ANNA is more powerfull than ever
->And the more you use ANNA the better it knows what that need at that moment
- 
-=======
 > Talking to ANNA is an easier, faster and cooler way to get your stuff done.
 > With a redesined interface, ANNA is more powerful than ever!
 > Also, the more you use ANNA, the better it knows what you need at that moment.
  
 
->>>>>>> a3f36f594513e2486cf09ca2cc6b757ca5a7e9b2
