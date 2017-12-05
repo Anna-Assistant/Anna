@@ -204,54 +204,47 @@ $(document).ready(function () {
       data: JSON.stringify({ query: txt, lang: "en", sessionId: "somerandomthing" }),
       success: function (data) {
         // alert("intent " + data.result.metadata.intentName);
-        if (data.result.metadata.intentName === "youtube") {
-          searchYoutube(data.result.parameters.any);
+                  if (data.result.metadata.intentName === "youtube") {
+                   searchYoutube(data.result.parameters.any);
           // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
-        } else
-          if (data.result.metadata.intentName === "open") {
-            chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
-          } else
-            if (data.result.metadata.intentName === "mail") {
-              chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
-            } else
-              if (data.result.metadata.intentName === "tweet") {
-                tweet(data.result.parameters.any);
+                } else if (data.result.metadata.intentName === "open") {
+                   chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
+                } else if (data.result.metadata.intentName === "history") {
+                   chrome.tabs.create({'url': 'chrome://history'});
+                } else if (data.result.metadata.intentName === "downloads") {
+                   chrome.tabs.create({ 'url': 'chrome://downloads' });
+                } else if (data.result.metadata.intentName === "mail") {
+                   chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
+	        } else if (data.result.metadata.intentName === "tweet") {
+                   tweet(data.result.parameters.any);
                 // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
-              } else
-                if (data.result.metadata.intentName === "maps") {
-
-                  chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
-                } else
-                  if (data.result.metadata.intentName === "mapPlace") {
-                    chrome.tabs.create({ 'url': "https://www.google.com/maps/?q=" + data.result.parameters.any });
-                  }
-                  else if(data.result.metadata.intentName == "weather") {
-                  	weather(data.result.parameters.any);
-                  }
-                  else if (data.result.metadata.intentName == "ducky") {
-                    duckduckgoOrGoogle(data.result.parameters.any);
-                  }
-                  else if (data.result.source == "domains") {
-                    setResponse(data.result.fulfillment.speech);
+                } else if (data.result.metadata.intentName === "maps") {
+		   chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
+                } else if (data.result.metadata.intentName === "mapPlace") {
+                   chrome.tabs.create({ 'url': "https://www.google.com/maps/?q=" + data.result.parameters.any });
+                } else if(data.result.metadata.intentName == "weather") {
+                   weather(data.result.parameters.any);
+                } else if (data.result.metadata.intentName == "ducky") {
+                   duckduckgoOrGoogle(data.result.parameters.any);
+                } else if (data.result.source == "domains") {
+                   setResponse(data.result.fulfillment.speech);
                     // alert(data.result.fulfillment.speech);
-                  }
-                  else if (data.result.metadata.intentName == "motivate") {
-                    speakAQuote();
-                  }else
-                  if(data.result.metadata.intentName == "close"){
-                    chrome.tabs.getSelected(null, function(tab) {
+                } else if (data.result.metadata.intentName == "motivate") {
+                   speakAQuote();
+                } else if(data.result.metadata.intentName == "close"){
+                   chrome.tabs.getSelected(null, function(tab) {
                     tab = tab.id;
                     chrome.tabs.remove(tab,function(){});
                     tabUrl = tab.url;
                     //alert(tab.url);
-                  });
+                });
                   Speech("closing");
                 }
                   else {
                     // setResponse(data.result.fulfillment.speech);
                     chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
                     // chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
-                  }
+                }
       },
       error: function () {
         alert("Sorry ! we are having some internal problem. Please Try again.");
