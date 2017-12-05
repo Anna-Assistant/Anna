@@ -211,6 +211,15 @@ $(document).ready(function () {
           if (data.result.metadata.intentName === "open") {
             chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
           } else
+		if (data.result.metadata.intentName === "history") {
+chrome.tabs.create({'url': 'chrome://history'});
+}
+
+else
+if (data.result.metadata.intentName === "downloads") {
+chrome.tabs.create({ 'url': 'chrome://downloads' });
+} 
+	      else
             if (data.result.metadata.intentName === "mail") {
               chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
             } else
