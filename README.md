@@ -36,14 +36,14 @@ Anna is part of KWOC : You can talk to us on Zulip or comment on issues to start
  # How to install ANNA
  
 1. Once you are on the repository page,look for the green “Clone or download” button on the right-hand side of the page.
-![imageedit_3_3326230850](https://user-images.githubusercontent.com/29461633/33730973-a91d3c7c-dba7-11e7-8efe-9d1b9f43980b.png)
+![33733459-da6e1e9c-dbaf-11e7-99f3-d2777dbe37bb](https://user-images.githubusercontent.com/29461633/33744276-7760d156-dbd6-11e7-9728-85564ea072c0.png)
 2. Click the “Clone or download” button and then click “Download ZIP.”
 ![screenshot from 2017-12-07 20_02_51-iloveimg-cropped](https://user-images.githubusercontent.com/29461633/33731004-c02d137e-dba7-11e7-988b-c1527d724896.png)
-3. Take the downloaded ZIP file and extract it. We need to give it a permanent home because Chrome will externally load the files (if they get moved/deleted then the extension will stop working).
-4. With the extension downloaded and extracted, we can now install it.In Chrome, navigate to chrome://extensions
-5. Installing the extension is extremely easy. All we need to do is drag-and-drop the folder we extracted onto Chrome’s Extensions page.If the extension is in the “.crx” format, Chrome will ask you to review and approve the permissions before installing. 
-![chromeextensiongithub3](https://user-images.githubusercontent.com/29461633/33731135-27533240-dba8-11e7-98b3-256e0077484c.png)
-  
+3. Using the cloned folder. Go to chrome menu > more tools extensions or chrome:/extensions
+4. Click on load unpacked extension and select the folder and install.
+![33733571-2a403612-dbb0-11e7-8d21-d511f811c157](https://user-images.githubusercontent.com/29461633/33744208-35984dd0-dbd6-11e7-8546-e94964611f96.png)
+5. Make sure to give Anna microphone permissions and you are good to go ![1f389](https://user-images.githubusercontent.com/29461633/33744299-9c962f8e-dbd6-11e7-9c5b-324fc95e20d5.png) .
+
 > Talking to ANNA is an easier, faster and cooler way to get your stuff done.
 > With a redesined interface, ANNA is more powerful than ever!
 > Also, the more you use ANNA, the better it knows what you need at that moment.
