@@ -36,13 +36,13 @@ Anna is part of KWOC : You can talk to us on Zulip or comment on issues to start
  # How to install ANNA
  
 1. Once you are on the repository page,look for the green “Clone or download” button on the right-hand side of the page.
-https://user-images.githubusercontent.com/29461633/33723176-f0439576-db91-11e7-8447-5b2216dc0f0a.png
+![imageedit_3_3326230850](https://user-images.githubusercontent.com/29461633/33730973-a91d3c7c-dba7-11e7-8efe-9d1b9f43980b.png)
 2. Click the “Clone or download” button and then click “Download ZIP.”
-https://user-images.githubusercontent.com/29461633/33721691-bb2e32a0-db8d-11e7-9452-a73b1b6ec4a8.png
+![screenshot from 2017-12-07 20_02_51-iloveimg-cropped](https://user-images.githubusercontent.com/29461633/33731004-c02d137e-dba7-11e7-988b-c1527d724896.png)
 3. Take the downloaded ZIP file and extract it. We need to give it a permanent home because Chrome will externally load the files (if they get moved/deleted then the extension will stop working).
 4. With the extension downloaded and extracted, we can now install it.In Chrome, navigate to chrome://extensions
 5. Installing the extension is extremely easy. All we need to do is drag-and-drop the folder we extracted onto Chrome’s Extensions page.If the extension is in the “.crx” format, Chrome will ask you to review and approve the permissions before installing. 
-  
+![chromeextensiongithub3](https://user-images.githubusercontent.com/29461633/33731135-27533240-dba8-11e7-98b3-256e0077484c.png)
   
 > Talking to ANNA is an easier, faster and cooler way to get your stuff done.
 > With a redesined interface, ANNA is more powerful than ever!
