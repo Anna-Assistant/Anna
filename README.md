@@ -36,7 +36,7 @@ Anna is part of KWOC : You can talk to us on Zulip or comment on issues to start
  # How to install ANNA
  
 1. Once you are on the repository page,look for the green “Clone or download” button on the right-hand side of the page.
-https://user-images.githubusercontent.com/29461633/33723176-f0439576-db91-11e7-8447-5b2216dc0f0a1.png
+https://user-images.githubusercontent.com/29461633/33723176-f0439576-db91-11e7-8447-5b2216dc0f0a.png
 2. Click the “Clone or download” button and then click “Download ZIP.”
 https://user-images.githubusercontent.com/29461633/33721691-bb2e32a0-db8d-11e7-9452-a73b1b6ec4a8.png
 3. Take the downloaded ZIP file and extract it. We need to give it a permanent home because Chrome will externally load the files (if they get moved/deleted then the extension will stop working).
