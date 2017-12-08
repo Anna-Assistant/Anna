@@ -211,7 +211,11 @@ $(document).ready(function () {
                    chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
                 } else if (data.result.metadata.intentName === "incognito"||data.result.metadata.intentName === "safemode"||data.result.metadata.intentName === "privatebrowsing"||data.result.metadata.intentName === "openinsafemode") {
                    chrome.windows.create({url:"http://www.google.com",incognito: true});
-                   Speech("Have   you   allowed  me  to   open   in   incognito  mode ?    If not   go  to chrome extension and give the permission");                   
+	           chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess) {
+                   if (isAllowedAccess) return;
+                   alert('Please allow incognito mode');
+                   chrome.tabs.create({url: 'chrome://extensions/?id=' + chrome.runtime.id});
+                   Speech("Now please click on the option Allow in incognito");});
                 } else if (data.result.metadata.intentName === "history") {
                    chrome.tabs.create({'url': 'chrome://history'});
                 } else if (data.result.metadata.intentName === "downloads") {
