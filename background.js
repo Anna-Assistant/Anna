@@ -24,7 +24,7 @@ $(document).ready(function () {
     }
   });
 
-  //function for giving sleep 
+  //function for giving sleep
   function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
@@ -162,7 +162,7 @@ $(document).ready(function () {
     }
     // updateRec();
   }
-  //to switch 
+  //to switch
   function switchRecognition() {
     if (recognition) {
       stopRecognition();
@@ -171,7 +171,7 @@ $(document).ready(function () {
       startRecognition();
     }
   }
-  //to set input 
+  //to set input
   function setInput(text) {
     txt = text;
     send();
@@ -215,11 +215,11 @@ $(document).ready(function () {
                    chrome.tabs.create({ 'url': 'chrome://downloads' });
                 } else if (data.result.metadata.intentName === "mail") {
                    chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
-	        } else if (data.result.metadata.intentName === "tweet") {
+	              } else if (data.result.metadata.intentName === "tweet") {
                    tweet(data.result.parameters.any);
                 // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
                 } else if (data.result.metadata.intentName === "maps") {
-		   chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
+		               chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
                 } else if (data.result.metadata.intentName === "mapPlace") {
                    chrome.tabs.create({ 'url': "https://www.google.com/maps/?q=" + data.result.parameters.any });
                 } else if(data.result.metadata.intentName == "weather") {
@@ -231,6 +231,8 @@ $(document).ready(function () {
                     // alert(data.result.fulfillment.speech);
                 } else if (data.result.metadata.intentName == "motivate") {
                    speakAQuote();
+                } else if (data.result.metadata.intentName == "joke") {
+                   tellJoke();
                 } else if(data.result.metadata.intentName == "close"){
                    chrome.tabs.getSelected(null, function(tab) {
                     tab = tab.id;
@@ -283,15 +285,26 @@ $(document).ready(function () {
 		var baseUrl="http://api.openweathermap.org/data/2.5/weather?q=";
 		var key="ec58b4518e2a455913f8e64a7ac16248";
 		var Url=baseUrl+city+"&APPID="+key;
-		
+
 		$.getJSON(Url,function(dataJson)
 		{
-			var data=JSON.stringify(dataJson); 
+			var data=JSON.stringify(dataJson);
 			var parsedData=JSON.parse(data);
 			processIt(parsedData);
 		});
 	}
 
+  function tellJoke() {
+    var jokeURL = 'https://api.chucknorris.io/jokes/random';
+    $.getJSON(jokeURL, function (data) {
+      setResponse(data.value.toLowerCase());
+      chrome.tabs.create({ 'url': data.url });
+    }).fail(function () {
+        var failJoke = "Sorry! I can't read the joke! You can have a look at it!";
+        setResponse(failJoke);
+      chrome.tabs.create({ 'url': 'https://icanhazdadjoke.com/' });
+    });
+  }
 
   // TO DO - Fix this
   function speakAQuote() {
@@ -361,7 +374,7 @@ $(document).ready(function () {
   function setResponse(val) {
     Speech(val);
   }
-  //to speech 
+  //to speech
   function Speech(say) {
     if ('speechSynthesis' in window && talking) {
       var language = window.navigator.userLanguage || window.navigator.language;
