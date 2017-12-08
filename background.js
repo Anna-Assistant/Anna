@@ -208,7 +208,7 @@ $(document).ready(function () {
                    searchYoutube(data.result.parameters.any);
           // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
                 } else if (data.result.metadata.intentName === "open") {
-                   chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website })
+                   chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
                 } else if (data.result.metadata.intentName === "incognito"||data.result.metadata.intentName === "safemode"||data.result.metadata.intentName === "privatebrowsing"||data.result.metadata.intentName === "openinsafemode") {
                    chrome.windows.create({url:"http://www.google.com",incognito: true});
                    Speech("Have   you   allowed  me  to   open   in   incognito  mode ?    If not   go  to chrome extension and give the permission");                   
