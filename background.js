@@ -208,7 +208,7 @@ $(document).ready(function () {
                    searchYoutube(data.result.parameters.any);
           // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
                 } else if (data.result.metadata.intentName === "open") {
-                   chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
+                   chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website })
                 } else if (data.result.metadata.intentName === "incognito"||data.result.metadata.intentName === "safemode"||data.result.metadata.intentName === "privatebrowsing"||data.result.metadata.intentName === "openinsafemode") {
                    chrome.windows.create({url:"http://www.google.com",incognito: true});
                    Speech("Have   you   allowed  me  to   open   in   incognito  mode ?    If not   go  to chrome extension and give the permission");                   
@@ -218,11 +218,11 @@ $(document).ready(function () {
                    chrome.tabs.create({ 'url': 'chrome://downloads' });
                 } else if (data.result.metadata.intentName === "mail") {
                    chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
-	        } else if (data.result.metadata.intentName === "tweet") {
+	              } else if (data.result.metadata.intentName === "tweet") {
                    tweet(data.result.parameters.any);
                 // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
                 } else if (data.result.metadata.intentName === "maps") {
-		   chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
+		               chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
                 } else if (data.result.metadata.intentName === "mapPlace") {
                    chrome.tabs.create({ 'url': "https://www.google.com/maps/?q=" + data.result.parameters.any });
                 } else if(data.result.metadata.intentName == "weather") {
