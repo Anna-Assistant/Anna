@@ -20,8 +20,8 @@ $(document).ready(function(){
 		  }
       new DG.OnOffSwitch({
         el: '#on-off-switch',
-        textOn: 'On',
-        textOff: 'Off',
+        textOn: 'Activated',
+        textOff: 'Deactived',
         listener:function(name, checked){
           chrome.storage.local.get(/* String or Array */["onoffswitch"], function(items){
 		      	if(checked == true){

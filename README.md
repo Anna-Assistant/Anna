@@ -1,32 +1,41 @@
 
 # ANNA
 
+Current version 1.0 
 
-
-The collest chrome extension.
+Meet Anna, The coolest chrome extension.
 All u need to do is just say "Hey" before the request and ANNA is their to do the stuff.
+
+Watch Anna in action on Youtube 
+
+[![Watch on Youtube](http://www.safeducateonline.com/wp-content/uploads/2015/05/watch-demo.png)](https://www.youtube.com/watch?v=17bVrAZMgEY&t=42s)
+
+Visit Anna on [https://anna-assistant.github.io/](https://anna-assistant.github.io/)
+
+Chat with us on [Zulip](https://anna.zulipchat.com/)
+
+Download Anna [chrome webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
+
+Anna is part of KWOC : You can talk to us on Zulip or comment on issues to start working. 
+
 # Explore what ANNA can do 
 
-  - Play music 
-  - Tweet 
-  - Search google for the stuff
+  - Small talks
+  - Youtube
+  - Maps
   - Open a website
-  - Figure out paths to reach the destination
-  - Compose a mail 
-  - Search on DuckDuckGo and get briefed up
+  - Tweet
+  - Motivate 
+  - Mail
+  - Places
+  - Search Optimized
+  - Weather
+  - If I don't understand
+  - Close tabs
   
-Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site][df1]
 
-> Talking to ANNA is an easier, faster and cool way to get your stuff done
-> With a redesined interface ANNA is more powerfull than ever
->And the more you use ANNA the better it knows what that need at that moment
+> Talking to ANNA is an easier, faster and cooler way to get your stuff done.
+> With a redesined interface, ANNA is more powerful than ever!
+> Also, the more you use ANNA, the better it knows what you need at that moment.
  
-
-### Play Music
-
-"Hey Play music"
-### Tweet
-
-"Hey Tweet I'm in hackathon"
-
 
