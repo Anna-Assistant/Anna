@@ -209,6 +209,13 @@ $(document).ready(function () {
           // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
                 } else if (data.result.metadata.intentName === "open") {
                    chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
+                } else if (data.result.metadata.intentName === "incognito"||data.result.metadata.intentName === "safemode"||data.result.metadata.intentName === "privatebrowsing"||data.result.metadata.intentName === "openinsafemode") {
+                   chrome.windows.create({url:"http://www.google.com",incognito: true});
+	           chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess) {
+                   if (isAllowedAccess) return;
+                   alert('Please allow incognito mode');
+                   chrome.tabs.create({url: 'chrome://extensions/?id=' + chrome.runtime.id});
+                   Speech("Now please click on the option Allow in incognito");});
                 } else if (data.result.metadata.intentName === "history") {
                    chrome.tabs.create({'url': 'chrome://history'});
                 } else if (data.result.metadata.intentName === "downloads") {
@@ -219,7 +226,7 @@ $(document).ready(function () {
                    tweet(data.result.parameters.any);
                 // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
                 } else if (data.result.metadata.intentName === "maps") {
-		   chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
+		               chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
                 } else if (data.result.metadata.intentName === "mapPlace") {
                    chrome.tabs.create({ 'url': "https://www.google.com/maps/?q=" + data.result.parameters.any });
                 } else if(data.result.metadata.intentName == "weather") {

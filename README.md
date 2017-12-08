@@ -25,6 +25,7 @@ Anna is part of KWOC : You can talk to us on Zulip or comment on issues to start
   - Maps
   - Open a website
   - Tweet
+  - Safe Mode 
   - Motivate 
   - Mail
   - Places
