@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Anna Assistant",
-  "version": "0.1",
+  "version": "1.0",
   "background" : {
     "scripts" : ["js/jquery.min.js","js/on-off-switch.js","js/on-off-switch-onload.js","background.js"],
     "persistent" : true
