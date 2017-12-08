@@ -226,7 +226,7 @@ $(document).ready(function () {
                    tweet(data.result.parameters.any);
                 // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
                 } else if (data.result.metadata.intentName === "maps") {
-		               chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
+		   chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
                 } else if (data.result.metadata.intentName === "mapPlace") {
                    chrome.tabs.create({ 'url': "https://www.google.com/maps/?q=" + data.result.parameters.any });
                 } else if(data.result.metadata.intentName == "weather") {
