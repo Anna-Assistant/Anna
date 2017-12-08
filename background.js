@@ -212,7 +212,7 @@ $(document).ready(function () {
                 } else if (data.result.metadata.intentName === "incognito"||data.result.metadata.intentName === "safemode"||data.result.metadata.intentName === "privatebrowsing"||data.result.metadata.intentName === "openinsafemode") {
                    chrome.windows.create({url:"http://www.google.com",incognito: true});
                    Speech("Have   you   allowed  me  to   open   in   incognito  mode ?    If not   go  to chrome extension and give the permission");                   
-                }else if (data.result.metadata.intentName === "history") {
+                } else if (data.result.metadata.intentName === "history") {
                    chrome.tabs.create({'url': 'chrome://history'});
                 } else if (data.result.metadata.intentName === "downloads") {
                    chrome.tabs.create({ 'url': 'chrome://downloads' });
