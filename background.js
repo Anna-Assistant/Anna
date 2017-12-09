@@ -209,7 +209,7 @@ $(document).ready(function () {
           // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
                 } else if (data.result.metadata.intentName === "open") {
                    chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
-                } else if (data.result.metadata.intentName === "incognito"||data.result.metadata.intentName === "safemode"||data.result.metadata.intentName === "privatebrowsing"||data.result.metadata.intentName === "openinsafemode") {
+                } else if (data.result.metadata.intentName === "incognito") {
                    chrome.windows.create({url:"http://www.google.com",incognito: true});
 	           chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess) {
                    if (isAllowedAccess) return;
