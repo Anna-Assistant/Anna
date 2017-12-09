@@ -223,7 +223,9 @@ $(document).ready(function () {
                    chrome.tabs.create({ 'url': 'chrome://downloads' });
                 } else if (data.result.metadata.intentName === "mail") {
                    chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
-	        } else if (data.result.metadata.intentName === "tweet") {
+	           } else if (data.result.metadata.intentName == "joke") {
+                   tellJoke();
+                } else if (data.result.metadata.intentName === "tweet") {
                    tweet(data.result.parameters.any);
                 // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
                 } else if (data.result.metadata.intentName === "maps") {
@@ -299,7 +301,18 @@ $(document).ready(function () {
 			processIt(parsedData);
 		});
 	}
-
+    
+    function tellJoke() {
+        var jokeURL = 'https://api.chucknorris.io/jokes/random';
+        $.getJSON(jokeURL, function (data) {
+            setResponse(data.value.toLowerCase());
+            chrome.tabs.create({ 'url': data.url });
+        }).fail(function () {
+            var failJoke = "Sorry! I can't read the joke! You can have a look at it!";
+            setResponse(failJoke);
+            chrome.tabs.create({ 'url': 'https://icanhazdadjoke.com/' });
+        });
+    }
 
   // TO DO - Fix this
   function speakAQuote() {
