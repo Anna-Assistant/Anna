@@ -239,6 +239,8 @@ $(document).ready(function () {
                     // alert(data.result.fulfillment.speech);
                 } else if (data.result.metadata.intentName == "motivate") {
                    speakAQuote();
+                } else if (data.result.metadata.intentName == "joke") {
+                   tellJoke();
                 } else if(data.result.metadata.intentName == "close"){
                    chrome.tabs.getSelected(null, function(tab) {
                     tab = tab.id;
@@ -299,21 +301,33 @@ $(document).ready(function () {
 			processIt(parsedData);
 		});
 	}
+    
+    function tellJoke() {
+        var jokeURL = 'https://api.chucknorris.io/jokes/random';
+        $.getJSON(jokeURL, function (data) {
+            setResponse(data.value.toLowerCase());
+            chrome.tabs.create({ 'url': data.url });
+        }).fail(function () {
+            var failJoke = "Sorry! I can't read the joke! Please have a look at it!";
+            setResponse(failJoke);
+            chrome.tabs.create({ 'url': 'https://icanhazdadjoke.com/' });
+        });
+    }
 
-  // TO DO - Fix this
-  function speakAQuote() {
-    var quoteUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
-    $.getJSON(quoteUrl, function (data) {
-      // alert("inside");
-      // alert(data.length);
+    // TO DO - Fix this
+    function speakAQuote() {
+        var quoteUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
+        $.getJSON(quoteUrl, function (data) {
+            // alert("inside");
+            // alert(data.length);
 
-      setResponse(data.quoteText);
-      chrome.tabs.create({ 'url': data.quoteLink });
-    }).fail(function () {
-      chrome.tabs.create({ 'url': 'https://forismatic.com/en/homepage' });
-    });
-    // alert('m here');
-  }
+            setResponse(data.quoteText);
+            chrome.tabs.create({ 'url': data.quoteLink });
+        }).fail(function () {
+            chrome.tabs.create({ 'url': 'https://forismatic.com/en/homepage' });
+        });
+        // alert('m here');
+    }
 
   function duckduckgoOrGoogle(query) {
     // alert('duckduckgoOrGoogle ' + query);
