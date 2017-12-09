@@ -209,6 +209,14 @@ $(document).ready(function () {
           // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
                 } else if (data.result.metadata.intentName === "open") {
                    chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
+                } else if (data.result.metadata.intentName === "incognito") {
+
+                   chrome.windows.create({url:"http://www.google.com",incognito: true});
+	           chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess) {
+                   if (isAllowedAccess) return;
+                   alert('Please allow incognito mode');
+                   chrome.tabs.create({url: 'chrome://extensions/?id=' + chrome.runtime.id});
+                   Speech("Now please click on the option Allow in incognito");});
                 } else if (data.result.metadata.intentName === "history") {
                    chrome.tabs.create({'url': 'chrome://history'});
                 } else if (data.result.metadata.intentName === "downloads") {
