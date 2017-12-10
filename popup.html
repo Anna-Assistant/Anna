@@ -1,59 +1,121 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
-		
-		<!-- Animate.css -->
-		<link rel="stylesheet" href="elate/css/animate.css">
-		<!-- Icomoon Icon Fonts-->
-		<link rel="stylesheet" href="elate/css/icomoon.css">
-		<!-- Simple Line Icons -->
-		<link rel="stylesheet" href="elate/css/simple-line-icons.css">
-		<!-- Magnific Popup -->
-		<link rel="stylesheet" href="elate/css/magnific-popup.css">
-		<!-- Bootstrap  -->
-		<link rel="stylesheet" href="elate/css/bootstrap.css">
-
-	<link rel="stylesheet" type="text/css" href="css/on-off-switch.css" />
-	<style type="text/css">
-		body {
-			height: 150px;
-			width: 130px;
-			background: lightblue; 
-			
-		}
-
-		body:hover {
-			background-color: lightskyblue;
-			-webkit-transition: background-color 1000ms linear;
-			-ms-transition: background-color 1000ms linear;
-			transition: background-color 1000ms linear;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anna</title>
+    <link rel="stylesheet" href="./css/material.min.css">
+    <link rel="stylesheet" href="./css/popup.css">
 </head>
 
 <body>
-	<div style="text-align: center; display: block;">
+    <header>
+        <h1>Anna</h1>
+    </header>
+    <main>
+        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+            <div class="mdl-tabs__tab-bar">
+              <a href="#settings" class="mdl-tabs__tab">Settings</a>
+              <a href="#new" class="mdl-tabs__tab is-active">New</a>
+              <a href="#popular" class="mdl-tabs__tab">Popular</a>
+            </div>
+            <div class="mdl-tabs__panel is-active" id="new">
+                <ul class="features-list new">
+                  <li class="feature">
+                    <a href="#">
+                      <span class="media">
+                        <img src="http://droidlessons.com/wp-content/uploads/2016/11/Cogn_mode.png" alt="">
+                      </span>
+                      <span class="data">
+                        <span class="title">
+                          <strong>Safe Mode</strong>
+                        </span>
+                        <span class="description">
+                          <i>"Safe Mode"</i><br>
+                          <i>"Incognito"</i><br>
+                          <i>"Private Browsing"</i>
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+            </div>
+            <div class="mdl-tabs__panel" id="popular">
+                <ul class="features-list popular">
+                  <li class="feature">
+                    <a href="#">
+                      <span class="media">
+                        <img src="img/icon.png" alt="">
+                      </span>
+                      <span class="data">
+                        <span class="title">
+                          <strong>Hey....</strong>
+                        </span>
+                        <span class="description">
+                          <i>"Hey..." (followed by request)</i><br>
+                          <i>"Hey Open Facebook"</i><br>
+                          <i>"Hey Where is Delhi?"</i><br>
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
 
-
-
-		
-		<h1>Anna</h1>
-
-		<p>Say "Hey" followed by request</p>
-
-		<input type="checkbox" id="on-off-switch" name="switch1" class="mycheckbox" style="position: absolute; left: 50%;">
-
-		<i><a target="_blank" href="elate/index.html">Read More</a></i>
-	</div>
-
-
-	<script src="js/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="js/on-off-switch.js"></script>
-	<script type="text/javascript" src="js/on-off-switch-onload.js"></script>
-	<script type="text/javascript" src="js/background.js"></script>
-	<script type="text/javascript" src="js/on-off.js"></script>
+                  <li class="feature">
+                    <a href="#">
+                      <span class="media">
+                        <img src="http://cdn.iphonehacks.com/wp-content/uploads/2017/04/Google-Maps.png" alt="">
+                      </span>
+                      <span class="data">
+                        <span class="title">
+                          <strong>Google Maps</strong>
+                        </span>
+                        <span class="description">
+                          <i>"Where is Delhi?"</i><br>
+                          <i>"How to go from Bombay to Hyderabad"</i><br>
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+            </div>
+            <div class="mdl-tabs__panel" id="settings">
+                <h5>Toggle the Features</h5>
+                <ul class="mdl-list">
+                    <li class="mdl-list__item">
+                      <span class="mdl-list__item-primary-content">
+                        <span class="mdl-list__item-avatar">
+                          <img src="./img/icon.png"/>
+                        </span>
+                         Activate
+                       </span>
+                       <span class="mdl-list__item-secondary-action">
+                         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="activate">
+                           <input type="checkbox" id="activate" class="mdl-switch__input"/>
+                         </label>
+                       </span>
+                     </li>
+                     <li class="mdl-list__item">
+                       <span class="mdl-list__item-primary-content">
+                         <span class="mdl-list__item-avatar">
+                           <img src="https://image.freepik.com/free-icon/voice-microphone-symbol_318-43222.jpg"/>
+                         </span>
+                          Speech Recognition
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="speech">
+                            <input type="checkbox" id="speech" class="mdl-switch__input"/>
+                          </label>
+                        </span>
+                      </li>
+                </ul>								
+            </div>
+        </div>
+    </main>
+    <script src='./js/vendor/jquery-3.2.0.min.js'></script>
+    <script src='./js/vendor/material.min.js'></script>
+    <script src='./js/popup.js'></script>
 </body>
 
 </html>
