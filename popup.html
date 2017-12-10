@@ -7,6 +7,7 @@
     <title>Anna</title>
     <link rel="stylesheet" href="./css/material.min.css">
     <link rel="stylesheet" href="./css/popup.css">
+
 </head>
 
 <body>
@@ -16,11 +17,13 @@
     <main>
         <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
             <div class="mdl-tabs__tab-bar">
-              <a href="#settings" class="mdl-tabs__tab">Settings</a>
-              <a href="#new" class="mdl-tabs__tab is-active">New</a>
+
+              <a href="#settings" class="mdl-tabs__tab is-active">Settings</a>
+              <a href="#new" class="mdl-tabs__tab">New</a>
               <a href="#popular" class="mdl-tabs__tab">Popular</a>
             </div>
-            <div class="mdl-tabs__panel is-active" id="new">
+            <div class="mdl-tabs__panel" id="new">
+
                 <ul class="features-list new">
                   <li class="feature">
                     <a href="#">
@@ -80,7 +83,9 @@
                   </li>
                 </ul>
             </div>
-            <div class="mdl-tabs__panel" id="settings">
+
+            <div class="mdl-tabs__panel is-active" id="settings">
+
                 <h5>Toggle the Features</h5>
                 <ul class="mdl-list">
                     <li class="mdl-list__item">
@@ -91,31 +96,24 @@
                          Activate
                        </span>
                        <span class="mdl-list__item-secondary-action">
-                         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="activate">
-                           <input type="checkbox" id="activate" class="mdl-switch__input"/>
+
+                         <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="onoff-switch">
+                           <input type="checkbox" id="onoff-switch" class="mdl-switch__input"/>
                          </label>
                        </span>
-                     </li>
-                     <li class="mdl-list__item">
-                       <span class="mdl-list__item-primary-content">
-                         <span class="mdl-list__item-avatar">
-                           <img src="https://image.freepik.com/free-icon/voice-microphone-symbol_318-43222.jpg"/>
-                         </span>
-                          Speech Recognition
-                        </span>
-                        <span class="mdl-list__item-secondary-action">
-                          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="speech">
-                            <input type="checkbox" id="speech" class="mdl-switch__input"/>
-                          </label>
-                        </span>
-                      </li>
-                </ul>								
+                     </li>                     
+                </ul>
             </div>
         </div>
     </main>
-    <script src='./js/vendor/jquery-3.2.0.min.js'></script>
-    <script src='./js/vendor/material.min.js'></script>
-    <script src='./js/popup.js'></script>
+    <script type="text/javascript" src='js/vendor/jquery-3.2.0.min.js'></script>
+    <script type="text/javascript" src='js/vendor/material.min.js'></script>
+    <script type="text/javascript" src='js/popup.js'></script>
+    <script type="text/javascript" src="js/on-off-switch.js"></script>
+    <script type="text/javascript" src="js/on-off-switch-onload.js"></script>
+    <script type="text/javascript" src="js/background.js"></script>
+    <script type="text/javascript" src="js/on-off.js"></script>
+
 </body>
 
 </html>
