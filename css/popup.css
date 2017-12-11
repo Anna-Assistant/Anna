@@ -1,0 +1,141 @@
+body,
+html {
+    height: 420px
+}
+
+.feature a,
+.data,
+header {
+    display: flex
+}
+
+@font-face {
+    font-family: kitten;
+    src: url(../fonts/KittenSlantTrial.ttf)
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    background: url(../images/pattern.png) #fff;
+    background-position-y: 5px;
+    width: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 12px;
+    color: #888;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400
+}
+
+header {
+    justify-content: center
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 0;
+    color: #d6771d;
+    font-family: kitten
+}
+
+.mdl-tabs {
+    background: #fff
+}
+
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+    background: #d6771d
+}
+
+.features-list {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.feature {
+    width: 340px;
+    margin: 15px auto;
+    min-height: 90px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    border-radius: 4px;
+    background-color: #fff
+}
+
+.feature a {
+    min-height: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #d6771d;
+    font-size: 13px
+}
+
+.feature a:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 50%, rgba(238, 238, 238, 1) 100%)
+}
+
+.media {
+    flex: 1
+}
+
+.media img {
+    width: 100%;
+    min-height: 100px;
+    padding: 0;
+    border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px
+}
+
+.data {
+    flex: 2;
+    padding: 10px;
+    justify-content: space-between;
+    flex-direction: column
+}
+
+.data .title {
+    line-height: 1.2
+}
+
+.mdl-tabs__panel {
+    height: 310px;
+    overflow-y: auto
+}
+
+#settings h5 {
+    font-size: 20px;
+    color: #d6771d;
+    text-align: center
+}
+
+#settings .mdl-list {
+    width: 320px;
+    margin: 14px auto
+}
+
+.mdl-list__item {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee
+}
+
+.mdl-list__item-avatar {
+    background: 0 0
+}
+
+.mdl-list__item-avatar img {
+    height: 40px;
+    width: 40px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    vertical-align: baseline
+}
+
+.mdl-switch.is-checked .mdl-switch__thumb,
+.mdl-switch.is-checked .mdl-switch__track,
+.mdl-switch__ripple-container .mdl-ripple,
+.mdl-tabs__tab .mdl-tabs__ripple-container .mdl-ripple {
+    background: #d6771d
+}
