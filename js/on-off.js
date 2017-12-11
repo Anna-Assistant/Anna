@@ -12,16 +12,16 @@ $(document).ready(function(){
       }
       if(check === "false"){
    	    chrome.browserAction.setIcon({path:"tap.png"});
-        $("#on-off-switch").prop("checked",false);
+        $("#onoff-switch").prop("checked",false);
       }
   		else{
         chrome.browserAction.setIcon({path:"icon.ico"});
-        $("#on-off-switch").prop("checked",true);
+        $("#onoff-switch").prop("checked",true);
 		  }
       new DG.OnOffSwitch({
-        el: '#on-off-switch',
-        textOn: 'Activated',
-        textOff: 'Deactived',
+        el: '#onoff-switch',
+        // textOn: 'Activated',
+        // textOff: 'Deactived',
         listener:function(name, checked){
           chrome.storage.local.get(/* String or Array */["onoffswitch"], function(items){
 		      	if(checked == true){
