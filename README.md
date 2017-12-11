@@ -4,7 +4,7 @@
 Current version 1.0 
 
 Meet Anna, The coolest chrome extension.
-All u need to do is just say "Hey" before the request and ANNA is their to do the stuff.
+All u need to do is just say "Hey" before the request and ANNA is all there to do the stuff.
 
 Watch Anna in action on Youtube 
 
@@ -26,7 +26,8 @@ Anna is part of KWOC : You can talk to us on Zulip or comment on issues to start
   - Open a website
   - Tweet
   - Safe Mode 
-  - Motivate 
+  - Motivate
+  - Tell a Joke
   - Mail
   - Places
   - Search Optimized
