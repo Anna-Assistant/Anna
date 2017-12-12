@@ -10,6 +10,7 @@ $(document).ready(function () {
   var talking = true;
   var recognition;
   var txt;
+  var id = 1; //for screenshots
   var voicetrigger;
   startRecognition();
   checkOnline();
@@ -234,6 +235,8 @@ $(document).ready(function () {
                    chrome.tabs.create({ 'url': "https://www.google.com/maps/?q=" + data.result.parameters.any });
                 } else if(data.result.metadata.intentName == "weather") {
                    weather(data.result.parameters.any);
+                } else if(data.result.metadata.intentName == "screenshot") {
+                   takeScreenshot();
                 } else if (data.result.metadata.intentName == "ducky") {
                    duckduckgoOrGoogle(data.result.parameters.any);
                 } else if (data.result.source == "domains") {
@@ -261,6 +264,36 @@ $(document).ready(function () {
         setResponse("Sorry ! we are having some internal problem. Please Try again.");
       }
     });
+  }
+
+  function takeScreenshot(){
+      chrome.tabs.captureVisibleTab(function(screenshotUrl) {
+          var viewTabUrl = chrome.extension.getURL('screenshot.html?id=' + id++)
+          var targetId = null;
+
+          chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
+              // we are waiting for the tab to be open
+              if (tabId != targetId || changedProps.status != "complete")
+                  return;
+
+              chrome.tabs.onUpdated.removeListener(listener);
+
+              // Look through all views to find the window which will display
+              // the screenshot, query paramater assures that it is unique
+              var views = chrome.extension.getViews();
+              for (var i = 0; i < views.length; i++) {
+                  var view = views[i];
+                  if (view.location.href == viewTabUrl) {
+                      view.setScreenshotUrl(screenshotUrl);
+                      break;
+                  }
+              }
+          });
+
+          chrome.tabs.create({url: viewTabUrl}, function(tab) {
+              targetId = tab.id;
+          });
+      });
   }
 
 	function processIt(data)

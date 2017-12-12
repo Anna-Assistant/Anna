@@ -1,0 +1,66 @@
+<html>
+<head>
+	<script src="js/screenshot.js"></script>
+	<style type="text/css">
+		body{
+			padding: 0;
+			background-image: repeating-linear-gradient(to bottom right, #3f95ea 0%, #52d3aa 100%);
+		}
+		h2{
+			margin: 0;
+			background-color: #52d3aa;
+		}
+		img{
+			height: 90%;
+			width:90%;
+			display: block;
+    		margin: 0 auto;
+		}		
+		#download{
+			float: right;
+		}
+		#download button {
+		    position: relative;
+		    background-color: #3f95ea;
+		    border: none;
+		    color: #FFFFFF;
+		    font-size: 16px;
+		    font-weight: 600;
+		    padding: 12px;
+		    width: 200px;
+		    text-align: center;
+		    -webkit-transition-duration: 0.4s; /* Safari */
+		    transition-duration: 0.4s;
+		    text-decoration: none;
+		    overflow: hidden;
+		    cursor: pointer;
+		}
+
+		#download button:after {
+		    content: "";
+		    background: #90EE90;
+		    display: block;
+		    position: absolute;
+		    padding-top: 300%;
+		    padding-left: 350%;
+		    margin-left: -20px!important;
+		    margin-top: -120%;
+		    opacity: 0;
+		    transition: all 0.8s
+		}
+
+		#download button:active:after {
+		    padding: 0;
+		    margin: 0;
+		    opacity: 1;
+		    transition: 0s
+		}
+	</style>
+</head>
+<body>
+	<h1>Here's your Screenshot 
+		<a id="download" href="" download="screenshot.jpg"><button>Dowload Screenshot</button></a>
+	</h1>
+    <img id="target" src="" align="middle">
+</body>
+</html>
