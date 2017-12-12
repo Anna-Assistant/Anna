@@ -1,3 +1,21 @@
+.container {
+    position: relative;
+    height: 150px;
+    max-width: 103px;
+    margin: 0 auto;
+background-color: gray;}
+
+.container img {margin-bottom: -5px}
+
+.container .content {
+    position: absolute;
+    bottom: 0;
+    background-color: gray;
+    /*background: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+    color: #efdada;
+    width: 100px;
+    padding: 0px;
+}
 .on-off-switch{
     position:relative;
     cursor:pointer;
@@ -7,23 +25,33 @@
 
 .on-off-switch-track{
     position:absolute;
-    border : solid #888;
+    color: gray;
+   border:solid #efdada; 
     z-index:1;
-    background-color: #fff;
+ 
     overflow:hidden;
 }
-
-/* semi transparent white overlay */
-.on-off-switch-track-white{
-    background-color:#FFF;
+.on-off-switch-track:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color:#efdada;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+/* semi transparent white overlay
+.on-off-switch-track-gray{
+    background-color:#CCC;
     position:absolute;
-    opacity:0.2;
     z-index:30;
 }
 /* Track for "on" state */
 .on-off-switch-track-on{
-    background-color:#001f3f;
-    border-color:#001f3f;
+    /*background-color:#001f3f;*/
+    background-color:#2196F3;
     position:absolute;
     z-index:10;
     overflow:hidden;
@@ -31,7 +59,7 @@
 /* Track for "off" state */
 .on-off-switch-track-off{
     position:absolute;
-    border-color:#CCC;
+    background-color:gray;
     z-index:1;
 }
 
@@ -43,41 +71,35 @@
 
 /*.on-off-switch-thumb-shadow{
     opacity:0.5;
-    border:1px solid #000;
+    border:1px solid #CCC;
     position:absolute;
-}*/
+}
+*/
+.track-off-gradient{
 
-.track-on-gradient, .track-off-gradient{
-
-    background: -webkit-linear-gradient(180deg,rgba(0,0,0,0.2), rgba(0,0,0,0)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0)); /* Standard syntax */
+    background:#D3D3D3;/*-webkit-linear-gradient(180deg,rgba(0,0,0,0.2), rgba(0,0,0,0)); For Safari 5.1 to 6.0*/ 
+    background:#D3D3D3; /*-o-linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0)); /* For Opera 11.1 to 12.0 */
+    background:#D3D3D3; /*-moz-linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0)); /* For Firefox 3.6 to 15 */
+    background:#D3D3D3; /*linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0)); /* Standard syntax */
     position:absolute;
     width:100%;
-    height:5px;
+    height:27px;
 }
-
 
 .on-off-switch-thumb-color{
-    background: -webkit-linear-gradient(45deg, #BBB, #FFF); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(45deg, #BBB, #FFF); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(45deg, #BBB, #FFF); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(45deg, #BBB, #FFF); /* Standard syntax */
-    background-color:#F0F0F0;
+    background:#A9A9A9;
     position:absolute;
 }
-
 .on-off-switch-thumb-off{
-    border-color:#AAA;
+    border-color:gray;
     position:absolute;
 }
 .on-off-switch-thumb-on{
-    border-color:#008855;
+    border-color:gray;
     z-index:10;
 }
 .on-off-switch-text{
-    width:100%;
+    width:50%;
     position:absolute;
     font-family:arial;
     user-select:none;
@@ -85,16 +107,16 @@
 }
 
 .on-off-switch-text-on{
-    color:#FFF;
+    color:#2196F3;
     text-align:left;
 }
 .on-off-switch-text-off{
-    color:#000;
+    color:#D3D3D3;
     text-align:right;
 }
 /* Mouse over thumb effect */
 .on-off-switch-thumb-over{
-    background-color:#F5F5F5;
+    background-color:gray;
     background: -webkit-linear-gradient(45deg, #CCC, #FFF); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(45deg, #CCC, #FFF); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(45deg, #CCC, #FFF); /* For Firefox 3.6 to 15 */
@@ -110,7 +132,7 @@
   outline: none;
   font-family: Roboto-Medium;
   font-size: 15px;
-  color: #646464;
+  color: gray;
   cursor: pointer;
   text-decoration: none;
 }
@@ -126,7 +148,7 @@ bottom:0;
   outline: none;
   font-family: Roboto-Medium;
   font-size: 15px;
-  color: #646464;
+  color: gray;
   cursor: pointer;
   text-decoration: none;
 }
