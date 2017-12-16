@@ -47,7 +47,8 @@ $(document).ready(function () {
     chrome.tabs.onRemoved.addListener(function switchTab(tabId) {
       if (tabId == permissionsTabID) {
         chrome.tabs.update(oldTabID, { selected: true }, function () {
-          listen();
+          // listen();
+          startRecognition();
         });
         chrome.extension.onRequest.removeListener(switchTab);
       }
@@ -83,7 +84,7 @@ $(document).ready(function () {
             text += event.results[i][0].transcript;
           }
 
-          //setInput(text);
+          //setInput("hey open facebook");
 
           //stopRecognition();
         };
@@ -125,6 +126,10 @@ $(document).ready(function () {
         startRecognition();
       }
     });
+  }
+  function setInput(text) {
+    txt = text;
+    send();
   }
   //start recognition after trigger
   function startRecognitionaftertrigger() {
