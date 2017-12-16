@@ -54,7 +54,7 @@ $(document).ready(function () {
     });
   };
 
-  // check if browser if online or offline
+  // check if browser is online or offline
   var offline = false;
   checkOnline();
   function checkOnline() {
@@ -237,6 +237,8 @@ $(document).ready(function () {
                    weather(data.result.parameters.any);
                 } else if(data.result.metadata.intentName == "screenshot") {
                    takeScreenshot();
+                } else if(data.result.metadata.intentName == "reversesearch") {
+                   reverseSearch();
                 } else if (data.result.metadata.intentName == "ducky") {
                    duckduckgoOrGoogle(data.result.parameters.any);
                 } else if (data.result.source == "domains") {
@@ -263,6 +265,54 @@ $(document).ready(function () {
         alert("Sorry ! we are having some internal problem. Please Try again.");
         setResponse("Sorry ! we are having some internal problem. Please Try again.");
       }
+    });
+  }
+
+  /*utility method to convert dataURL to a blob object*/
+  function dataURItoBlob(dataURI) {
+      // convert base64/URLEncoded data component to raw binary data held in a string
+      var byteString;
+      if (dataURI.split(',')[0].indexOf('base64') >= 0)
+          byteString = atob(dataURI.split(',')[1]);
+      else
+          byteString = unescape(dataURI.split(',')[1]);
+
+      // separate out the mime component
+      var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+      // write the bytes of the string to a typed array
+      var ia = new Uint8Array(byteString.length);
+      for (var i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+      }
+
+      return new Blob([ia], {type:mimeString});
+  }
+
+  function reverseSearch(){
+    chrome.tabs.captureVisibleTab(function(screenshotUrl) {
+      /*uploading the screenshot to a sever & generating url*/
+
+      var blob = dataURItoBlob(screenshotUrl);
+      var fd = new FormData();
+      fd.append("file", blob);
+
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'json';
+        xhr.open('POST', 'https://file.io', true);
+        xhr.onload = function () {
+          // Request finished, now opening new tab with google image search url.
+          if(this.response.success && this.response.success === true){
+                /*opening new tab with the search results*/
+                var searchURL="https://www.google.com/searchbyimage?&image_url="+this.response.link;
+                chrome.tabs.create({url: searchURL}, function(tab) {
+                        console.log("reverse search successful");
+                });
+          }else{
+            console.log("Sorry, Unable to perform reverse search!");
+          }
+        };
+        xhr.send(fd);
     });
   }
 
