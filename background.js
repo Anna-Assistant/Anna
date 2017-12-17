@@ -188,8 +188,8 @@ $(document).ready(function () {
   //sending the data to server
   function send() {
     // alert('you said ' + txt);
-    setResponse('you said ' + txt);
-    console.log('you said ' + txt);
+    //setResponse('you said ' + txt);
+    //console.log('you said ' + txt);
     txt = txt.replace('hey ', '');
     // alert(txt);
     tasks();
@@ -211,12 +211,17 @@ $(document).ready(function () {
       success: function (data) {
         // alert("intent " + data.result.metadata.intentName);
         if (data.result.metadata.intentName === "youtube") {
-          searchYoutube(data.result.parameters.any);
+            txt = txt.replace('play ', 'playing');
+            setResponse(txt);
+            searchYoutube(data.result.parameters.any);
           // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
         } else if (data.result.metadata.intentName === "open") {
-          chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
+            txt = txt.replace('open ', 'opening');
+            setResponse(txt);
+            chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
         } else if (data.result.metadata.intentName === "incognito") {
-
+          txt = txt.replace('open ', 'opening');
+          setResponse(txt);  
           chrome.windows.create({ url: "http://www.google.com", incognito: true });
           chrome.extension.isAllowedIncognitoAccess(function (isAllowedAccess) {
             if (isAllowedAccess) return;
@@ -225,10 +230,16 @@ $(document).ready(function () {
             Speech("Now please click on the option Allow in incognito");
           });
         } else if (data.result.metadata.intentName === "history") {
+            txt = txt.replace('open ', 'opening');
+            setResponse(txt);
           chrome.tabs.create({ 'url': 'chrome://history' });
         } else if (data.result.metadata.intentName === "downloads") {
+            txt = txt.replace('open ', 'opening');
+            setResponse(txt);
           chrome.tabs.create({ 'url': 'chrome://downloads' });
         } else if (data.result.metadata.intentName === "mail") {
+            txt = txt.replace('open ', 'opening');
+            setResponse(txt);
           chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
         } else if (data.result.metadata.intentName == "joke") {
           tellJoke();
