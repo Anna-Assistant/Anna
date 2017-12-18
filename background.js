@@ -188,8 +188,8 @@ $(document).ready(function () {
   //sending the data to server
   function send() {
     // alert('you said ' + txt);
-    setResponse('you said ' + txt);
-    console.log('you said ' + txt);
+    // setResponse('you said ' + txt);
+    console.log('user said ' + txt);
     txt = txt.replace('hey ', '');
     // alert(txt);
     tasks();
@@ -209,6 +209,8 @@ $(document).ready(function () {
       },
       data: JSON.stringify({ query: txt, lang: "en", sessionId: "somerandomthing" }),
       success: function (data) {
+        // setResponse(data.fulfillment.speech);
+        setResponse(data.result.fulfillment.speech);
         // alert("intent " + data.result.metadata.intentName);
         if (data.result.metadata.intentName === "youtube") {
           searchYoutube(data.result.parameters.any);
