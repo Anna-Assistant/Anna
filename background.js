@@ -226,7 +226,13 @@ $(document).ready(function () {
             chrome.tabs.create({ url: 'chrome://extensions/?id=' + chrome.runtime.id });
             Speech("Now please click on the option Allow in incognito");
           });
-        } else if (data.result.metadata.intentName === "history") {
+          }else if (data.result.metadata.intentName === "calendar") {
+                 //Speech("please tell details about the event"); 
+              chrome.identity.getProfileUserInfo(function(userInfo) {
+              console.log(userInfo.id);
+              chrome.tabs.create({ 'url':'https://www.google.com/calendar/render?action=TEMPLATE&text=data.result.parameters.any&dates=data.result.parameters.dateTdata.result.parameters.timeZ&output=xml'});
+ });
+        }else if (data.result.metadata.intentName === "history") {
           chrome.tabs.create({ 'url': 'chrome://history' });
         } else if (data.result.metadata.intentName === "downloads") {
           chrome.tabs.create({ 'url': 'chrome://downloads' });
