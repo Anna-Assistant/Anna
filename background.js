@@ -19,7 +19,7 @@ $(document).ready(function () {
   chrome.storage.local.get(/* String or Array */["firsttime"], function (items2) {
     if (items2.firsttime === undefined || items2.firsttime === 2) {
       chrome.storage.local.set({ "firsttime": 3 }, function () {
-      	chrome.tabs.create({ 'url': 'elate/index.html' });
+        chrome.tabs.create({ 'url': 'elate/index.html' });
         getPermission();
       });
     }
@@ -47,14 +47,15 @@ $(document).ready(function () {
     chrome.tabs.onRemoved.addListener(function switchTab(tabId) {
       if (tabId == permissionsTabID) {
         chrome.tabs.update(oldTabID, { selected: true }, function () {
-          listen();
+          // listen();
+          startRecognition();
         });
         chrome.extension.onRequest.removeListener(switchTab);
       }
     });
   };
 
-  // check if browser if online or offline
+  // check if browser is online or offline
   var offline = false;
   checkOnline();
   function checkOnline() {
@@ -83,7 +84,7 @@ $(document).ready(function () {
             text += event.results[i][0].transcript;
           }
 
-          //setInput(text);
+          //setInput("hey open facebook");
 
           //stopRecognition();
         };
@@ -125,6 +126,10 @@ $(document).ready(function () {
         startRecognition();
       }
     });
+  }
+  function setInput(text) {
+    txt = text;
+    send();
   }
   //start recognition after trigger
   function startRecognitionaftertrigger() {
@@ -183,8 +188,8 @@ $(document).ready(function () {
   //sending the data to server
   function send() {
     // alert('you said ' + txt);
-    setResponse('you said ' + txt);
-    console.log('you said ' + txt);
+    // setResponse('you said ' + txt);
+    console.log('user said ' + txt);
     txt = txt.replace('hey ', '');
     // alert(txt);
     tasks();
@@ -204,60 +209,67 @@ $(document).ready(function () {
       },
       data: JSON.stringify({ query: txt, lang: "en", sessionId: "somerandomthing" }),
       success: function (data) {
+        // setResponse(data.fulfillment.speech);
+        setResponse(data.result.fulfillment.speech);
         // alert("intent " + data.result.metadata.intentName);
-                  if (data.result.metadata.intentName === "youtube") {
-                   searchYoutube(data.result.parameters.any);
+        if (data.result.metadata.intentName === "youtube") {
+          searchYoutube(data.result.parameters.any);
           // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
-                } else if (data.result.metadata.intentName === "open") {
-                   chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
-                } else if (data.result.metadata.intentName === "incognito") {
+        } else if (data.result.metadata.intentName === "open") {
+          chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
+        } else if (data.result.metadata.intentName === "incognito") {
 
-                   chrome.windows.create({url:"http://www.google.com",incognito: true});
-	           chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess) {
-                   if (isAllowedAccess) return;
-                   alert('Please allow incognito mode');
-                   chrome.tabs.create({url: 'chrome://extensions/?id=' + chrome.runtime.id});
-                   Speech("Now please click on the option Allow in incognito");});
-                } else if (data.result.metadata.intentName === "history") {
-                   chrome.tabs.create({'url': 'chrome://history'});
-                } else if (data.result.metadata.intentName === "downloads") {
-                   chrome.tabs.create({ 'url': 'chrome://downloads' });
-                } else if (data.result.metadata.intentName === "mail") {
-                   chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
-	           } else if (data.result.metadata.intentName == "joke") {
-                   tellJoke();
-                } else if (data.result.metadata.intentName === "tweet") {
-                   tweet(data.result.parameters.any);
-                // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
-                } else if (data.result.metadata.intentName === "maps") {
-		   chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
-                } else if (data.result.metadata.intentName === "mapPlace") {
-                   chrome.tabs.create({ 'url': "https://www.google.com/maps/?q=" + data.result.parameters.any });
-                } else if(data.result.metadata.intentName == "weather") {
-                   weather(data.result.parameters.any);
-                } else if(data.result.metadata.intentName == "screenshot") {
-                   takeScreenshot();
-                } else if (data.result.metadata.intentName == "ducky") {
-                   duckduckgoOrGoogle(data.result.parameters.any);
-                } else if (data.result.source == "domains") {
-                   setResponse(data.result.fulfillment.speech);
-                    // alert(data.result.fulfillment.speech);
-                } else if (data.result.metadata.intentName == "motivate") {
-                   speakAQuote();
-                } else if(data.result.metadata.intentName == "close"){
-                   chrome.tabs.getSelected(null, function(tab) {
-                    tab = tab.id;
-                    chrome.tabs.remove(tab,function(){});
-                    tabUrl = tab.url;
-                    //alert(tab.url);
-                });
-                  Speech("closing");
-                }
-                  else {
-                    // setResponse(data.result.fulfillment.speech);
-                    chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
-                    // chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
-                }
+          chrome.windows.create({ url: "http://www.google.com", incognito: true });
+          chrome.extension.isAllowedIncognitoAccess(function (isAllowedAccess) {
+            if (isAllowedAccess) return;
+            alert('Please allow incognito mode');
+            chrome.tabs.create({ url: 'chrome://extensions/?id=' + chrome.runtime.id });
+            Speech("Now please click on the option Allow in incognito");
+          });
+        } else if (data.result.metadata.intentName === "history") {
+          chrome.tabs.create({ 'url': 'chrome://history' });
+        } else if (data.result.metadata.intentName === "downloads") {
+          chrome.tabs.create({ 'url': 'chrome://downloads' });
+        } else if (data.result.metadata.intentName === "mail") {
+          chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
+        } else if (data.result.metadata.intentName == "joke") {
+          tellJoke();
+        } else if (data.result.metadata.intentName === "tweet") {
+          tweet(data.result.parameters.any);
+          // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
+        } else if (data.result.metadata.intentName === "maps") {
+          chrome.tabs.create({ 'url': "https://www.google.com/maps/dir/" + data.result.parameters["geo-city"][0] + "/" + data.result.parameters["geo-city"][1] });
+        } else if (data.result.metadata.intentName === "restaurants") {
+          chrome.tabs.create({ 'url': "https://www.google.com/maps/search/" + data.result.parameters.any + "+" + "restaurants" });
+        } else if (data.result.metadata.intentName === "mapPlace") {
+          chrome.tabs.create({ 'url': "https://www.google.com/maps/?q=" + data.result.parameters.any });
+        } else if (data.result.metadata.intentName == "weather") {
+          weather(data.result.parameters.any);
+        } else if (data.result.metadata.intentName == "screenshot") {
+          takeScreenshot();
+        } else if (data.result.metadata.intentName == "reversesearch") {
+          reverseSearch();
+        } else if (data.result.metadata.intentName == "ducky") {
+          duckduckgoOrGoogle(data.result.parameters.any);
+        } else if (data.result.source == "domains") {
+          setResponse(data.result.fulfillment.speech);
+          // alert(data.result.fulfillment.speech);
+        } else if (data.result.metadata.intentName == "motivate") {
+          speakAQuote();
+        } else if (data.result.metadata.intentName == "close") {
+          chrome.tabs.getSelected(null, function (tab) {
+            tab = tab.id;
+            chrome.tabs.remove(tab, function () { });
+            tabUrl = tab.url;
+            //alert(tab.url);
+          });
+          Speech("closing");
+        }
+        else {
+          // setResponse(data.result.fulfillment.speech);
+          chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
+          // chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
+        }
       },
       error: function () {
         alert("Sorry ! we are having some internal problem. Please Try again.");
@@ -266,86 +278,131 @@ $(document).ready(function () {
     });
   }
 
-  function takeScreenshot(){
-      chrome.tabs.captureVisibleTab(function(screenshotUrl) {
-          var viewTabUrl = chrome.extension.getURL('screenshot.html?id=' + id++)
-          var targetId = null;
+  /*utility method to convert dataURL to a blob object*/
+  function dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    var byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+      byteString = atob(dataURI.split(',')[1]);
+    else
+      byteString = unescape(dataURI.split(',')[1]);
 
-          chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
-              // we are waiting for the tab to be open
-              if (tabId != targetId || changedProps.status != "complete")
-                  return;
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
 
-              chrome.tabs.onUpdated.removeListener(listener);
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
 
-              // Look through all views to find the window which will display
-              // the screenshot, query paramater assures that it is unique
-              var views = chrome.extension.getViews();
-              for (var i = 0; i < views.length; i++) {
-                  var view = views[i];
-                  if (view.location.href == viewTabUrl) {
-                      view.setScreenshotUrl(screenshotUrl);
-                      break;
-                  }
-              }
-          });
-
-          chrome.tabs.create({url: viewTabUrl}, function(tab) {
-              targetId = tab.id;
-          });
-      });
+    return new Blob([ia], { type: mimeString });
   }
 
-	function processIt(data)
-	{
-		var temperature=parseInt(data.main.temp-273.15);
-		var humidity=parseInt(data.main.humidity);
-		var windSpeed=parseInt(data.wind.speed);
-		var cloudsDescription=data.weather[0].description;
-		var temperatureString="temperature is  "+temperature;
-		var humidityString="humidity is "+humidity;
-		var windSpeedString="wind speed is "+windSpeed;
-		var cloudsDescriptionString="sky description "+cloudsDescription;
+  function reverseSearch() {
+    chrome.tabs.captureVisibleTab(function (screenshotUrl) {
+      /*uploading the screenshot to a sever & generating url*/
 
-		var weather_response = temperatureString + ', ' +
-								humidityString + ', ' +
-								windSpeedString + ', ' +
-								cloudsDescriptionString;
+      var blob = dataURItoBlob(screenshotUrl);
+      var fd = new FormData();
+      fd.append("file", blob);
 
-		setResponse(weather_response);
-		alert(weather_response);
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'json';
+      xhr.open('POST', 'https://file.io', true);
+      xhr.onload = function () {
+        // Request finished, now opening new tab with google image search url.
+        if (this.response.success && this.response.success === true) {
+          /*opening new tab with the search results*/
+          var searchURL = "https://www.google.com/searchbyimage?&image_url=" + this.response.link;
+          chrome.tabs.create({ url: searchURL }, function (tab) {
+            console.log("reverse search successful");
+          });
+        } else {
+          console.log("Sorry, Unable to perform reverse search!");
+        }
+      };
+      xhr.send(fd);
+    });
+  }
 
-		//alert("temperature is  "+temperature);
-		//alert("humidity is "+humidity);
-		//alert("wind speed is "+windSpeed);
-		//alert("sky description "+cloudsDescription);
-	}
+  function takeScreenshot() {
+    chrome.tabs.captureVisibleTab(function (screenshotUrl) {
+      var viewTabUrl = chrome.extension.getURL('screenshot.html?id=' + id++)
+      var targetId = null;
 
-	function weather(city)
-	{
-		var baseUrl="http://api.openweathermap.org/data/2.5/weather?q=";
-		var key="ec58b4518e2a455913f8e64a7ac16248";
-		var Url=baseUrl+city+"&APPID="+key;
-		
-		$.getJSON(Url,function(dataJson)
-		{
-			var data=JSON.stringify(dataJson); 
-			var parsedData=JSON.parse(data);
-			processIt(parsedData);
-		});
-	}
-    
-    function tellJoke() {
-        var jokeURL = 'https://api.chucknorris.io/jokes/random';
-        $.getJSON(jokeURL, function (data) {
-            setResponse(data.value.toLowerCase());
-            chrome.tabs.create({ 'url': data.url });
-        }).fail(function () {
-            var failJoke = "Sorry! I can't read the joke! You can have a look at it!";
-            setResponse(failJoke);
-            chrome.tabs.create({ 'url': 'https://icanhazdadjoke.com/' });
-        });
-    }
+      chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
+        // we are waiting for the tab to be open
+        if (tabId != targetId || changedProps.status != "complete")
+          return;
+
+        chrome.tabs.onUpdated.removeListener(listener);
+
+        // Look through all views to find the window which will display
+        // the screenshot, query paramater assures that it is unique
+        var views = chrome.extension.getViews();
+        for (var i = 0; i < views.length; i++) {
+          var view = views[i];
+          if (view.location.href == viewTabUrl) {
+            view.setScreenshotUrl(screenshotUrl);
+            break;
+          }
+        }
+      });
+
+      chrome.tabs.create({ url: viewTabUrl }, function (tab) {
+        targetId = tab.id;
+      });
+    });
+  }
+
+  function processIt(data) {
+    var temperature = parseInt(data.main.temp - 273.15);
+    var humidity = parseInt(data.main.humidity);
+    var windSpeed = parseInt(data.wind.speed);
+    var cloudsDescription = data.weather[0].description;
+    var temperatureString = "temperature is  " + temperature;
+    var humidityString = "humidity is " + humidity;
+    var windSpeedString = "wind speed is " + windSpeed;
+    var cloudsDescriptionString = "sky description " + cloudsDescription;
+
+    var weather_response = temperatureString + ', ' +
+      humidityString + ', ' +
+      windSpeedString + ', ' +
+      cloudsDescriptionString;
+
+    setResponse(weather_response);
+    alert(weather_response);
+
+    //alert("temperature is  "+temperature);
+    //alert("humidity is "+humidity);
+    //alert("wind speed is "+windSpeed);
+    //alert("sky description "+cloudsDescription);
+  }
+
+  function weather(city) {
+    var baseUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
+    var key = "ec58b4518e2a455913f8e64a7ac16248";
+    var Url = baseUrl + city + "&APPID=" + key;
+
+    $.getJSON(Url, function (dataJson) {
+      var data = JSON.stringify(dataJson);
+      var parsedData = JSON.parse(data);
+      processIt(parsedData);
+    });
+  }
+
+  function tellJoke() {
+    var jokeURL = 'https://api.chucknorris.io/jokes/random';
+    $.getJSON(jokeURL, function (data) {
+      setResponse(data.value.toLowerCase());
+      chrome.tabs.create({ 'url': data.url });
+    }).fail(function () {
+      var failJoke = "Sorry! I can't read the joke! You can have a look at it!";
+      setResponse(failJoke);
+      chrome.tabs.create({ 'url': 'https://icanhazdadjoke.com/' });
+    });
+  }
 
   // TO DO - Fix this
   function speakAQuote() {

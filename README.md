@@ -20,6 +20,8 @@ Anna is part of KWOC : You can talk to us on Zulip or comment on issues to start
 
 # Explore what ANNA can do 
 
+  - What's on Screen?
+  - Take Screenshot
   - Small talks
   - Youtube
   - Maps
