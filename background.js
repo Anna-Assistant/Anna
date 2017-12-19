@@ -89,7 +89,6 @@ $(document).ready(function () {
           //stopRecognition();
         };
         recognition.onend = function () {
-
           var our_trigger = "hey ";
 
           if (text.toLowerCase() === our_trigger.toLowerCase()) {
@@ -304,31 +303,86 @@ $(document).ready(function () {
 
     return new Blob([ia], { type: mimeString });
   }
+  /*get cropped image from user*/
+  function getCroppedImage(image, callbackMethod){
+
+      console.log("cropping image : callbackMethod : "+callbackMethod)
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) { 
+        
+        var tabid = tabs[0].id;
+
+        chrome.tabs.executeScript(tabid, {
+            code: 'var imageurl ="'+image+'", callbackMethod = "'+callbackMethod+'";'
+        }, function() {
+            /*injecting cropperjs into current tab*/
+            chrome.tabs.executeScript(tabid, {file: "js/cropperjs/cropper.js"},function(response){
+              /*injecting our content script into current tab*/
+              chrome.tabs.executeScript(tabid, {file: "js/content_script.js"},function(response){
+                console.log("Indside background script!! id:"+tabid+", response: "+ JSON.stringify(response, null, 4));
+              });
+            });
+        });
+      });
+  }
 
   function reverseSearch() {
     chrome.tabs.captureVisibleTab(function (screenshotUrl) {
       /*uploading the screenshot to a sever & generating url*/
 
-      var blob = dataURItoBlob(screenshotUrl);
-      var fd = new FormData();
-      fd.append("file", blob);
+      //asking for image crop from user
+      if (confirm('Do you want to crop the image?')) {
+          // get cropped image & proceed
+          getCroppedImage(screenshotUrl,"reversesearch");
+          chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
+            if(message.callbackMethod === "reversesearch"){
+              var blob = dataURItoBlob(message.croppedImage);
+              var fd = new FormData();
+              fd.append("file", blob);
 
-      var xhr = new XMLHttpRequest();
-      xhr.responseType = 'json';
-      xhr.open('POST', 'https://file.io', true);
-      xhr.onload = function () {
-        // Request finished, now opening new tab with google image search url.
-        if (this.response.success && this.response.success === true) {
-          /*opening new tab with the search results*/
-          var searchURL = "https://www.google.com/searchbyimage?&image_url=" + this.response.link;
-          chrome.tabs.create({ url: searchURL }, function (tab) {
-            console.log("reverse search successful");
-          });
-        } else {
-          console.log("Sorry, Unable to perform reverse search!");
-        }
+              var xhr = new XMLHttpRequest();
+              xhr.responseType = 'json';
+              xhr.open('POST', 'https://file.io', true);
+              xhr.onload = function () {
+              // Request finished, now opening new tab with google image search url.
+              if (this.response.success && this.response.success === true) {
+                /*opening new tab with the search results*/
+                var searchURL = "https://www.google.com/searchbyimage?&image_url=" + this.response.link;
+                chrome.tabs.create({ url: searchURL }, function (tab) {
+                  console.log("reverse search successful");
+                });
+              } else {
+                console.log("Sorry, Unable to perform reverse search!");
+              }
       };
       xhr.send(fd);
+            }
+            //removing message listener
+            chrome.runtime.onMessage.removeListener(arguments.callee);
+          });
+      } else {
+          // proceed as before
+          var blob = dataURItoBlob(screenshotUrl);
+          var fd = new FormData();
+          fd.append("file", blob);
+
+          var xhr = new XMLHttpRequest();
+          xhr.responseType = 'json';
+          xhr.open('POST', 'https://file.io', true);
+          xhr.onload = function () {
+            // Request finished, now opening new tab with google image search url.
+            if (this.response.success && this.response.success === true) {
+              /*opening new tab with the search results*/
+              var searchURL = "https://www.google.com/searchbyimage?&image_url=" + this.response.link;
+              chrome.tabs.create({ url: searchURL }, function (tab) {
+                console.log("reverse search successful");
+              });
+            } else {
+              console.log("Sorry, Unable to perform reverse search!");
+            }
+          };
+          xhr.send(fd);
+       }
+
     });
   }
 
@@ -336,29 +390,68 @@ $(document).ready(function () {
     chrome.tabs.captureVisibleTab(function (screenshotUrl) {
       var viewTabUrl = chrome.extension.getURL('screenshot.html?id=' + id++)
       var targetId = null;
+      
+      //asking for image crop from user
+      if (confirm('Do you want to crop the image?')) {
+          // get cropped image & proceed
+          //if user wants to crop image
+          getCroppedImage(screenshotUrl,"screenshot");
+          chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
+            if(message.callbackMethod === "screenshot"){
+                console.log("CroppedImage Recieved!!");
 
-      chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
-        // we are waiting for the tab to be open
-        if (tabId != targetId || changedProps.status != "complete")
-          return;
+                chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
+                // we are waiting for the tab to be open
+                if (tabId != targetId || changedProps.status != "complete")
+                  return;
 
-        chrome.tabs.onUpdated.removeListener(listener);
+                chrome.tabs.onUpdated.removeListener(listener);
 
-        // Look through all views to find the window which will display
-        // the screenshot, query paramater assures that it is unique
-        var views = chrome.extension.getViews();
-        for (var i = 0; i < views.length; i++) {
-          var view = views[i];
-          if (view.location.href == viewTabUrl) {
-            view.setScreenshotUrl(screenshotUrl);
-            break;
-          }
-        }
-      });
+                // Look through all views to find the window which will display
+                // the screenshot, query paramater assures that it is unique
+                var views = chrome.extension.getViews();
+                for (var i = 0; i < views.length; i++) {
+                  var view = views[i];
+                  if (view.location.href == viewTabUrl) {
+                    view.setScreenshotUrl(message.croppedImage);
+                    break;
+                  }
+                }
+              });
 
-      chrome.tabs.create({ url: viewTabUrl }, function (tab) {
-        targetId = tab.id;
-      });
+              chrome.tabs.create({ url: viewTabUrl }, function (tab) {
+                targetId = tab.id;
+              });
+            }
+            
+            //removing message listener
+            chrome.runtime.onMessage.removeListener(arguments.callee);
+          });
+      } else {
+          // proceed as before
+            chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
+            // we are waiting for the tab to be open
+            if (tabId != targetId || changedProps.status != "complete")
+              return;
+
+            chrome.tabs.onUpdated.removeListener(listener);
+
+            // Look through all views to find the window which will display
+            // the screenshot, query paramater assures that it is unique
+            var views = chrome.extension.getViews();
+            for (var i = 0; i < views.length; i++) {
+              var view = views[i];
+              if (view.location.href == viewTabUrl) {
+                view.setScreenshotUrl(screenshotUrl);
+                break;
+              }
+            }
+          });
+
+          chrome.tabs.create({ url: viewTabUrl }, function (tab) {
+            targetId = tab.id;
+          });    
+      }
     });
   }
 
