@@ -188,8 +188,8 @@ $(document).ready(function () {
   //sending the data to server
   function send() {
     // alert('you said ' + txt);
-    setResponse('you said ' + txt);
-    console.log('you said ' + txt);
+    // setResponse('you said ' + txt);
+    console.log('user said ' + txt);
     txt = txt.replace('hey ', '');
     // alert(txt);
     tasks();
@@ -209,6 +209,8 @@ $(document).ready(function () {
       },
       data: JSON.stringify({ query: txt, lang: "en", sessionId: "somerandomthing" }),
       success: function (data) {
+        // setResponse(data.fulfillment.speech);
+        setResponse(data.result.fulfillment.speech);
         // alert("intent " + data.result.metadata.intentName);
         if (data.result.metadata.intentName === "youtube") {
           searchYoutube(data.result.parameters.any);
@@ -232,14 +234,6 @@ $(document).ready(function () {
           chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
         } else if (data.result.metadata.intentName == "joke") {
           tellJoke();
-        }else if (data.result.metadata.intentName === "calendar") {
-                 //Speech("please tell details about the event"); 
-              chrome.identity.getProfileUserInfo(function(userInfo) {
-              console.log(userInfo.id);
-                                       });
-                chrome.tabs.create({ 'url':'https://www.google.com/calendar/render?action=TEMPLATE&text=data.result.parameters.any&dates=data.result.parameters.date&output=xml'});
-               //chrome.tabs.create({ 'url':' http://www.google.com/calendar/event?action=TEMPLATE&text=data.result.parameters.any&dates=data.result.parameters.date'});
-        
         } else if (data.result.metadata.intentName === "tweet") {
           tweet(data.result.parameters.any);
           // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });

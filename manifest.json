@@ -15,8 +15,6 @@
   "permissions": [
     "<all_urls>",
     "activeTab",
-    "identity.email",
-    "identity",
     "bookmarks",
     "storage",
     "https://ajax.googleapis.com/",
