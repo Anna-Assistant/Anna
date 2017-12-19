@@ -230,7 +230,7 @@ $(document).ready(function () {
                  //Speech("please tell details about the event"); 
               chrome.identity.getProfileUserInfo(function(userInfo) {
               console.log(userInfo.id);
-              chrome.tabs.create({ 'url':'https://www.google.com/calendar/render?action=TEMPLATE&text=data.result.parameters.any&dates=data.result.parameters.date&output=xml'});
+              chrome.tabs.create({ 'url':'https://www.google.com/calendar/render?action=TEMPLATE&text=data.result.parameters.any&dates=data.result.parameters.dateTdata.result.parameters.timeZ&output=xml'});
  });
         }else if (data.result.metadata.intentName === "history") {
           chrome.tabs.create({ 'url': 'chrome://history' });
