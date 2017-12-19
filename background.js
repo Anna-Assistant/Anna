@@ -356,6 +356,8 @@ $(document).ready(function () {
       };
       xhr.send(fd);
             }
+            //removing message listener
+            chrome.runtime.onMessage.removeListener(arguments.callee);
           });
       } else {
           // proceed as before
@@ -421,6 +423,9 @@ $(document).ready(function () {
                 targetId = tab.id;
               });
             }
+            
+            //removing message listener
+            chrome.runtime.onMessage.removeListener(arguments.callee);
           });
       } else {
           // proceed as before

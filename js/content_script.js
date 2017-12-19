@@ -1,12 +1,19 @@
-//alert("Inside Content Script");
+/*Content Script 
+	It is used to execute/inject code on the webpage, 
+	as required for cropping interface for screenshot & reverse image search 
+	
+	It is injected by background script on user action
+*/
 console.log("callbackMethod : "+callbackMethod);
+
+//injecting croppingjs.css stylesheet to the webpage
 var link = document.createElement("link");
 link.rel="stylesheet";
 link.href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.2.1/cropper.css";
 document.querySelector("head").appendChild(link);
 
+//hiding the webpage
 var body = document.querySelector("body");
-//hiding the page
 body.style.display="none";
 //creating a img inside div
 if(!document.querySelector("#cropping-tool")){
@@ -57,23 +64,32 @@ if(!document.querySelector("#cropping-tool")){
 	  }
 	});
 
-	document.onkeypress = function(e){
+	//function to handle key press event on cropping interface 
+	function handleKeyPress(e){
 		// use e.keyCode
 		console.log("------------------- Image Cropped!! ---------------------");
 		var i = cropper.getCroppedCanvas().toDataURL('image/jpeg');
 
 		/*make the webpage visible again*/
 	    document.querySelector("body").removeAttribute("style");
+	
+	    //removing key listener
+		document.removeEventListener("keyup", handleKeyPress);
+
 		/*remove div#cropping-tool element*/
 	    document.querySelector("#cropping-tool").remove();
 	    
+	    //send message to background script with cropped image
 		chrome.runtime.sendMessage({callbackMethod: callbackMethod, croppedImage: i}, function(response) {
 		  //do nothing 
 		});
 		console.log("cropped image sent to background script");
 	};
 
-	//this button listener can be used if required lateron
+	//adding event listener for key press event on cropping interface
+	document.addEventListener("keyup", handleKeyPress);
+
+	//this button listener can be used if required later on
 	/*button.addEventListener('click', function doneCropping(e){
 		console.log("------------------- Image Cropped!! ---------------------");
 		var i = cropper.getCroppedCanvas().toDataURL('image/jpeg');
