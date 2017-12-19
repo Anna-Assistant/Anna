@@ -16,6 +16,8 @@
     "<all_urls>",
     "activeTab",
     "bookmarks",
+    "identity.email",
+    "identity",
     "storage",
     "https://ajax.googleapis.com/",
     "http://clients1.google.com/complete/search"
