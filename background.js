@@ -217,7 +217,6 @@ $(document).ready(function () {
         } else if (data.result.metadata.intentName === "open") {
           chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
         } else if (data.result.metadata.intentName === "incognito") {
-
           chrome.windows.create({ url: "http://www.google.com", incognito: true });
           chrome.extension.isAllowedIncognitoAccess(function (isAllowedAccess) {
             if (isAllowedAccess) return;
@@ -239,7 +238,13 @@ $(document).ready(function () {
           chrome.tabs.create({ 'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any });
         } else if (data.result.metadata.intentName == "joke") {
           tellJoke();
-        } else if (data.result.metadata.intentName === "tweet") {
+        } else if (data.result.metadata.intentName == "reload") {
+                   chrome.tabs.reload();
+        }else if (data.result.metadata.intentName == "bookmark") {
+                    chrome.tabs.getSelected(function(tab) { 
+                    chrome.bookmarks.create({ 'title': tab.title,'url': tab.url});
+                            });
+        }else if (data.result.metadata.intentName === "tweet") {
           tweet(data.result.parameters.any);
           // chrome.tabs.create({ 'url': "http://www." + data.result.parameters.website });
         } else if (data.result.metadata.intentName === "maps") {
