@@ -1,0 +1,9 @@
+<svg width="45px"  height="45px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-dual-ring" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
+    <!-- Yellow/Orange Icon animates after 5s-->
+    <circle cx="45" cy="45" ng-attr-r="{{config.radius}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.stroke}}" ng-attr-stroke-dasharray="{{config.dasharray}}" fill="none" stroke-linecap="round" r="40" stroke-width="12" stroke="#e89d09" stroke-dasharray="100.83185307179586 20.83185307179586">
+
+    	<animateTransform id="op" attributeName="transform" type="rotate" calcMode="linear" values="0 45 45;360 45 45" keyTimes="0;1" dur="0.5s" begin="1s;op.end+5s"></animateTransform>
+
+    </circle>
+
+</svg>

@@ -13,6 +13,7 @@
   },
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
   "permissions": [
+    "webNavigation", "*://*/*",
     "<all_urls>",
     "activeTab",
     "bookmarks",
@@ -22,5 +23,8 @@
     "storage",
     "https://ajax.googleapis.com/",
     "http://clients1.google.com/complete/search"
+  ],
+  "web_accessible_resources": [
+    "img/*"
   ]
 }

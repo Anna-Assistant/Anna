@@ -12,6 +12,7 @@ $(document).ready(function () {
   var txt;
   var id = 1; //for screenshots
   var voicetrigger;
+  var status= "active"; //for storing listening status
   startRecognition();
   checkOnline();
 
@@ -70,10 +71,19 @@ $(document).ready(function () {
     }
     setTimeout(checkOnline, 1000);
   }
+  
+  /*setting intial status icon
+  if (items.onoffswitch === "true") {
+    changeStatus("listening");
+  }else{
+    changeStatus("inactive");
+  }*/
+  
   //function for recognition
   function startRecognition() {
     chrome.storage.local.get(/* String or Array */["onoffswitch"], function (items) {
       if (items.onoffswitch === "true") {
+        changeStatus("listening");
         recognition = new webkitSpeechRecognition();
         recognition.onstart = function (event) {
           updateRec();
@@ -92,6 +102,7 @@ $(document).ready(function () {
           var our_trigger = "hey ";
 
           if (text.toLowerCase() === our_trigger.toLowerCase()) {
+            changeStatus("active");
             // alert(text);
             Speech("Yes Sir");
             sleep(1500);
@@ -106,10 +117,11 @@ $(document).ready(function () {
           }
           else
             if (text.toLowerCase().startsWith(our_trigger.toLowerCase())) {
+              changeStatus("active");
               var str = text.toLowerCase().replace(our_trigger.toLowerCase() + " ", "");
               setInput(str);
               recognition.stop();
-              startRecognition();
+              setTimeout(startRecognition, 1000);
             }
             else {
               recognition.stop();
@@ -122,6 +134,7 @@ $(document).ready(function () {
         recognition.start();
       }
       else {
+        changeStatus("inactive");
         startRecognition();
       }
     });
@@ -287,6 +300,34 @@ $(document).ready(function () {
       }
     });
   }
+  
+  /* method to change the anna status icon on page*/
+  function changeStatus(newStatus) {
+    
+    chrome.storage.local.get(/* String or Array */["statusicon"], function(items){
+      
+      console.log("items.statusicon == undefined: " +(items.statusicon == undefined));
+      console.log("items.statusIcon == \"false\": "+(items.statusIcon == "false") )
+      if((items.statusicon == undefined) ||( items.statusicon == "false") ){
+        newStatus = "noIcon";
+      }
+
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) { 
+
+        var tabid = tabs[0].id;
+        
+          chrome.tabs.executeScript(tabid, {
+            code: 'var status ="'+newStatus+'";'
+          }, function() {
+            chrome.tabs.executeScript(tabid, {
+              file: "js/set_status_icon.js"
+              }, function() {
+              console.log("Set Status icon Script Executed Successfully!");
+            });   
+          });
+        });
+     });		
+  }
 
   /*utility method to convert dataURL to a blob object*/
   function dataURItoBlob(dataURI) {
@@ -311,7 +352,7 @@ $(document).ready(function () {
   /*get cropped image from user*/
   function getCroppedImage(image, callbackMethod){
 
-      console.log("cropping image : callbackMethod : "+callbackMethod)
+      console.log("cropping image : callbackMethod : "+callbackMethod);
       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) { 
         
         var tabid = tabs[0].id;
@@ -392,6 +433,7 @@ $(document).ready(function () {
   }
 
   function takeScreenshot() {
+
     chrome.tabs.captureVisibleTab(function (screenshotUrl) {
       var viewTabUrl = chrome.extension.getURL('screenshot.html?id=' + id++)
       var targetId = null;
@@ -458,6 +500,7 @@ $(document).ready(function () {
           });    
       }
     });
+  
   }
 
   function processIt(data) {
