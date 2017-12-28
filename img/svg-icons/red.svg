@@ -1,0 +1,7 @@
+<svg width="45px"  height="45px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-dual-ring" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
+
+    <!-- Lifeless Red Icon -->
+    <circle cx="50" cy="50" ng-attr-r="{{config.radius}}" ng-attr-stroke-width="{{config.width}}" ng-attr-stroke="{{config.stroke}}" ng-attr-stroke-dasharray="{{config.dasharray}}" fill="none" stroke-linecap="round" r="40" stroke-width="12" stroke="red" stroke-dasharray="45.83185307179586 15.83185307179586 45.83185307179586 15.83185307179586 45.83185307179586 15.83185307179586">
+
+    </circle>
+</svg>
