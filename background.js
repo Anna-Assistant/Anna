@@ -72,13 +72,6 @@ $(document).ready(function () {
     setTimeout(checkOnline, 1000);
   }
   
-  /*setting intial status icon
-  if (items.onoffswitch === "true") {
-    changeStatus("listening");
-  }else{
-    changeStatus("inactive");
-  }*/
-  
   //function for recognition
   function startRecognition() {
     chrome.storage.local.get(/* String or Array */["onoffswitch"], function (items) {
@@ -306,23 +299,21 @@ $(document).ready(function () {
     
     chrome.storage.local.get(/* String or Array */["statusicon"], function(items){
       
-      console.log("items.statusicon == undefined: " +(items.statusicon == undefined));
-      console.log("items.statusIcon == \"false\": "+(items.statusIcon == "false") )
       if((items.statusicon == undefined) ||( items.statusicon == "false") ){
         newStatus = "noIcon";
       }
 
       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) { 
 
-        var tabid = tabs[0].id;
+        var tabId = tabs[0].id;
         
-          chrome.tabs.executeScript(tabid, {
+          chrome.tabs.executeScript(tabId, {
             code: 'var status ="'+newStatus+'";'
           }, function() {
-            chrome.tabs.executeScript(tabid, {
+            chrome.tabs.executeScript(tabId, {
               file: "js/set_status_icon.js"
               }, function() {
-              console.log("Set Status icon Script Executed Successfully!");
+              console.log("Status set to "+newStatus);
             });   
           });
         });

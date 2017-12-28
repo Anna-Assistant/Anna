@@ -1,6 +1,6 @@
 $(document).ready(function(){
    var check;
-   var check2;
+   var statuscheck;
 	function getVal(callback) {
     /* ---------------- For On Off Switch ----------------------- */
     chrome.storage.local.get(/* String or Array */["onoffswitch"], function(items){
@@ -36,7 +36,7 @@ $(document).ready(function(){
 	     				chrome.storage.local.set({ "onoffswitch": "false"}, function(){
                 //also setting status icon to false
                 /*chrome.storage.local.set({ "statusicon": "false"}, function(){
-                  check2 = false;
+                  statuscheck = false;
                   $("#status-icon").prop("checked",false);
                 });*/  
 							});	
@@ -51,13 +51,13 @@ $(document).ready(function(){
       if(items.statusicon === undefined ){
         //setting default value of status icon as true
         chrome.storage.local.set({ "statusicon": "true"}, function(){
-        	check2 = true;
+        	statuscheck = true;
         });             
       }else{
-        check2 = items.statusicon;
+        statuscheck = items.statusicon;
       }
       
-      if(check2 === "false"){
+      if(statuscheck === "false"){
        $("#status-icon").prop("checked",false);
       }
       else{
