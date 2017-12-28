@@ -23,7 +23,7 @@ $(document).ready(function() {
               "firsttime": 3
           }, function() {
               chrome.tabs.create({
-                  'url': 'elate/index.html'
+                  "url": "elate/index.html"
               });
               getPermission();
           });
@@ -46,7 +46,7 @@ $(document).ready(function() {
           active: true,
           currentWindow: true
       }, function(tabs) {
-          oldTabID = tabs[0].id
+          oldTabID = tabs[0].id;
       });
       chrome.tabs.create({
           active: true,
@@ -57,7 +57,7 @@ $(document).ready(function() {
           active: true,
           currentWindow: true
       }, function(tabs) {
-          permissionsTabID = tabs[0].id
+          permissionsTabID = tabs[0].id;
       });
       chrome.tabs.onRemoved.addListener(function switchTab(tabId) {
           if (tabId == permissionsTabID) {
@@ -90,6 +90,43 @@ $(document).ready(function() {
       }
       setTimeout(checkOnline, 1000);
   }
+
+  /* method to change the anna status icon on page*/
+  function changeStatus(newStatus) {
+
+        chrome.storage.local.get( /* String or Array */ ["statusicon"], function(items) {
+
+            if ((items.statusicon === undefined) || (items.statusicon === "false")) {
+                newStatus = "noIcon";
+            }
+
+
+            chrome.tabs.query({
+                active: true,
+                currentWindow: true
+            }, function(tabs) {
+
+                try {
+                    if (tabs[0] === undefined || tabs[0].url.startsWith("chrome://")){
+                        throw "Internal Browser Page Active";
+                    }
+                    var tabId = tabs[0].id;
+
+                    chrome.tabs.executeScript(tabId, {
+                        code: "var status =\"" + newStatus + "\";"
+                    }, function() {
+                        chrome.tabs.executeScript(tabId, {
+                            file: "js/set_status_icon.js"
+                        }, function() {
+                            console.log("Status set to " + newStatus);
+                        });
+                    });
+                } catch (e) {
+                    console.log("Error Message: " + e);
+                }
+            });
+        });
+    }
 
   //function for recognition
   function startRecognition() {
@@ -243,7 +280,7 @@ $(document).ready(function() {
                   // chrome.tabs.create({ 'url': 'https://www.youtube.com/results?search_query=' + data.result.parameters.any });
               } else if (data.result.metadata.intentName === "open") {
                   chrome.tabs.create({
-                      'url': "http://www." + data.result.parameters.website
+                      "url": "http://www." + data.result.parameters.website
                   });
               } else if (data.result.metadata.intentName === "incognito") {
                   chrome.windows.create({
@@ -251,8 +288,10 @@ $(document).ready(function() {
                       incognito: true
                   });
                   chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess) {
-                      if (isAllowedAccess) return;
-                      alert('Please allow incognito mode');
+                      if (isAllowedAccess){
+                        return;   
+                      }
+                      alert("Please allow incognito mode");
                       chrome.tabs.create({
                           url: 'chrome://extensions/?id=' + chrome.runtime.id
                       });
@@ -337,42 +376,6 @@ $(document).ready(function() {
               alert("Sorry ! we are having some internal problem. Please Try again.");
               setResponse("Sorry ! we are having some internal problem. Please Try again.");
           }
-      });
-  }
-
-  /* method to change the anna status icon on page*/
-  function changeStatus(newStatus) {
-
-      chrome.storage.local.get( /* String or Array */ ["statusicon"], function(items) {
-
-          if ((items.statusicon == undefined) || (items.statusicon == "false")) {
-              newStatus = "noIcon";
-          }
-
-
-          chrome.tabs.query({
-              active: true,
-              currentWindow: true
-          }, function(tabs) {
-
-              try {
-                  if (tabs[0] == undefined || tabs[0].url.startsWith("chrome://"))
-                      throw "Internal Browser Page Active";
-                  var tabId = tabs[0].id;
-
-                  chrome.tabs.executeScript(tabId, {
-                      code: 'var status ="' + newStatus + '";'
-                  }, function() {
-                      chrome.tabs.executeScript(tabId, {
-                          file: "js/set_status_icon.js"
-                      }, function() {
-                          console.log("Status set to " + newStatus);
-                      });
-                  });
-              } catch (e) {
-                  console.log("Error Message: " + e);
-              }
-          });
       });
   }
 

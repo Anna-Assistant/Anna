@@ -51,7 +51,7 @@ $(document).ready(function(){
       if(items.statusicon === undefined ){
         //setting default value of status icon as true
         chrome.storage.local.set({ "statusicon": "true"}, function(){
-        	statuscheck = true;
+          statuscheck = true;
         });             
       }else{
         statuscheck = items.statusicon;
@@ -65,7 +65,7 @@ $(document).ready(function(){
       }
 
       new DG.OnOffSwitch({
-        el: '#status-icon',
+        el: "#status-icon",
         
         listener:function(name, checked){
           

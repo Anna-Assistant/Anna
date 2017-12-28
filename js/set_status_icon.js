@@ -12,9 +12,9 @@ function setIcon(status) {
     console.log("status : "+status);
     
     var icon = document.querySelector("#anna-status-icon");
-    var icon_url = "";
+    var iconURL = "";
 
-    if(status == "noIcon"){
+    if(status === "noIcon"){
         if(icon != null){
             icon.parentNode.removeChild(icon);
         }
@@ -22,16 +22,16 @@ function setIcon(status) {
     }
 
     // fetching correct icon URL from extension resources
-    if(status == "active"){
-        icon_url = chrome.extension.getURL("img/svg-icons/green.svg"); 
-    }else if(status == "listening"){
-        icon_url = chrome.extension.getURL("img/svg-icons/yellow.svg");
-    }else if(status == "inactive"){
-        icon_url = chrome.extension.getURL("img/svg-icons/red.svg");
+    if(status === "active"){
+        iconURL = chrome.extension.getURL("img/svg-icons/green.svg"); 
+    }else if(status === "listening"){
+        iconURL = chrome.extension.getURL("img/svg-icons/yellow.svg");
+    }else if(status === "inactive"){
+        iconURL = chrome.extension.getURL("img/svg-icons/red.svg");
     }
 
     // modifying icon on page
-    if(icon == null || icon == undefined){
+    if(icon === null || icon === undefined){
         console.log("Creating a new div element for icon");
         icon = document.createElement("div");
         icon.id="anna-status-icon";
@@ -45,7 +45,7 @@ function setIcon(status) {
         icon.style["z-index"]=1000;
         //creating an object element for svg
         var embed = document.createElement("img");
-        embed.src = icon_url;
+        embed.src = iconURL;
         //object.type = "image/svg+xml";
         //embed.width = "45px";
         //embed.height = "45px";
@@ -55,8 +55,8 @@ function setIcon(status) {
         document.body.appendChild(icon);
     }
 
-    icon.querySelector("img").src = icon_url;
-    console.log("Icon URL changed to: "+icon_url)
+    icon.querySelector("img").src = iconURL;
+    console.log("Icon URL changed to: "+iconURL);
 }
 
 setIcon(status);
