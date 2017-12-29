@@ -1,5 +1,6 @@
 
 # ANNA
+[![GitHub issues](https://img.shields.io/github/issues/badges/shields.svg)](https://github.com/Anna-Assistant/Anna)
 
 Current Version 1.0 
 
