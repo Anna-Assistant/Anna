@@ -47,3 +47,5 @@ Anna is part of KWOC : You can talk to us on Zulip or comment on issues to start
 > Talking to ANNA is an easier, faster and cooler way to get your stuff done.
 > With a redesigned interface, ANNA is more powerful than ever!
 > Also, the more you use ANNA, the better it knows what you need at that moment.
+
+[![HitCount](http://hits.dwyl.io/gauthamzz/Anna-Assistant/Anna.svg)](http://hits.dwyl.io/gauthamzz/Anna-Assistant/Anna)
