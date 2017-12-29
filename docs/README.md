@@ -4,7 +4,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/Anna-Assistant/Anna.svg)](https://github.com/Anna-Assistant/Anna/issues)
 [![Codacy grade](https://img.shields.io/codacy/grade/e27821fb6289410b8f58338c7e0bc686.svg)](https://github.com/Anna-Assistant/Anna)
 [![Zulip Chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://anna.zulipchat.com/)
-[![Download From Chrome-Webstore](https://img.shields.io/badge/download-chrome-westore-brightgreen.svg)](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
+[![Download From Chrome-Webstore](https://img.shields.io/badge/download-chrome--westore-brightgreen.svg)](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
 
 
 Current Version 1.0 
