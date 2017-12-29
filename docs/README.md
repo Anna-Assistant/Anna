@@ -14,9 +14,9 @@ Current Version 1.0
 Meet Anna, The coolest Chrome extension.
 All you need to do is just say "Hey" before the request and ANNA is all there to do the stuff.
 
-Watch Anna in action on [Youtube](http://www.safeducateonline.com/wp-content/uploads/2015/05/watch-demo.png)](https://www.youtube.com/watch?v=17bVrAZMgEY):
+Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
 
-[![Watch on Youtube](http://www.safeducateonline.com/wp-content/uploads/2015/05/watch-demo.png)](https://www.youtube.com/watch?v=17bVrAZMgEY)
+[![Watch on Youtube](https://github.com/saavran/Anna/blob/master/img/Youtube.png)](https://www.youtube.com/watch?v=17bVrAZMgEY)
 
 Visit our main website on [https://anna-assistant.github.io/](https://anna-assistant.github.io/)
 
