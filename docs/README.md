@@ -1,6 +1,10 @@
 
 # ANNA
 
+[![GitHub issues](https://img.shields.io/github/issues/bevacqua/awesome-badges.svg)](https://github.com/Anna-Assistant/Anna/issues)
+[![Codacy grade](https://img.shields.io/codacy/grade/e27821fb6289410b8f58338c7e0bc686.svg)](https://github.com/Anna-Assistant/Anna)
+[![Zulip Chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://anna.zulipchat.com/)
+
 Current Version 1.0 
 
 Meet Anna, The coolest Chrome extension.
