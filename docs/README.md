@@ -1,4 +1,3 @@
-
 # ANNA
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/img/Tile%20Image(1400x560).png)
 
@@ -31,10 +30,7 @@ Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
 - [How are files arranged?](https://github.com/Anna-Assistant/Anna/blob/master/docs/ArrangementOfFiles.md)
 
 
-
 [https://anna-assistant.github.io/](https://anna-assistant.github.io/)
 
 You can talk to us on  [Zulip](https://anna.zulipchat.com/) or [Tweet](https://twitter.com/anna_assistant) or comment on issues to contribute.
-
-
 
