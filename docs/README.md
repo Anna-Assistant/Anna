@@ -48,8 +48,6 @@ Please help us follow the best practice to make it easy for the reviewer as well
 
 - Avoid duplicate PRs, if need be comment on the older PR with the PR number of the follow-up (new PR) and close the obsolete PR yourself.
 
-- Add relevant screenshots or images if needed.
-
 Also, we have a team of maintainers to whom you can write if your pull-request goes unnoticed. They may have time.
 
 [https://anna-assistant.github.io/](https://anna-assistant.github.io/)
