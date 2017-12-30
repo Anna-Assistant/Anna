@@ -1,6 +1,4 @@
-
 # ANNA
-
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/img/Tile%20Image(1400x560).png)
 
 [![GitHub package version](https://img.shields.io/github/package-json/v/badges/shields.svg)](https://github.com/Anna-Assistant/Anna/)
@@ -36,6 +34,4 @@ Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
 [https://anna-assistant.github.io/](https://anna-assistant.github.io/)
 
 You can talk to us on  [Zulip](https://anna.zulipchat.com/) or [Tweet](https://twitter.com/anna_assistant) or comment on issues to contribute.
-
-
 
