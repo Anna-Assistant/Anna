@@ -1,6 +1,7 @@
 # Anna
 ---
-### ADDITION OF NEW FEATURES
+### ADDITION OF NEW FEATURES 
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Anna-Assistant/Anna/issues) 
 
 To every new feature added in the Anna-Chrome Extension, first it must be declared as an **INTENT** in the corrosponding API agent.The background.js contains the main code and acts as a platform to addition of new features.
 

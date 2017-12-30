@@ -1,7 +1,14 @@
 {
   "manifest_version": 2,
   "name": "Anna Assistant",
-  "version": "1.1",
+  "short_name": "Anna",
+  "version": "1.2",
+  "description": "Your Personal Assistant on Google Chrome.",
+  "icons": {
+    "16":"img/icon16.png",
+    "48":"img/icon48.png",
+    "128":"img/icon.png"
+  },
   "background" : {
     "scripts" : ["js/jquery.min.js","js/on-off-switch.js","js/on-off-switch-onload.js","background.js"],
     "persistent" : true
