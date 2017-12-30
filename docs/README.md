@@ -10,6 +10,7 @@
 [![HitCount](http://hits.dwyl.io/gauthamzz/Anna-Assistant/Anna.svg)](http://hits.dwyl.io/gauthamzz/Anna-Assistant/Anna)
 [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://github.com/Anna-Assistant/Anna/tree/master/docs)
 [![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/Anna-Assistant/Anna/commits/master)
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/anna_assistant)
 
 Meet Anna, Your Personal Assistant on Google Chrome.[Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
 
@@ -33,7 +34,7 @@ Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
 
 [https://anna-assistant.github.io/](https://anna-assistant.github.io/)
 
-You can talk to us on  [Zulip](https://anna.zulipchat.com/) or comment on issues to contribute.
+You can talk to us on  [Zulip](https://anna.zulipchat.com/) or [Tweet](https://twitter.com/anna_assistant) or comment on issues to contribute.
 
 
 
