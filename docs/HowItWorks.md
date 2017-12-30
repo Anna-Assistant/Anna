@@ -47,7 +47,7 @@ Anna can play music videos from YouTube.
 
 
 
-![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Social.png)
+![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/social.png)
 ### Social
 Anna can also send email and post on twitter.
 * _Hey, mail life is awesome_ - Anna will create a draft email with the message
