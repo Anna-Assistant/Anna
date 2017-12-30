@@ -8,5 +8,5 @@ Please follow these practices while contributing to Anna.
 
 All the practices are mentioned in the docs of the repo. 
 
-[Read once](https://github.com/lalitmee/Anna/blob/master/docs/README.md#contributing)
+[Read once](https://github.com/lalitmee/Anna/blob/master/docs/Contributing.md#contributing)
 

@@ -30,26 +30,6 @@ Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
 - [How are files arranged?](https://github.com/Anna-Assistant/Anna/blob/master/docs/ArrangementOfFiles.md)
 
 
-# CONTRIBUTING
-
-## Code Practices
-
-Please help us follow the best practice to make it easy for the reviewer as well as the contributor. We want to focus on the code quality more than on managing pull request ethics.
-
-- [People before code](http://hintjens.com/blog:95): If any of the following rules are violated, the pull-requests must not be rejected. This is to create an easy and joyful onboarding process for new programmers and first-time contributors.
-
-- Single commit per pull request and name the commit as something meaningful, example: `Adding <-issue-name-and-number->`.
-
-- Reference the issue numbers in the commit message if it resolves an open issue. Follow the pattern `Fixes #<issue number> <commit message>`.
-
-- Provide the link in the comment section of your pull request from your forked repository or relevant screenshots of the changes for easier review.
-
-- Pull Request older than 4 days with no response from the contributor shall be marked closed.
-
-- Avoid duplicate PRs, if need be comment on the older PR with the PR number of the follow-up (new PR) and close the obsolete PR yourself.
-
-Also, we have a team of maintainers to whom you can write if your pull-request goes unnoticed. They may have time.
-
 [https://anna-assistant.github.io/](https://anna-assistant.github.io/)
 
 You can talk to us on  [Zulip](https://anna.zulipchat.com/) or [Tweet](https://twitter.com/anna_assistant) or comment on issues to contribute.
