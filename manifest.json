@@ -1,6 +1,7 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Anna Assistant",
+  "short_name": "Anna",
   "version": "1.2",
   "description": "Your Personal Assistant on Google Chrome.",
   "icons": {
