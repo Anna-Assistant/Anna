@@ -37,9 +37,9 @@ Please help us follow the best practice to make it easy for the reviewer as well
 
 - [People before code](http://hintjens.com/blog:95): If any of the following rules are violated, the pull-requests must not be rejected. This is to create an easy and joyful onboarding process for new programmers and first-time contributors.
 
-- Single commit per pull request and name the commit as something meaningful, example: Adding <-issue-name-and-number->.
+- Single commit per pull request and name the commit as something meaningful, example: `Adding <-issue-name-and-number->`.
 
-- Reference the issue numbers in the commit message if it resolves an open issue. Follow the pattern Fixes #<issue number> <commit message>
+- Reference the issue numbers in the commit message if it resolves an open issue. Follow the pattern `Fixes #<issue number> <commit message>`.
 
 - Provide the link in the comment section of your pull request from your forked repository or relevant screenshots of the changes for easier review.
 
