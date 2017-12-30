@@ -10,11 +10,13 @@ Anna is a smart personal assistant that's available on Google Chrome as an exten
 ## What can Anna do?
 
 
+
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Automated.png)
 ### Automated
 * _Hey, what is this_ - Anna will perform a reverse image on your current screen
 * _Hey, take screenshot_ - Anna will take a screenshot
 * _Hey, set up a meeting with Evan at 10am today_ - Anna schedule a meeting for you
+
 
 
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Browser.png)
@@ -28,6 +30,7 @@ Anna is a smart personal assistant that's available on Google Chrome as an exten
 * _Hey, safe mode_ - Anna will open a new incognito window
 
 
+
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Location.png)
 ### Location
 Anna is able to get directions, search up locations on the map, or find the nearest restaurants near you.
@@ -36,10 +39,12 @@ Anna is able to get directions, search up locations on the map, or find the near
 * _Hey, Restaurants nearby_ - Anna will look for the closest restaurant to your current location
 
 
+
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Youtube.png)
 ### Music
 Anna can play music videos from YouTube.
 * _Hey, playWhatever it Takes_ - Anna will play Whatever it takes from YouTube 
+
 
 
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Social.png)
@@ -50,10 +55,12 @@ Anna can also send email and post on twitter.
 
 
 
+
 ### Weather
 Anna can check that weather at your location or anywhere around the world.
 * _Hey, what is the weather_ - Anna will display the weather at your current location
 * _Hey, what is the weather in New Delhi_ - Anna will display the current weather at New Delhi
+
 
 
 ### Math
@@ -62,7 +69,9 @@ Anna can also perform simple math
 * _Hey, 25 minus 5_ - Anna will shows the result of 25 - 5
 
 
-You can also have a small conversation will Anna. Try asking Anna how she's doing, or hold old she is.
+
+You can also have a small conversation will Anna. Try asking Anna how she's doing, or how old she is.
+Feel unmotivated? Ask Anna for a motivation quote or a joke.
 
 Click [here](https://www.youtube.com/watch?v=17bVrAZMgEY) to watch Anna in action.
 
