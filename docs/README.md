@@ -8,7 +8,10 @@
 [![Zulip Chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://anna.zulipchat.com/)
 [![Download From Chrome-Webstore](https://img.shields.io/badge/download-chrome--westore-brightgreen.svg)](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
 [![HitCount](http://hits.dwyl.io/gauthamzz/Anna-Assistant/Anna.svg)](http://hits.dwyl.io/gauthamzz/Anna-Assistant/Anna)
-
+[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://github.com/Anna-Assistant/Anna/tree/master/docs)
+[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)](https://github.com/Anna-Assistant/Anna)
+[![GitHub contributors](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg)](https://github.com/Anna-Assistant/Anna)
+[![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/Anna-Assistant/Anna)
 
 Meet Anna, Your Personal Assistant on Google Chrome.
 
