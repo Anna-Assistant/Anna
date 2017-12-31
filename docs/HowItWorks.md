@@ -17,6 +17,8 @@ You may also check-out the status of activeness of **ANNA**.You just need to swi
 * _Hey, what is this_ - Anna will perform a reverse image on your current screen
 * _Hey, take screenshot_ - Anna will take a screenshot
 * _Hey, set up a meeting with Evan at 10am today_ - Anna schedule a meeting for you
+* _Hey, who are you_ -Anna will introduce itself very smartly
+* _Hey, who is Narendra Modi_ -Anna will tell you more about Narendra Modi.
 
 
 
@@ -64,6 +66,10 @@ Anna can check that weather at your location or anywhere around the world.
 * _Hey, what is the weather_ - Anna will display the weather at your current location
 * _Hey, what is the weather in New Delhi_ - Anna will display the current weather at New Delhi
 
+### Translate
+Anna can even translate your word/phrases into the language you wish to hear !!
+* _Hey, translate My name is Anna_ 
+* _Hey, translate HELLO_ 
 
 
 ### Math
@@ -73,8 +79,9 @@ Anna can also perform simple math
 
 
 
+### Feeling bored
 You can also have a small conversation will Anna. Try asking Anna how she's doing, or how old she is.
-Feel unmotivated? Ask Anna for a motivation quote or a joke.
+Feel unmotivated? Ask Anna for a motivation quote or a joke.The more you explore Anna the more your work will be done with ease.
 
 Click [here](https://www.youtube.com/watch?v=17bVrAZMgEY) to watch Anna in action.
 
