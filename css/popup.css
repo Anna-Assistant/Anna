@@ -20,7 +20,7 @@ html {
 body {
     background: url(../images/pattern.png) #fff;
     background-position-y: 5px;
-    width: 350px;
+    width: 320px;
     overflow-y: auto;
     overflow-x: hidden;
     font-size: 12px;
@@ -36,14 +36,14 @@ header {
     background: linear-gradient(-90deg, #3399ff, #52d3aa);
     justify-content: center;
     position: relative;
-    height: 186px;
+    height: 170px;
     clip-path: polygon( 0 0, 100% 0, 100% 100%, 0 calc(100% - 4.5vw));
     /* change the calc height to a percentage height to get alternate responsive behavior*/
 }
 
 header img {
     margin: auto;
-    height: 160px;
+    height: 130px;
     display: block;
 }
 
@@ -68,7 +68,7 @@ header h1 {
 /* Tabs CSS */
 
 .mdl-tabs {
-    margin-top: -8%;
+    margin-top: -12%;
     background: #fff
 }
 
@@ -87,7 +87,7 @@ header h1 {
 .mdl-tabs__tab {
     margin: 0;
     border: none;
-    padding: 0 38px;
+    padding: 0 33px;
     float: left;
     position: relative;
     display: block;
@@ -386,8 +386,8 @@ footer {
     width: 100%;
     height: auto;
     margin: 0;
-    padding: 8px;
-    font-size: 15px;
+    padding: 7px;
+    font-size: 12px;
 }
 
 .footer-links li {
