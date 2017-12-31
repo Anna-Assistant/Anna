@@ -433,6 +433,14 @@ $(document).ready(function() {
   }
 
   function reverseSearch() {
+    document.addEventListener( 'visibilitychange' , function() {
+      if (document.hidden) {
+        console.log('Open web browser');
+      Speech("Open the Chrome-Web Browser to access this feature");
+       chrome.tabs.create({
+                      'url': "https://www.google.com"
+                      });}
+     }, false);
       chrome.tabs.captureVisibleTab(function(screenshotUrl) {
           /*uploading the screenshot to a sever & generating url*/
 
