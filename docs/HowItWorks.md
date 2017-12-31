@@ -5,7 +5,7 @@
 Anna is a smart personal assistant that's available on Google Chrome as an extension. Once the extension is installed on Chrome, make sure that Anna is activated on the extensions settings window by switching the toggle switch to on, and then you're ready to start. Just say "hey" before a request, and Anna will perform the task for you. 
 You may also check-out the status of activeness of **ANNA**.You just need to switch on the toggle button of Status Icon.
 
-   ![anna](https://github.com/srvkmr130/Anna/blob/master/docs/Anna.png)
+   ![anna](https://github.com/Anna-Assistant/Anna/blob/master/docs/Anna.png)
 
 
 ## What can Anna do?
