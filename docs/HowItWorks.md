@@ -27,6 +27,8 @@ Anna is a smart personal assistant that's available on Google Chrome as an exten
 * _Hey, open twitter_ - Anna will open up Twitter
 * _Hey, history_ - Anna will open up your browser history
 * _Hey, close_ - Anna will close the current tab
+* _Hey, reload_ - Anna will refresh the current tab
+* _Hey, move to 3rd tab_ - Anna will switch to 3rd tab
 * _Hey, safe mode_ - Anna will open a new incognito window
 
 
@@ -43,7 +45,7 @@ Anna is able to get directions, search up locations on the map, or find the near
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Youtube.png)
 ### Music
 Anna can play music videos from YouTube.
-* _Hey, playWhatever it Takes_ - Anna will play Whatever it takes from YouTube 
+* _Hey, play Whatever it Takes_ - Anna will play Whatever it takes from YouTube 
 
 
 
