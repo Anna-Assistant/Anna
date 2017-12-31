@@ -319,7 +319,7 @@ $(document).ready(function() {
                   });
               } else if (data.result.metadata.intentName == "joke") {
                   tellJoke();
-              }else if (data.result.metadata.intentName == "next_tab") {
+              }else if (data.result.metadata.intentName == "nextTab") {
                   swapTab();
               } else if (data.result.metadata.intentName == "reload") {
                   chrome.tabs.reload();
@@ -497,12 +497,12 @@ $(document).ready(function() {
       });
   }
 function swapTab() {
-   var currenttab;
+   var currentTabId;
                   chrome.tabs.getSelected(null, function(tab) {
-                  currenttab = tab.id;
+                  currentTabId = tab.id;
                     chrome.tabs.query({}, function (tabs) {
                 for (var i = 0; i < tabs.length; i++) {
-                  if(tabs[i].id == currenttab){
+                  if(tabs[i].id == currentTabId){
                    chrome.tabs.update(tabs[data.result.parameters.number].id, { active: true});
                   }
 
