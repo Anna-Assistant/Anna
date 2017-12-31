@@ -13,11 +13,9 @@ $(document).ready(function(){
         check = items.onoffswitch;
       }
       if(check === "false"){
-   	    chrome.browserAction.setIcon({path:"tap.png"});
         $("#onoff-switch").prop("checked",false);
       }
   		else{
-        chrome.browserAction.setIcon({path:"icon.ico"});
         $("#onoff-switch").prop("checked",true);
 		  }
       new DG.OnOffSwitch({
@@ -28,11 +26,9 @@ $(document).ready(function(){
           chrome.storage.local.get(/* String or Array */["onoffswitch"], function(items){
 		      	if(checked == true){
               chrome.storage.local.set({ "onoffswitch": "true"}, function(){
-                chrome.browserAction.setIcon({path:"icon.ico"});
               }); 
 			     	}
 		     		else if (checked == false){
-	     				chrome.browserAction.setIcon({path:"tap.png"});
 	     				chrome.storage.local.set({ "onoffswitch": "false"}, function(){
                 //also setting status icon to false
                 /*chrome.storage.local.set({ "statusicon": "false"}, function(){

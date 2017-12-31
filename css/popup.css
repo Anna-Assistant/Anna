@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    background: url(../images/pattern.png) #fff;
+    background:  #fff;
     background-position-y: 5px;
     width: 320px;
     overflow-y: auto;
