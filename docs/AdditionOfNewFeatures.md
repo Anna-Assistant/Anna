@@ -12,7 +12,7 @@ Once you open the _background.js_ file you will find under _tasks()_ function th
 > }else if (data.result.metadata.intentName === "INTENT_NAME") {  
 > action to be performed.
 
-The usuage of **else if** statement is for obvious reasons ,it checks for the Intent by it's name and accordingly performs the operation. 
+The usage of **else if** statement is for obvious reasons ,it checks for the Intent by it's name and accordingly performs the operation. 
 
 #### NAMING CONVENTION
 We all love consistency in the code.In order to tweak code or modify we ensure that we should not get baffled among the thousands of code thereby we go for a particular naming convention.We are proud to say that we too follow a particular naming convention with proper indentation of code so that a new contributor does not get confused with the flow of the code amd can easily contribute to the project.
