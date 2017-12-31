@@ -26,7 +26,7 @@ Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
 
 - [What all can Anna do?](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowItWorks.md)
 - [How to Add new features?](https://github.com/Anna-Assistant/Anna/blob/master/docs/AdditionOfNewFeatures.md)
-- [How to install?](https://github.com/Anna-Assistant/Anna/blob/master/docs/ArrangementOfFiles.md)
+- [How to install?](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowToInstallGuide.md)
 - [How are files arranged?](https://github.com/Anna-Assistant/Anna/blob/master/docs/ArrangementOfFiles.md)
 
 

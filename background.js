@@ -313,6 +313,10 @@ $(document).ready(function() {
                   chrome.tabs.create({
                       'url': 'chrome://downloads'
                   });
+              } else if (data.result.metadata.intentName === "translate") {
+                  chrome.tabs.create({
+                      'url': 'https://translate.google.com/#auto/en/data.result.parameters.any'
+                  });
               } else if (data.result.metadata.intentName === "mail") {
                   chrome.tabs.create({
                       'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any
@@ -433,6 +437,12 @@ $(document).ready(function() {
   }
 
   function reverseSearch() {
+    document.addEventListener( 'visibilitychange' , function() {
+      if (document.hidden) {
+        console.log('Open web browser');
+      Speech("Open the Chrome-Web Browser to access this feature");
+       alert("You need Chrome-browser to access this feature");
+     }, false);
       chrome.tabs.captureVisibleTab(function(screenshotUrl) {
           /*uploading the screenshot to a sever & generating url*/
 
