@@ -313,6 +313,10 @@ $(document).ready(function() {
                   chrome.tabs.create({
                       'url': 'chrome://downloads'
                   });
+              } else if (data.result.metadata.intentName === "translate") {
+                  chrome.tabs.create({
+                      'url': 'https://translate.google.com/#auto/en/data.result.parameters.any'
+                  });
               } else if (data.result.metadata.intentName === "mail") {
                   chrome.tabs.create({
                       'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any
