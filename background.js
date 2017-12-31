@@ -498,12 +498,12 @@ $(document).ready(function() {
   }
 function swapTab() {
    var currentTabId;
-                  chrome.tabs.getSelected(null, function(tab) {
-                  currentTabId = tab.id;
-                    chrome.tabs.query({}, function (tabs) {
+            chrome.tabs.getSelected(null, function(tab) {
+              currentTabId = tab.id;
+              chrome.tabs.query({}, function (tabs) {
                 for (var i = 0; i < tabs.length; i++) {
                   if(tabs[i].id == currentTabId){
-                   chrome.tabs.update(tabs[data.result.parameters.number].id, { active: true});
+                    chrome.tabs.update(tabs[data.result.parameters.number].id, { active: true});
                   }
 
                 }
