@@ -437,12 +437,6 @@ $(document).ready(function() {
   }
 
   function reverseSearch() {
-    document.addEventListener( 'visibilitychange' , function() {
-      if (document.hidden) {
-        console.log('Open web browser');
-      Speech("Open the Chrome-Web Browser to access this feature");
-       alert("You need Chrome-browser to access this feature");
-     }, false);
       chrome.tabs.captureVisibleTab(function(screenshotUrl) {
           /*uploading the screenshot to a sever & generating url*/
 
