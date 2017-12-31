@@ -437,9 +437,7 @@ $(document).ready(function() {
       if (document.hidden) {
         console.log('Open web browser');
       Speech("Open the Chrome-Web Browser to access this feature");
-       chrome.tabs.create({
-                      'url': "https://www.google.com"
-                      });}
+       alert("You need Chrome-browser to access this feature");
      }, false);
       chrome.tabs.captureVisibleTab(function(screenshotUrl) {
           /*uploading the screenshot to a sever & generating url*/
