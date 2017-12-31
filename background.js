@@ -319,6 +319,8 @@ $(document).ready(function() {
                   });
               } else if (data.result.metadata.intentName == "joke") {
                   tellJoke();
+              }else if (data.result.metadata.intentName == "nextTab") {
+                  swapTab();
               } else if (data.result.metadata.intentName == "reload") {
                   chrome.tabs.reload();
               } else if (data.result.metadata.intentName == "bookmark") {
@@ -494,7 +496,20 @@ $(document).ready(function() {
 
       });
   }
+function swapTab() {
+   var currentTabId;
+            chrome.tabs.getSelected(null, function(tab) {
+              currentTabId = tab.id;
+              chrome.tabs.query({}, function (tabs) {
+                for (var i = 0; i < tabs.length; i++) {
+                  if(tabs[i].id == currentTabId){
+                    chrome.tabs.update(tabs[data.result.parameters.number].id, { active: true});
+                  }
 
+                }
+                  });
+                  });
+ }
   function takeScreenshot() {
 
       chrome.tabs.captureVisibleTab(function(screenshotUrl) {
