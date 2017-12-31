@@ -4,8 +4,7 @@ html {
 }
 
 .feature a,
-.data,
-header {
+.data {
     display: flex
 }
 
@@ -21,7 +20,7 @@ header {
 body {
     background: url(../images/pattern.png) #fff;
     background-position-y: 5px;
-    width: 350px;
+    width: 450px;
     overflow-y: auto;
     overflow-x: hidden;
     font-size: 12px;
@@ -30,8 +29,25 @@ body {
     font-weight: 400
 }
 
+/* Header CSS */
+
 header {
-    justify-content: center
+    background: linear-gradient(-90deg, #3399ff, #52d3aa);
+    justify-content: center;
+    position: relative;
+    height: 250px;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      0 calc(100% - 4.5vw)
+    );
+    /* change the calc height to a percentage height to get alternate responsive behavior*/
+  }
+
+header img {
+    margin: auto;
+    display: block;
 }
 
 header h1 {
@@ -41,14 +57,156 @@ header h1 {
     font-family: kitten
 }
 
+#version {
+    margin-top: -6%;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+}
+
+/* Header CSS Ends */
+
+/* Tabs CSS */
+
 .mdl-tabs {
+    margin-top: -8%;
     background: #fff
 }
 
-.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
-    background: #52d3aa
+.mdl-tabs__tab-bar {
+    position: relative;
+    border-bottom: none;
+    width: 75%;
+    border-bottom: none;
+    margin: 0 0 0 12%;
+    padding: 0;
+    background: white;
+    border: 1px solid #3399ff;
+    border-radius: 30px;
 }
 
+.mdl-tabs__tab {
+    margin: 0;
+    border: none;
+    padding: 0 67px;
+    float: left;
+    position: relative;
+    display: block;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-weight: 200;
+    font-size: 18px;
+    color: #3399ff;
+    text-transform: none;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.mdl-tabs.is-upgraded .mdl-tabs__tab{
+    text-decoration: none;
+}
+
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+    background: none;
+   
+}
+
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:nth-child(1) {
+    background: #3399ff;
+    color: #ffffff;
+    font-weight: 200;
+    border-radius: 20px 0 0 25px;
+    text-decoration: none;
+}
+
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:nth-child(2) {
+    background: #3399ff;
+    color: #ffffff;
+    font-weight: 200;
+    border-radius: 0 20px 25px 0;
+    text-decoration: none;
+}
+
+/* Tabs CSS Ends */
+
+/* Buttons CSS */
+.btn-toggle.btn-xs:before,
+.btn-toggle.btn-xs:after {
+  display: none;
+}
+.btn-toggle:before,
+.btn-toggle:after {
+  color: #6b7381;
+}
+.btn-toggle.active {
+    background-color: #3399ff;
+  }
+
+.btn-toggle.btn-xs {
+    margin: 0 0;
+    padding: 0;
+    position: relative;
+    border: none;
+    height: 1rem;
+    width: 2rem;
+    border-radius: 1rem;
+  }
+  .btn-toggle.btn-xs:focus,
+  .btn-toggle.btn-xs.focus,
+  .btn-toggle.btn-xs:focus.active,
+  .btn-toggle.btn-xs.focus.active {
+    outline: none;
+  }
+  .btn-toggle.btn-xs:before,
+  .btn-toggle.btn-xs:after {
+    line-height: 1rem;
+    width: 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: opacity .25s;
+  }
+  .btn-toggle.btn-xs:before {
+    content: 'Off';
+    left: 0;
+  }
+  .btn-toggle.btn-xs:after {
+    content: 'On';
+    right: 0;
+    opacity: .5;
+  }
+  .btn-toggle.btn-xs > .handle {
+    position: absolute;
+    top: 0.125rem;
+    left: 0.125rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 0.75rem;
+    background: #fff;
+    transition: left .25s;
+  }
+  .btn-toggle.btn-xs.active {
+    transition: background-color 0.25s;
+  }
+  .btn-toggle.btn-xs.active > .handle {
+    left: 1.125rem;
+    transition: left .25s;
+  }
+  .btn-toggle.btn-xs.active:before {
+    opacity: .5;
+  }
+  .btn-toggle.btn-xs.active:after {
+    opacity: 1;
+  }
+
+/* Buttons CSS End */
+
+/* Help-Tab CSS Starts */
 .features-list {
     margin: 0;
     padding: 0;
@@ -56,10 +214,10 @@ header h1 {
 }
 
 .feature {
-    width: 320px;
-    margin: 15px auto;
+    /* width: 320px; */
+    /* margin: 15px auto; */
     min-height: 90px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12); */
     border-radius: 4px;
     background-color: #fff
 }
@@ -72,8 +230,21 @@ header h1 {
     font-size: 13px
 }
 
-.feature a:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 50%, rgba(238, 238, 238, 1) 100%)
+.feature a:hover, a:active {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 50%, rgba(238, 238, 238, 1) 100%);
+    text-decoration: none;
+    color: black;
+}
+
+.title {
+    font-size: 17px;
+    font-weight: 100;
+    color: #000000;
+}
+
+.description {
+    margin-top: 5%;
+    color:  #666666;
 }
 
 .media {
@@ -81,7 +252,8 @@ header h1 {
 }
 
 .media img {
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
     min-height: 50px;
     padding: 0;
     border-radius: 4px 0 0 4px;
@@ -89,16 +261,42 @@ header h1 {
     -webkit-border-radius: 4px 0 0 4px
 }
 
+.media .fh5co-intro-icon {
+    font-size: 70px;
+    color: #3399ff;
+    margin: 16% 25%;
+    display: block;
+}
+
+.gradient-icon {
+    background: -webkit-gradient(linear, left top, left bottom, from(#52d3aa), to(#3399ff));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: initial;
+}
+
 .data {
     flex: 2;
     padding: 10px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-direction: column
 }
 
 .data .title {
     line-height: 1.2
 }
+
+.hline {
+    width: 70%;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0 0 0 30%;
+    padding: 0;
+}
+
+/* Tab Help's CSS Ends*/
 
 .mdl-tabs__panel {
     height: 310px;
@@ -117,8 +315,15 @@ header h1 {
 }
 
 .mdl-list__item {
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee
+    padding: 6%;
+    /* border-top: 1px solid #eee; */
+    border-bottom: 1px solid #cccccc;
+}
+
+.mdl-list__item .mdl-list__item-primary-content{
+    color: #3399ff;
+    font-size: 20px;
+    letter-spacing: 2px;
 }
 
 .mdl-list__item-avatar {
@@ -139,3 +344,36 @@ header h1 {
 .mdl-tabs__tab .mdl-tabs__ripple-container .mdl-ripple {
     background: #52d3aa
 }
+
+footer {
+    font-family: 'Segoe UI',sans-serif;
+    width: 100%;
+}
+
+.top {
+    box-shadow: 0 -10px 20px -5px #e6e6e6;
+}
+
+.footer-links {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.footer-links li {
+    margin: 0 6%;
+    list-style: none;
+    display: table-cell;
+    text-align: center;
+}
+
+.footer-links li a {
+    text-decoration: none;
+    color: #999c9b;
+    text-align: center;
+}
+
