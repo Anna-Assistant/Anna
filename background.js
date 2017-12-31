@@ -107,7 +107,7 @@ $(document).ready(function() {
             }, function(tabs) {
 
                 try {
-                    if (tabs[0] === undefined || tabs[0].url.startsWith("chrome://")){
+                    if (tabs[0] === undefined || tabs[0].url.startsWith("chrome://") || tabs[0].url.startsWith("chrome-extension://")){
                         throw "Internal Browser Page Active";
                     }
                     var tabId = tabs[0].id;
