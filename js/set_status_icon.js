@@ -24,7 +24,6 @@ function setIcon(status) {
     // fetching correct icon URL from extension resources
     if(status === "active"){
         iconURL = chrome.extension.getURL("img/svg-icons/green.svg"); 
-        chrome.browserAction.setIcon({path:"img/icon-logo.png"});
     }else if(status === "listening"){
         iconURL = chrome.extension.getURL("img/svg-icons/yellow.svg");
     }else if(status === "inactive"){
