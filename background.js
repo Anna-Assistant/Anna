@@ -133,6 +133,7 @@ $(document).ready(function() {
       chrome.storage.local.get( /* String or Array */ ["onoffswitch"], function(items) {
           if (items.onoffswitch === "true") {
               changeStatus("listening");
+              chrome.browserAction.setIcon({path:"img/icon.png"});
               recognition = new webkitSpeechRecognition();
               recognition.onstart = function(event) {
                   updateRec();
@@ -152,6 +153,7 @@ $(document).ready(function() {
 
                   if (text.toLowerCase() === our_trigger.toLowerCase()) {
                       changeStatus("active");
+                      
                       // alert(text);
                       Speech("Yes Sir");
                       sleep(1500);
@@ -166,6 +168,7 @@ $(document).ready(function() {
                   } else
                   if (text.toLowerCase().startsWith(our_trigger.toLowerCase())) {
                       changeStatus("active");
+                      chrome.browserAction.setIcon({path:"img/icon-active.png"});
                       var str = text.toLowerCase().replace(our_trigger.toLowerCase() + " ", "");
                       setInput(str);
                       recognition.stop();
@@ -181,6 +184,7 @@ $(document).ready(function() {
               recognition.start();
           } else {
               changeStatus("inactive");
+              chrome.browserAction.setIcon({path:"img/icon-inactive.png"});
               startRecognition();
           }
       });
