@@ -10,16 +10,42 @@ You may also check-out the status of activeness of **ANNA**.You just need to swi
 
 ## What can Anna do?
 
+ANNA helps you automate all actions you normally use on a broswer. Best part is it even works even if chrome is working on your backgroud. So if you are working on something and want a quick search or play a song, use ANNA.
+
+### Automated Actions
 
 
-![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Automated.png)
-### Automated
 * _Hey, what is this_ - Anna will perform a reverse image on your current screen
 * _Hey, take screenshot_ - Anna will take a screenshot
 * _Hey, set up a meeting with Evan at 10am today_ - Anna schedule a meeting for you
-* _Hey, who are you_ -Anna will introduce itself very smartly
-* _Hey, who is Narendra Modi_ -Anna will tell you more about Narendra Modi.
 
+![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Automated.png)
+
+#### REVERSE IMAGE SEARCH 
+
+Allows user to select a portion of the screen and reverse searches on Google. When you see something on the Internet and forgot what it is or wants to know what it is.
+
+Phrases:
+
+- "What is this?" 
+- "Reverse Search"
+
+#### Screenshot
+
+Allows user to screenshot the whole screen or part of the screen.
+
+Phrases:
+
+- "Screenshot"
+- "Take screenshot"
+
+#### Google Calender
+
+Allows user to set reminders and meetings.
+
+Phrases: 
+
+- " Set up meeting with evan at 11 am tommorow"
 
 
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Browser.png)
