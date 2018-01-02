@@ -10,6 +10,7 @@
 [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://github.com/Anna-Assistant/Anna/tree/master/docs)
 [![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)](https://github.com/Anna-Assistant/Anna/commits/master)
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/anna_assistant)
+[![Code Helpers Badge](https://www.codetriage.com/anna-assistant/anna/badges/users.svg)](https://www.codetriage.com/anna-assistant/anna)
 
 Meet Anna, Your Personal Assistant on Google Chrome.[Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
 
