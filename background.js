@@ -630,11 +630,11 @@ function swapTab() {
   }
 
   function tellJoke() {
-      var jokeURL = 'https://api.chucknorris.io/jokes/random';
+      var jokeURL = 'https://icanhazdadjoke.com/';
       $.getJSON(jokeURL, function(data) {
-          setResponse(data.value.toLowerCase());
+          setResponse(data.joke.toLowerCase());
           chrome.tabs.create({
-              'url': data.url
+              'url': jokeURL+'j/'+data.id
           });
       }).fail(function() {
           var failJoke = "Sorry! I can't read the joke! You can have a look at it!";
