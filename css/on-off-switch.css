@@ -23,6 +23,10 @@ background-color: gray;}
     user-select:none;
 }
 
+.onoff-switch {
+    margin-bottom: 0rem;
+}
+
 .on-off-switch-track{
     position:absolute;
     color: gray;
