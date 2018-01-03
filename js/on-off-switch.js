@@ -46,11 +46,11 @@ $.extend(DG.OnOffSwitch.prototype, {
     checked: false,
 
     width: 0,
-    height: 30,
+    height: 26,
 
     trackBorderWidth: 1,
 
-    textSizeRatio: 0.40,
+    textSizeRatio: 0.20,
 
     trackColorOn: undefined,
     trackColorOff: '#EEE',

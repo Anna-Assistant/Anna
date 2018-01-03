@@ -1,6 +1,6 @@
 body,
 html {
-    height: 420px
+    height: 400px
 }
 
 .feature a,
@@ -68,7 +68,7 @@ header h1 {
 /* Tabs CSS */
 
 .mdl-tabs {
-    margin-top: -10%;
+    margin-top: -8%;
     background: #fff
 }
 
@@ -82,6 +82,7 @@ header h1 {
     background: white;
     border: 1px solid #3399ff;
     border-radius: 30px;
+    height: 40px;
 }
 
 .mdl-tabs__tab {
@@ -91,8 +92,8 @@ header h1 {
     float: left;
     position: relative;
     display: block;
-    height: 47px;
-    line-height: 48px;
+    height: 39px;
+    line-height: 36px;
     text-align: center;
     font-weight: 150;
     font-size: 16px;
@@ -325,7 +326,7 @@ a:active {
 /* Tab Help's CSS Ends*/
 
 .mdl-tabs__panel {
-    height: 310px;
+    height: 180px;
     overflow-y: auto
 }
 
@@ -341,14 +342,14 @@ a:active {
 }
 
 .mdl-list__item {
-    padding: 6%;
+    padding: 2% 4%;
     /* border-top: 1px solid #eee; */
     border-bottom: 1px solid #cccccc;
 }
 
 .mdl-list__item .mdl-list__item-primary-content {
     color: #3399ff;
-    font-size: 17px;
+    font-size: 15px;
     letter-spacing: 1px;
 }
 
