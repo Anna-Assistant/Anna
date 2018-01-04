@@ -118,11 +118,11 @@ $(document).ready(function() {
                         chrome.tabs.executeScript(tabId, {
                             file: "js/set_status_icon.js"
                         }, function() {
-                            console.log("Status set to " + newStatus);
+                            // console.log("Status set to " + newStatus);
                         });
                     });
                 } catch (e) {
-                    console.log("Error Message: " + e);
+                    // console.log("Error Message: " + e);
                 }
             });
         });
@@ -252,7 +252,7 @@ $(document).ready(function() {
   function send() {
       // alert('you said ' + txt);
       // setResponse('you said ' + txt);
-      console.log('user said ' + txt);
+    //   console.log('user said ' + txt);
       txt = txt.replace('hey ', '');
       // alert(txt);
       tasks();
@@ -304,7 +304,7 @@ $(document).ready(function() {
               } else if (data.result.metadata.intentName === "calendar") {
                   //Speech("please tell details about the event"); 
                   chrome.identity.getProfileUserInfo(function(userInfo) {
-                      console.log(userInfo.id);
+                    //   console.log(userInfo.id);
                       chrome.tabs.create({
                           'url': 'https://www.google.com/calendar/render?action=TEMPLATE&text=data.result.parameters.any&dates=data.result.parameters.dateTdata.result.parameters.timeZ&output=xml'
                       });
@@ -414,7 +414,7 @@ $(document).ready(function() {
   /*get cropped image from user*/
   function getCroppedImage(image, callbackMethod) {
 
-      console.log("cropping image : callbackMethod : " + callbackMethod);
+    //   console.log("cropping image : callbackMethod : " + callbackMethod);
       chrome.tabs.query({
           active: true,
           currentWindow: true
@@ -433,7 +433,7 @@ $(document).ready(function() {
                   chrome.tabs.executeScript(tabid, {
                       file: "js/content_script.js"
                   }, function(response) {
-                      console.log("Indside background script!! id:" + tabid + ", response: " + JSON.stringify(response, null, 4));
+                    //   console.log("Indside background script!! id:" + tabid + ", response: " + JSON.stringify(response, null, 4));
                   });
               });
           });
@@ -465,10 +465,10 @@ $(document).ready(function() {
                               chrome.tabs.create({
                                   url: searchURL
                               }, function(tab) {
-                                  console.log("reverse search successful");
+                                //   console.log("reverse search successful");
                               });
                           } else {
-                              console.log("Sorry, Unable to perform reverse search!");
+                            //   console.log("Sorry, Unable to perform reverse search!");
                           }
                       };
                       xhr.send(fd);
@@ -493,10 +493,10 @@ $(document).ready(function() {
                       chrome.tabs.create({
                           url: searchURL
                       }, function(tab) {
-                          console.log("reverse search successful");
+                        //   console.log("reverse search successful");
                       });
                   } else {
-                      console.log("Sorry, Unable to perform reverse search!");
+                    //   console.log("Sorry, Unable to perform reverse search!");
                   }
               };
               xhr.send(fd);
@@ -531,7 +531,7 @@ function swapTab() {
               getCroppedImage(screenshotUrl, "screenshot");
               chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
                   if (message.callbackMethod === "screenshot") {
-                      console.log("CroppedImage Recieved!!");
+                    //   console.log("CroppedImage Recieved!!");
 
                       chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
                           // we are waiting for the tab to be open

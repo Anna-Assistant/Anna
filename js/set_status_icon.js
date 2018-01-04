@@ -9,7 +9,7 @@
  * inactive - Anna is not active currently
  */
 function setIcon(status) {
-    console.log("status : "+status);
+    // console.log("status : "+status);
     
     var icon = document.querySelector("#anna-status-icon");
     var iconURL = "";
@@ -32,7 +32,7 @@ function setIcon(status) {
 
     // modifying icon on page
     if(icon === null || icon === undefined){
-        console.log("Creating a new div element for icon");
+        // console.log("Creating a new div element for icon");
         icon = document.createElement("div");
         icon.id="anna-status-icon";
         icon.style.position = "fixed";
@@ -56,7 +56,7 @@ function setIcon(status) {
     }
 
     icon.querySelector("img").src = iconURL;
-    console.log("Icon URL changed to: "+iconURL);
+    // console.log("Icon URL changed to: "+iconURL);
 }
 
 setIcon(status);
