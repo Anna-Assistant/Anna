@@ -1,6 +1,6 @@
   # Anna
 ---
-### How to install ANNA
+### How to Install Anna
 
 1. Once you are on the repository page, look for the green “Clone or download” button on the right-hand side of the page.
 ![33733459-da6e1e9c-dbaf-11e7-99f3-d2777dbe37bb](https://user-images.githubusercontent.com/29461633/33744276-7760d156-dbd6-11e7-9728-85564ea072c0.png)

@@ -10,7 +10,7 @@ Please help us follow the best practice to make it easy for the reviewer as well
 
 -  Make commit messaged like a command not in past tense. For example `Add feature` not `Adding feature or Added feature`.
 
-- Reference the issue numbers in the commit message or in the comments of the Pull Request, if it resolves an open issue. Example: `Fix #<issue number> <commit message>`.
+- Reference the issue numbers in the commit message or in the comments of the Pull Request, if it resolves an open issue. Example: `Fix #<issue number> <commit  message>`.
 
 - Provide the link in the comment section of your pull request from your forked repository or relevant screenshots of the changes for easier review.
 
@@ -18,11 +18,11 @@ Please help us follow the best practice to make it easy for the reviewer as well
 
 - Avoid duplicate PRs, if need be comment on the older PR with the PR number of the follow-up (new PR) and close the obsolete PR yourself.
 
-- If you are interested in solving an issue, Comment on the issue so that it is assigned to you. If no response is there for more than 7 days, maintainers will mark the issue unassigned.
+- If you are interested in solving an issue, comment on the issue so that it is assigned to you. If no response is there for more than 7 days, maintainers will mark the issue unassigned.
 
 - Make sure you read docs once, Answers to most of your questions is already there. 
 
-- In case of suggestions for new features or bugs make an issue. Make sure you give proper title, description and relevant links.
+- In case of suggestions for new features or bugs make an issue. Make sure you give a proper title, description and relevant links.
 
-Also, we have a team of maintainers to whom you can write if your pull-request goes unnoticed. They may have time.
+Also, we have a team of maintainers to whom you can send a message to if your pull-request goes unnoticed. They may have time.
 If you need any help solving an issue feel free to reach out to us.

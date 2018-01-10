@@ -14,8 +14,19 @@
 
 Meet Anna, your very own personal assistant on [Google Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog).
 
+# A few examples of what can be done
 
-All you need to do is just say "Hey" before your requests.
+All you need to do is say "Hey" before your requests. Feel free to [add to this list.](https://github.com/Anna-Assistant/Anna/blob/master/docs/Contributing.md)
+
+| Function | What to say |
+|:-:|:-:|
+| Screenshot | Hey, take a screenshot |
+| Translate | Hey, translate bonjour |
+| Directions | Hey, Delhi to Mumbai |
+| Music | Hey, play Whatever it takes |
+| Browser | Hey, open Facebook |
+
+You can also, ask a joke, have a conversation, and much, much more. To find a full list of Anna's functions [click here](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowItWorks.md)
 
 
 Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
