@@ -12,10 +12,10 @@
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/anna_assistant)
 [![Code Helpers Badge](https://www.codetriage.com/anna-assistant/anna/badges/users.svg)](https://www.codetriage.com/anna-assistant/anna)
 
-Meet Anna, Your Personal Assistant on Google Chrome.[Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
+Meet Anna, your very own personal assistant on Google Chrome.[Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
 
 
-All you need to do is just say "Hey" before the request.
+All you need to do is just say "Hey" before your requests.
 
 
 Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
@@ -25,11 +25,11 @@ Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
 
 # FAQ
 
-- [What all can Anna do?](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowItWorks.md)
-- [How to Add new features?](https://github.com/Anna-Assistant/Anna/blob/master/docs/AdditionOfNewFeatures.md)
-- [How to install?](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowToInstallGuide.md)
-- [How are files arranged?](https://github.com/Anna-Assistant/Anna/blob/master/docs/ArrangementOfFiles.md)
-- For Opencode participants  Bitsize is 10 points, Medium 20 and Hard 30 
+- [What are all the things Anna can do?](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowItWorks.md)
+- [How to add new features?](https://github.com/Anna-Assistant/Anna/blob/master/docs/AdditionOfNewFeatures.md)
+- [How to install Anna?](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowToInstallGuide.md)
+- [How are the files arranged?](https://github.com/Anna-Assistant/Anna/blob/master/docs/ArrangementOfFiles.md)
+- For Opencode participants Bitsize is 10 points, Medium 20 and Hard 30 
 
 [https://anna-assistant.github.io/](https://anna-assistant.github.io/)
 
