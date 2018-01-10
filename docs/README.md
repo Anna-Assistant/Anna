@@ -12,7 +12,7 @@
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/anna_assistant)
 [![Code Helpers Badge](https://www.codetriage.com/anna-assistant/anna/badges/users.svg)](https://www.codetriage.com/anna-assistant/anna)
 
-Meet Anna, your very own personal assistant on Google Chrome.[Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
+Meet Anna, your very own personal assistant on [Google Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog).
 
 
 All you need to do is just say "Hey" before your requests.
