@@ -2,37 +2,37 @@
 ---
 ## How it works
 
-Anna is a smart personal assistant that's available on Google Chrome as an extension. Once the extension is installed on Chrome, make sure that Anna is activated on the extensions settings window by switching the toggle switch to on, and then you're ready to start. Just say "hey" before a request, and Anna will perform the task for you. 
-You may also check-out the status of activeness of **ANNA**.You just need to switch on the toggle button of Status Icon.
+Anna is a smart personal assistant who is available on Google Chrome as an extension. Once the extension is installed on Chrome, make sure that Anna is activated in the extensions settings window by switching the toggle switch to on, and then you're ready to roll. Just say "hey" before a request, and Anna will perform the task for you. 
+You may also check-out the status of Anna by switching on the toggle button of the Status Icon.
 
    ![anna](https://github.com/Anna-Assistant/Anna/blob/master/docs/Anna.png)
 
 
 ## What can Anna do?
 
-ANNA helps you automate all actions you normally use on a broswer. Best part is it even works even if chrome is working on your backgroud. So if you are working on something and want a quick search or play a song, use ANNA.
+Anna helps you automate all actions you would normally use on a browser. The best thing about Anna is she works even if Chrome is running in the background. So even if you are not on Chrome, and are working on something else and feel the need to play a song, ask Anna.
 
 ### Automated Actions
 
 
-* _Hey, what is this_ - Anna will perform a reverse image on your current screen
-* _Hey, take screenshot_ - Anna will take a screenshot
-* _Hey, set up a meeting with Evan at 10am today_ - Anna schedule a meeting for you
+* _Hey, what is this?_ - Anna will perform a reverse image of your current screen.
+* _Hey, take a screenshot_ - Anna will take a screenshot.
+* _Hey, set up a meeting with Evan at 10am today_ - Anna will schedule the meeting for you.
 
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Automated.png)
 
 #### REVERSE IMAGE SEARCH 
 
-Allows user to select a portion of the screen and reverse searches on Google. When you see something on the Internet and forgot what it is or wants to know what it is.
+Allows you to select a portion of the screen and reverse search it on Google. This is useful when you come across an image that you are curious to know more about.
 
 Phrases:
 
 - "What is this?" 
-- "Reverse Search"
+- "Reverse search"
 
 #### Screenshot
 
-Allows user to screenshot the whole screen or part of the screen.
+Allows you to screenshot the whole screen or part of the screen.
 
 Phrases:
 
@@ -41,7 +41,7 @@ Phrases:
 
 #### Google Calender
 
-Allows user to set reminders and meetings.
+Allows you to set reminders and meetings.
 
 Phrases: 
 
@@ -51,23 +51,23 @@ Phrases:
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Browser.png)
 ### Browser
 * _Hey, bookmark_ - Anna will bookmark your current page
-* _Hey, downloads_ - Anna will open up your downloads
-* _Hey, open facebook_ - Anna will open up Facebook
-* _Hey, open twitter_ - Anna will open up Twitter
-* _Hey, history_ - Anna will open up your browser history
+* _Hey, downloads_ - Anna will show you your downloads
+* _Hey, open facebook_ - Anna will open Facebook
+* _Hey, open twitter_ - Anna will open Twitter
+* _Hey, history_ - Anna will show you your browser history
 * _Hey, close_ - Anna will close the current tab
 * _Hey, reload_ - Anna will refresh the current tab
-* _Hey, move to 3rd tab_ - Anna will switch to 3rd tab
+* _Hey, move to third tab_ - Anna will switch to the third tab
 * _Hey, safe mode_ - Anna will open a new incognito window
 
 
 
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/Location.png)
 ### Location
-Anna is able to get directions, search up locations on the map, or find the nearest restaurants near you.
-* _Hey, Delhi to Bangaluru_ - Ann will open directions to get to Delhi to Bangaluru
-* _Hey, where is Kathmandu_ - Anna will open up a map of Kathmandu
-* _Hey, Restaurants nearby_ - Anna will look for the closest restaurant to your current location
+Anna is able to search for locations, get directions on a map, and even find restaurants near you
+* _Hey, Delhi to Bangaluru_ - Anna will show you how to go to Bangaluru, from Delhi
+* _Hey, where is Kathmandu?_ - Anna will show a map of Kathmandu
+* _Hey, Restaurants nearby_ - Anna will look for restaurants that are near your current location
 
 
 
@@ -80,7 +80,7 @@ Anna can play music videos from YouTube.
 
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/docs/social.png)
 ### Social
-Anna can also send email and post on twitter.
+Anna can also send emails and post on Twitter.
 * _Hey, mail life is awesome_ - Anna will create a draft email with the message
 * _Hey, post life is awesome_ - Anna will open up Twitter and post "life is awesome"
 
@@ -88,14 +88,14 @@ Anna can also send email and post on twitter.
 
 
 ### Weather
-Anna can check that weather at your location or anywhere around the world.
-* _Hey, what is the weather_ - Anna will display the weather at your current location
-* _Hey, what is the weather in New Delhi_ - Anna will display the current weather at New Delhi
+Anna can check that weather of your location or anywhere around the world.
+* _Hey, what is the weather?_ - Anna will show you the weather of your current location
+* _Hey, what is the weather in New Delhi?_ - Anna will show you the current weather in New Delhi
 
 ### Translate
 Anna can even translate your word/phrases into the language you wish to hear !!
-* _Hey, translate My name is Anna_ 
-* _Hey, translate HELLO_ 
+* _Hey, translate ola_ - Anna will translate the word ola
+* _Hey, translate je t'aime_ - Anna will translate je t'aime
 
 
 ### Math
@@ -106,8 +106,8 @@ Anna can also perform simple math
 
 
 ### Feeling bored
-You can also have a small conversation will Anna. Try asking Anna how she's doing, or how old she is.
-Feel unmotivated? Ask Anna for a motivation quote or a joke.The more you explore Anna the more your work will be done with ease.
+You can also have a small conversation with Anna. Try asking Anna how she's doing, or how old she is.
+Feel demotivated? Ask Anna for a motivational quote, or a even a joke! The more you explore Anna the more your work will be done with ease.
 
 Click [here](https://www.youtube.com/watch?v=17bVrAZMgEY) to watch Anna in action.
 
