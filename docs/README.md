@@ -25,7 +25,6 @@ All you need to do is say "Hey" before your requests. Feel free to [add to this 
 | Directions | Hey, Delhi to Mumbai |
 | Music | Hey, play Whatever it takes |
 | Facebook | Hey, open facebook |
-| Browser | Hey, open Facebook |
 | Bookmark | Hey, bookmark |
 | Show Download | Hey, downloads |
 | History | Hey, history |
