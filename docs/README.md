@@ -24,7 +24,19 @@ All you need to do is say "Hey" before your requests. Feel free to [add to this 
 | Translate | Hey, translate bonjour |
 | Directions | Hey, Delhi to Mumbai |
 | Music | Hey, play Whatever it takes |
-| Browser | Hey, open Facebook |
+| Open Websites | Hey, open facebook |
+| Close tabs | Hey, close|
+| Bookmark | Hey, bookmark |
+| Show Download | Hey, downloads |
+| History | Hey, history |
+| Reload | Hey, reload |
+| Incognito mode | Hey, safe mode |
+| Play random video on Youtube| Hey, play Whatever it Takes |
+| To divide 10 by 2 | Hey, 10 divided by 2 |
+| Weather of your Current location | Hey, what is the weather? |
+| Weather of New Delhi | Hey, what is the weather in New Delhi? |
+| Draft email with the message | Hey, mail life is awesome |
+| open up Twitter and post "life is awesome" | Hey, post life is awesome |
 
 You can also, ask a joke, have a conversation, and much, much more. To find a full list of Anna's functions [click here](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowItWorks.md)
 
