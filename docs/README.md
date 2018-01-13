@@ -24,7 +24,8 @@ All you need to do is say "Hey" before your requests. Feel free to [add to this 
 | Translate | Hey, translate bonjour |
 | Directions | Hey, Delhi to Mumbai |
 | Music | Hey, play Whatever it takes |
-| Facebook | Hey, open facebook |
+| Open Websites | Hey, open facebook |
+| Close tabs | Hey, close|
 | Bookmark | Hey, bookmark |
 | Show Download | Hey, downloads |
 | History | Hey, history |
