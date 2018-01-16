@@ -14,6 +14,8 @@
 
 Meet Anna, your very own personal assistant on [Google Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog).
 
+[Like the project,Please Support via Donation](https://www.patreon.com/annaassistant)
+
 # A few examples of what can be done
 
 All you need to do is say "Hey" before your requests. Feel free to [add to this list.](https://github.com/Anna-Assistant/Anna/blob/master/docs/Contributing.md)
