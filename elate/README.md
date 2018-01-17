@@ -17,9 +17,10 @@ Meet Anna, Your Personal Assistant on Google Chrome.
 All you need to do is just say "Hey" before the request.
 
 
-Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
+Watch Anna in action on [Youtube](https://youtu.be/o3xmL-TqK5o):
 
-[![Watch on Youtube](https://github.com/Anna-Assistant/Anna/blob/master/img/Youtube.png)](https://www.youtube.com/watch?v=17bVrAZMgEY)
+[![Watch on Youtube](https://github.com/Anna-Assistant/Anna/blob/master/img/Youtube.png)](https://youtu.be/o3xmL-TqK5o
+)
 
 
 # FAQ
