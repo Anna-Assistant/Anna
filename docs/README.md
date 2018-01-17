@@ -42,10 +42,12 @@ All you need to do is say "Hey" before your requests. Feel free to [add to this 
 
 You can also, ask a joke, have a conversation, and much, much more. To find a full list of Anna's functions [click here](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowItWorks.md)
 
+Watch Anna in action on [Youtube](https://youtu.be/o3xmL-TqK5o):
 
-Watch Anna in action on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY):
+[![Watch on Youtube](https://github.com/Anna-Assistant/Anna/blob/master/img/Youtube.png)](https://youtu.be/o3xmL-TqK5o
+)
 
-[![Watch on Youtube](https://github.com/Anna-Assistant/Anna/blob/master/img/Youtube.png)](https://www.youtube.com/watch?v=17bVrAZMgEY)
+More videos on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY).
 
 
 # FAQ
