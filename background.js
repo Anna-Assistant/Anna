@@ -359,8 +359,8 @@ $(document).ready(function() {
                   takeScreenshot();
               } else if (data.result.metadata.intentName == "reversesearch") {
                   reverseSearch();
-              } else if (data.result.metadata.intentName == "ducky") {
-                  duckduckgoOrGoogle(data.result.parameters.any);
+            //   } else if (data.result.metadata.intentName == "ducky") {
+            //       duckduckgoOrGoogle(data.result.parameters.any);
               } else if (data.result.source == "domains") {
                   setResponse(data.result.fulfillment.speech);
                   // alert(data.result.fulfillment.speech);
@@ -375,11 +375,29 @@ $(document).ready(function() {
                   });
                   Speech("closing");
               } else {
-                  // setResponse(data.result.fulfillment.speech);
-                  chrome.tabs.create({
-                      'url': 'http://google.com/search?q=' + txt
-                  });
-                  // chrome.tabs.create({ 'url': 'http://google.com/search?q=' + txt });
+                chrome.tabs.create({
+                    'url': 'http://google.com/search?q=' + txt
+                });
+                chrome.tabs.executeScript({
+                    code: "document.getElementsByClassName('_XWk')[0].innerHTML;"
+                }, function(selection) { //_XWk
+                    //alert(selection[0]);
+                    if (selection[0] === null) {
+                        chrome.tabs.executeScript({
+                            code: "var rex = /(<([^>]+)>)/ig; document.getElementsByClassName('_Tgc')[0].innerHTML.replace(rex,'').split('.')[0];"
+                        }, function(sl) {
+                            if (sl[0] === null) {
+                                chrome.tabs.executeScript({
+                                    code: "var rex = /(<([^>]+)>)/ig; document.getElementsByClassName('st')[0].innerHTML.replace(rex,'').split('.')[0];"
+                                }, function(sl2) {
+                                    Speech("According to Google " + sl2[0]);
+                                });
+                            } else
+                                Speech("According to Google " + sl[0]);
+                        });
+                    } else
+                        Speech(selection[0]);
+                });
               }
           },
           error: function() {
