@@ -27,7 +27,7 @@ More videos on [Youtube](https://www.youtube.com/watch?v=17bVrAZMgEY).
 - [How to add new features?](https://github.com/Anna-Assistant/Anna/blob/master/docs/AdditionOfNewFeatures.md)
 - [How to install Anna?](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowToInstallGuide.md)
 - [How are the files arranged?](https://github.com/Anna-Assistant/Anna/blob/master/docs/ArrangementOfFiles.md)
-- For Opencode participants Bitsize is 10 points, Medium 20 and Hard 30 
+
 
 [https://anna-assistant.github.io/](https://anna-assistant.github.io/)
 
