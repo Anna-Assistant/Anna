@@ -374,6 +374,10 @@ $(document).ready(function() {
                       //alert(tab.url);
                   });
                   Speech("closing");
+              } else if (data.result.metadata.intentName === "cache") {
+                  chrome.tabs.create({
+                      'url': 'chrome://settings/clearBrowserData'
+                  });
               } else {
                 chrome.tabs.create({
                     'url': 'http://google.com/search?q=' + txt
