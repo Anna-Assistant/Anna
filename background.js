@@ -10,7 +10,7 @@ $(document).ready(function() {
   var talking = true;
   var recognition;
   var txt;
-  var id = 1; //for screenshots
+  var screenshotId = 1;
   var status = "active"; //for storing listening status
   startRecognition();
   checkOnline();
@@ -542,7 +542,7 @@ function swapTab() {
   function takeScreenshot() {
 
       chrome.tabs.captureVisibleTab(function(screenshotUrl) {
-          var viewTabUrl = chrome.extension.getURL('screenshot.html?id=' + id++)
+          var viewTabUrl = chrome.extension.getURL('screenshot.html?id=' + screenshotId++)
           var targetId = null;
 
           //asking for image crop from user
