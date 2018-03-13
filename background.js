@@ -718,7 +718,7 @@ function swapTab() {
       var url = "http://horoscope-api.herokuapp.com/horoscope/today/"+sign;
       var linkUrl = "https://www.ganeshaspeaks.com/horoscopes/daily-horoscope/"+sign;
       var responseText = "Today's horoscope for "+sign+", ";
-     $.getJSON(quoteUrl, function(data) {
+     $.getJSON(url, function(data) {
           setResponse(responseText+data.horoscope);
           chrome.tabs.create({
               'url': linkUrl
