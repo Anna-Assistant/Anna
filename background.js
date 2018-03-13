@@ -395,6 +395,8 @@ $(document).ready(function() {
                   chrome.tabs.create({
                       'url': 'chrome://settings/clearBrowserData'
                   });
+              } else if (data.result.metadata.intentName == "horoscope") {
+                  getHoroscope(data.result.parameters.any);
               } else {
                 chrome.tabs.create({
                     'url': 'http://google.com/search?q=' + txt
@@ -708,6 +710,22 @@ function swapTab() {
       }).fail(function() {
           chrome.tabs.create({
               'url': 'https://forismatic.com/en/homepage'
+          });
+      });
+  }
+
+  function getHoroscope(sign) {
+      var url = "http://horoscope-api.herokuapp.com/horoscope/today/"+sign;
+      var linkUrl = "https://www.ganeshaspeaks.com/horoscopes/daily-horoscope/"+sign;
+      var responseText = "Today's horoscope for "+sign+", ";
+     $.getJSON(quoteUrl, function(data) {
+          setResponse(responseText+data.horoscope);
+          chrome.tabs.create({
+              'url': linkUrl
+          });
+      }).fail(function() {
+          chrome.tabs.create({
+              'url': linkUrl
           });
       });
   }
