@@ -11,7 +11,6 @@ $(document).ready(function() {
   var recognition;
   var txt;
   var id = 1; //for screenshots
-  var voicetrigger;
   var status = "active"; //for storing listening status
   startRecognition();
   checkOnline();
