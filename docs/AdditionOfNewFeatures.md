@@ -12,7 +12,7 @@ Once you open the `background.js` file you will find under _tasks()_ function th
 > }else if (data.result.metadata.intentName === "INTENT_NAME") {  
 > action to be performed.
 
-The usage of `else if` statement is for obvious reasons, it checks for the Intent by it's name and accordingly performs the operation. 
+The usage of `else if` statement is for obvious reasons, it checks for the Intent by it's name and accordingly performs the operation. Remember to submit a pull-request or comment on the open issue of feature addition in order for the corresponding API agent that parses the speech to be modified to include your intent (that goes in tasks), otherwise it will fail. Preferably before you start working on it, so that you can test before you submit a pull request!
 
 #### NAMING CONVENTION
 We all love consistency in the code. In order to tweak code or modify we ensure that we should not get confused by the thousands of lines of code, therefore we use a particular naming convention. We are proud to say that we too follow a particular naming convention with proper indentation of code so that a new contributor does not get confused with the flow of the code amd can easily contribute to the project.

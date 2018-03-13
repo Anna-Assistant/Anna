@@ -103,7 +103,9 @@ Anna can also perform simple math
 * _Hey, 10 divided by 2_ - Anna will shows the result of 10 / 2
 * _Hey, 25 minus 5_ - Anna will shows the result of 25 - 5
 
-
+### Horoscope
+Anna can also pull up your daily horoscope for you!
+* _Hey, horoscope for aries_ - Anna will read your horoscope out loud, and redirect you to the page
 
 ### Feeling bored
 You can also have a small conversation with Anna. Try asking Anna how she's doing, or how old she is.
