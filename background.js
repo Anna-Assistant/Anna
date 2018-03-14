@@ -13,6 +13,7 @@ $(document).ready(function() {
   var screenshotId = 1;
   var status = "active"; //for storing listening status
   var debug = false;
+  var our_trigger = "hey ";
   startRecognition();
   checkOnline();
 
@@ -153,7 +154,7 @@ $(document).ready(function() {
                   }
               };
               recognition.onend = function() {
-                  var our_trigger = "hey ";
+                  
 
                   if (text.toLowerCase() === our_trigger.toLowerCase()) {
                       changeStatus("active");
@@ -261,12 +262,12 @@ $(document).ready(function() {
         alert('you said ' + txt);
         setResponse('you said ' + txt);
         console.log('user said ' + txt);
-        txt = txt.replace('hey ', '');
+        txt = txt.replace(our_trigger, '');
         alert(txt);
         tasks();
       }
       else{
-        txt = txt.replace('hey ', '');
+        txt = txt.replace(our_trigger, '');
         tasks();
       }
   }
