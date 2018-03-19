@@ -107,6 +107,10 @@ Anna can also perform simple math
 Anna can also pull up your daily horoscope for you!
 * _Hey, horoscope for aries_ - Anna will read your horoscope out loud, and redirect you to the page
 
+### Word of the Day
+Anna can also help you expand your vocabulary! 
+* _Hey, word of the day_ - Anna will read out the word of the day, and redirect you to the page
+
 ### Feeling bored
 You can also have a small conversation with Anna. Try asking Anna how she's doing, or how old she is.
 Feel demotivated? Ask Anna for a motivational quote, or a even a joke! The more you explore Anna the more your work will be done with ease.
