@@ -13,6 +13,8 @@ $(document).ready(function() {
   var screenshotId = 1;
   var status = "active"; //for storing listening status
   var debug = false;
+  var our_trigger = "hey ";
+  var wordnikAPIKey = "";
   startRecognition();
   checkOnline();
 
@@ -153,7 +155,7 @@ $(document).ready(function() {
                   }
               };
               recognition.onend = function() {
-                  var our_trigger = "hey ";
+                  
 
                   if (text.toLowerCase() === our_trigger.toLowerCase()) {
                       changeStatus("active");
@@ -261,12 +263,12 @@ $(document).ready(function() {
         alert('you said ' + txt);
         setResponse('you said ' + txt);
         console.log('user said ' + txt);
-        txt = txt.replace('hey ', '');
+        txt = txt.replace(our_trigger, '');
         alert(txt);
         tasks();
       }
       else{
-        txt = txt.replace('hey ', '');
+        txt = txt.replace(our_trigger, '');
         tasks();
       }
   }
@@ -397,6 +399,9 @@ $(document).ready(function() {
                   });
               } else if (data.result.metadata.intentName == "horoscope") {
                   getHoroscope(data.result.parameters.any);
+              }
+              else if (data.result.metadata.intentName == "wotd") {
+                  getWOTD();
               } else {
                 chrome.tabs.create({
                     'url': 'http://google.com/search?q=' + txt
@@ -726,6 +731,21 @@ function swapTab() {
       }).fail(function() {
           chrome.tabs.create({
               'url': linkUrl
+          });
+      });
+  }
+
+  function getWOTD() {
+      var wotdURL = 'http://api.wordnik.com/v4/words.json/wordOfTheDay?api_key='+wordnikAPIKey;
+      $.getJSON(wotdURL, function(data) {
+          var wotdResponse = data.word + " means " + data.definitions.text;
+          setResponse(wotdResponse);
+          chrome.tabs.create({
+              'url': 'https://www.wordnik.com/word-of-the-day'
+          });
+      }).fail(function() {
+          chrome.tabs.create({
+              'url': 'https://www.wordnik.com/word-of-the-day'
           });
       });
   }
