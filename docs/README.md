@@ -10,8 +10,9 @@
 
 Meet Anna, your very own personal assistant on [Google Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog).
 
-[Donate on patreon](https://www.patreon.com/annaassistant)
+<a href="https://www.buymeacoffee.com/MqTYEIw" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
+<a href="https://paypal.me/gauthamzz" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Pay Pal" style="height: auto !important;width: auto !important;" ></a>
 
 Watch Anna in action on [Youtube](https://youtu.be/o3xmL-TqK5o):
 
