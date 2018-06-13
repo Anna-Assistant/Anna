@@ -370,6 +370,10 @@ $(document).ready(function() {
                   chrome.tabs.create({
                       'url': "https://www.google.com/maps/?q=" + data.result.parameters.any
                   });
+              } else if (data.result.metadata.intentName === "lyrics") {
+                  chrome.tabs.create({
+                      'url': "https://www.google.com/search?q=lyrics+for+" + data.result.parameters.any + "&btnI"
+                  });
               } else if (data.result.metadata.intentName == "weather") {
                   weather(data.result.parameters.any);
               } else if (data.result.metadata.intentName == "screenshot") {
