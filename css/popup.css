@@ -327,7 +327,7 @@ a:active {
 
 .mdl-tabs__panel {
     height: 180px;
-    overflow-y: auto
+    overflow-y: hidden
 }
 
 #settings h5 {
