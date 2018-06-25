@@ -15,8 +15,13 @@ $(document).ready(function() {
   var debug = false;
   var our_trigger = "hey ";
   var wordnikAPIKey = "";
+  var voices;
+  var currentVoice;
   startRecognition();
   checkOnline();
+  if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = populateVoiceList;
+  }
 
   //first time when application will be loaded
   chrome.storage.local.get( /* String or Array */ ["firsttime"], function(items2) {
@@ -81,6 +86,7 @@ $(document).ready(function() {
   function checkOnline() {
       if (!navigator.onLine && !offline) {
           offline = true;
+        //   voices = [];
           chrome.storage.local.set({
               "onoffswitch": "false"
           }, function() {
@@ -822,6 +828,43 @@ function swapTab() {
           });
   }
 
+  function populateVoiceList() {
+    if(typeof speechSynthesis === 'undefined') {
+      return;
+    }
+  
+    voices = speechSynthesis.getVoices();
+  
+    for(i = 0; i < voices.length ; i++) {
+      var option = document.createElement('option');
+      option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+      
+      if(voices[i].default) {
+        option.textContent += ' -- DEFAULT';
+      }
+  
+      option.setAttribute('data-lang', voices[i].lang);
+      option.setAttribute('data-name', voices[i].name);
+      document.getElementById("voiceSelect").appendChild(option);
+    }
+
+
+    currentVoice = JSON.parse(localStorage.getItem('currentVoice_Anna'));
+    if(currentVoice){
+        document.getElementById("voiceSelect").selectedIndex = currentVoice.index;
+    }
+      
+
+    $(function () {
+        $("#voiceSelect").on('change', function() {
+            currentVoice = jQuery.extend({}, voices[this.selectedIndex]);
+            currentVoice.index = this.selectedIndex;
+            localStorage.setItem('currentVoice_Anna', JSON.stringify(currentVoice));
+          });
+    });
+
+  }
+
 
   function setResponse(val) {
       Speech(val);
@@ -831,7 +874,13 @@ function swapTab() {
       if ('speechSynthesis' in window && talking) {
           var language = window.navigator.userLanguage || window.navigator.language;
           var utterance = new SpeechSynthesisUtterance(say);
-          if (timevocal == 1) {
+          currentVoice = JSON.parse(localStorage.getItem('currentVoice_Anna'));
+          if(currentVoice){
+              utterance.volume = 1; // 0 to 1
+              utterance.pitch = 0; //0 to 2
+              utterance.voice = voices[currentVoice.index];
+              speechSynthesis.speak(utterance);
+          }else if (timevocal == 1) {
               utterance.volume = 1; // 0 to 1
               utterance.pitch = 0; //0 to 2
               utterance.voiceURI = 'native';
@@ -847,4 +896,6 @@ function swapTab() {
           }
       }
   }
+
+
 });
