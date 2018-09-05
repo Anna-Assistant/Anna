@@ -618,7 +618,6 @@ $(document).ready(function() {
       { code: "wa", name: "Walloon", nativeName: "Walon" },
       { code: "cy", name: "Welsh", nativeName: "Cymraeg" },
       { code: "wo", name: "Wolof", nativeName: "Wollof" },
-      { code: "fy", name: "Western Frisian", nativeName: "Frysk" },
       { code: "xh", name: "Xhosa", nativeName: "isiXhosa" },
       { code: "yi", name: "Yiddish", nativeName: "ייִדיש" },
       { code: "yo", name: "Yoruba", nativeName: "Yorùbá" },
@@ -628,7 +627,6 @@ $(document).ready(function() {
         nativeName: "Saɯ cueŋƅ, Saw cuengh"
       }
     ];
-
     var lang;
     var index = command.search("into");
     if (index < 0) {
