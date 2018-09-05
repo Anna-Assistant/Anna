@@ -339,9 +339,30 @@ $(document).ready(function() {
                       'url': 'chrome://downloads'
                   });
               } else if (data.result.metadata.intentName === "translate") {
-                  chrome.tabs.create({
-                      'url': 'https://translate.google.com/#auto/en/data.result.parameters.any'
-                  });
+                   $.getJSON("language_code.json", function(json) {
+const command=data.result.parameters.any
+const index=command.search('into');
+index=index  < 0 ? index+5 : command.search('to')+3;
+const lang=command.substring(index).replace(
+    /\w\S*/g,
+    function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+);
+for (var i of json)
+
+{
+    if(i.name=lang){
+        
+        chrome.tabs.create({
+            'url': 'https://translate.google.com/#auto/'+i.code+/'+data.result.parameters.any
+        });
+        break;
+    }
+}
+
+ 
+});
               } else if (data.result.metadata.intentName === "mail") {
                   chrome.tabs.create({
                       'url': "https://mail.google.com/mail/?view=cm&fs=1&body=" + data.result.parameters.any
