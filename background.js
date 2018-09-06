@@ -12,7 +12,7 @@ $(document).ready(function() {
   var screenshotId = 1;
   var status = "active"; //for storing listening status
   var debug = false;
-  var our_trigger = "hey ";
+  var our_trigger = "ok ";
   var wordnikAPIKey = "";
   var voices;
   var currentVoice;
@@ -310,344 +310,212 @@ $(document).ready(function() {
     }
   }
   function translate_(command) {
-    const json = [
-      { code: "ab", name: "Abkhaz", nativeName: "аҧсуа" },
-      { code: "aa", name: "Afar", nativeName: "Afaraf" },
-      { code: "af", name: "Afrikaans", nativeName: "Afrikaans" },
-      { code: "ak", name: "Akan", nativeName: "Akan" },
-      { code: "sq", name: "Albanian", nativeName: "Shqip" },
-      { code: "am", name: "Amharic", nativeName: "አማርኛ" },
-      { code: "ar", name: "Arabic", nativeName: "العربية" },
-      { code: "an", name: "Aragonese", nativeName: "Aragonés" },
-      { code: "hy", name: "Armenian", nativeName: "Հայերեն" },
-      { code: "as", name: "Assamese", nativeName: "অসমীয়া" },
-      {
-        code: "av",
-        name: "Avaric",
-        nativeName: "авар мацӀ, магӀарул мацӀ"
-      },
-      { code: "ae", name: "Avestan", nativeName: "avesta" },
-      { code: "ay", name: "Aymara", nativeName: "aymar aru" },
-      { code: "az", name: "Azerbaijani", nativeName: "azərbaycan dili" },
-      { code: "bm", name: "Bambara", nativeName: "bamanankan" },
-      { code: "ba", name: "Bashkir", nativeName: "башҡорт теле" },
-      { code: "eu", name: "Basque", nativeName: "euskara, euskera" },
-      { code: "be", name: "Belarusian", nativeName: "Беларуская" },
-      { code: "bn", name: "Bengali", nativeName: "বাংলা" },
-      { code: "bh", name: "Bihari", nativeName: "भोजपुरी" },
-      { code: "bi", name: "Bislama", nativeName: "Bislama" },
-      { code: "bs", name: "Bosnian", nativeName: "bosanski jezik" },
-      { code: "br", name: "Breton", nativeName: "brezhoneg" },
-      { code: "bg", name: "Bulgarian", nativeName: "български език" },
-      { code: "my", name: "Burmese", nativeName: "ဗမာစာ" },
-      { code: "ca", name: "Catalan; Valencian", nativeName: "Català" },
-      { code: "ch", name: "Chamorro", nativeName: "Chamoru" },
-      { code: "ce", name: "Chechen", nativeName: "нохчийн мотт" },
-      {
-        code: "ny",
-        name: "Chichewa; Chewa; Nyanja",
-        nativeName: "chiCheŵa, chinyanja"
-      },
-      {
-        code: "zh",
-        name: "Chinese",
-        nativeName: "中文 (Zhōngwén), 汉语, 漢語"
-      },
-      { code: "cv", name: "Chuvash", nativeName: "чӑваш чӗлхи" },
-      { code: "kw", name: "Cornish", nativeName: "Kernewek" },
-      { code: "co", name: "Corsican", nativeName: "corsu, lingua corsa" },
-      { code: "cr", name: "Cree", nativeName: "ᓀᐦᐃᔭᐍᐏᐣ" },
-      { code: "hr", name: "Croatian", nativeName: "hrvatski" },
-      { code: "cs", name: "Czech", nativeName: "česky, čeština" },
-      { code: "da", name: "Danish", nativeName: "dansk" },
-      {
-        code: "dv",
-        name: "Divehi; Dhivehi; Maldivian;",
-        nativeName: "ދިވެހި"
-      },
-      { code: "nl", name: "Dutch", nativeName: "Nederlands, Vlaams" },
-      { code: "en", name: "English", nativeName: "English" },
-      { code: "eo", name: "Esperanto", nativeName: "Esperanto" },
-      { code: "et", name: "Estonian", nativeName: "eesti, eesti keel" },
-      { code: "ee", name: "Ewe", nativeName: "Eʋegbe" },
-      { code: "fo", name: "Faroese", nativeName: "føroyskt" },
-      { code: "fj", name: "Fijian", nativeName: "vosa Vakaviti" },
-      { code: "fi", name: "Finnish", nativeName: "suomi, suomen kieli" },
-      {
-        code: "fr",
-        name: "French",
-        nativeName: "français, langue française"
-      },
-      {
-        code: "ff",
-        name: "Fula; Fulah; Pulaar; Pular",
-        nativeName: "Fulfulde, Pulaar, Pular"
-      },
-      { code: "gl", name: "Galician", nativeName: "Galego" },
-      { code: "ka", name: "Georgian", nativeName: "ქართული" },
-      { code: "de", name: "German", nativeName: "Deutsch" },
-      { code: "el", name: "Greek, Modern", nativeName: "Ελληνικά" },
-      { code: "gn", name: "Guaraní", nativeName: "Avañeẽ" },
-      { code: "gu", name: "Gujarati", nativeName: "ગુજરાતી" },
-      {
-        code: "ht",
-        name: "Haitian; Haitian Creole",
-        nativeName: "Kreyòl ayisyen"
-      },
-      { code: "ha", name: "Hausa", nativeName: "Hausa, هَوُسَ" },
-      { code: "he", name: "Hebrew (modern)", nativeName: "עברית" },
-      { code: "hz", name: "Herero", nativeName: "Otjiherero" },
-      { code: "hi", name: "Hindi", nativeName: "हिन्दी, हिंदी" },
-      { code: "ho", name: "Hiri Motu", nativeName: "Hiri Motu" },
-      { code: "hu", name: "Hungarian", nativeName: "Magyar" },
-      { code: "ia", name: "Interlingua", nativeName: "Interlingua" },
-      { code: "id", name: "Indonesian", nativeName: "Bahasa Indonesia" },
-      {
-        code: "ie",
-        name: "Interlingue",
-        nativeName: "Originally called Occidental; then Interlingue after WWII"
-      },
-      { code: "ga", name: "Irish", nativeName: "Gaeilge" },
-      { code: "ig", name: "Igbo", nativeName: "Asụsụ Igbo" },
-      { code: "ik", name: "Inupiaq", nativeName: "Iñupiaq, Iñupiatun" },
-      { code: "io", name: "Ido", nativeName: "Ido" },
-      { code: "is", name: "Icelandic", nativeName: "Íslenska" },
-      { code: "it", name: "Italian", nativeName: "Italiano" },
-      { code: "iu", name: "Inuktitut", nativeName: "ᐃᓄᒃᑎᑐᑦ" },
-      {
-        code: "ja",
-        name: "Japanese",
-        nativeName: "日本語 (にほんご／にっぽんご)"
-      },
-      { code: "jv", name: "Javanese", nativeName: "basa Jawa" },
-      {
-        code: "kl",
-        name: "Kalaallisut, Greenlandic",
-        nativeName: "kalaallisut, kalaallit oqaasii"
-      },
-      { code: "kn", name: "Kannada", nativeName: "ಕನ್ನಡ" },
-      { code: "kr", name: "Kanuri", nativeName: "Kanuri" },
-      { code: "ks", name: "Kashmiri", nativeName: "कश्मीरी, كشميري‎" },
-      { code: "kk", name: "Kazakh", nativeName: "Қазақ тілі" },
-      { code: "km", name: "Khmer", nativeName: "ភាសាខ្មែរ" },
-      { code: "ki", name: "Kikuyu, Gikuyu", nativeName: "Gĩkũyũ" },
-      { code: "rw", name: "Kinyarwanda", nativeName: "Ikinyarwanda" },
-      { code: "ky", name: "Kirghiz, Kyrgyz", nativeName: "кыргыз тили" },
-      { code: "kv", name: "Komi", nativeName: "коми кыв" },
-      { code: "kg", name: "Kongo", nativeName: "KiKongo" },
-      {
-        code: "ko",
-        name: "Korean",
-        nativeName: "한국어 (韓國語), 조선말 (朝鮮語)"
-      },
-      { code: "ku", name: "Kurdish", nativeName: "Kurdî, كوردی‎" },
-      { code: "kj", name: "Kwanyama, Kuanyama", nativeName: "Kuanyama" },
-      { code: "la", name: "Latin", nativeName: "latine, lingua latina" },
-      {
-        code: "lb",
-        name: "Luxembourgish, Letzeburgesch",
-        nativeName: "Lëtzebuergesch"
-      },
-      { code: "lg", name: "Luganda", nativeName: "Luganda" },
-      {
-        code: "li",
-        name: "Limburgish, Limburgan, Limburger",
-        nativeName: "Limburgs"
-      },
-      { code: "ln", name: "Lingala", nativeName: "Lingála" },
-      { code: "lo", name: "Lao", nativeName: "ພາສາລາວ" },
-      { code: "lt", name: "Lithuanian", nativeName: "lietuvių kalba" },
-      { code: "lu", name: "Luba-Katanga", nativeName: "" },
-      { code: "lv", name: "Latvian", nativeName: "latviešu valoda" },
-      { code: "gv", name: "Manx", nativeName: "Gaelg, Gailck" },
-      { code: "mk", name: "Macedonian", nativeName: "македонски јазик" },
-      { code: "mg", name: "Malagasy", nativeName: "Malagasy fiteny" },
-      {
-        code: "ms",
-        name: "Malay",
-        nativeName: "bahasa Melayu, بهاس ملايو‎"
-      },
-      { code: "ml", name: "Malayalam", nativeName: "മലയാളം" },
-      { code: "mt", name: "Maltese", nativeName: "Malti" },
-      { code: "mi", name: "Māori", nativeName: "te reo Māori" },
-      { code: "mr", name: "Marathi (Marāṭhī)", nativeName: "मराठी" },
-      { code: "mh", name: "Marshallese", nativeName: "Kajin M̧ajeļ" },
-      { code: "mn", name: "Mongolian", nativeName: "монгол" },
-      { code: "na", name: "Nauru", nativeName: "Ekakairũ Naoero" },
-      {
-        code: "nv",
-        name: "Navajo, Navaho",
-        nativeName: "Diné bizaad, Dinékʼehǰí"
-      },
-      {
-        code: "nb",
-        name: "Norwegian Bokmål",
-        nativeName: "Norsk bokmål"
-      },
-      { code: "nd", name: "North Ndebele", nativeName: "isiNdebele" },
-      { code: "ne", name: "Nepali", nativeName: "नेपाली" },
-      { code: "ng", name: "Ndonga", nativeName: "Owambo" },
-      {
-        code: "nn",
-        name: "Norwegian Nynorsk",
-        nativeName: "Norsk nynorsk"
-      },
-      { code: "no", name: "Norwegian", nativeName: "Norsk" },
-      { code: "ii", name: "Nuosu", nativeName: "ꆈꌠ꒿ Nuosuhxop" },
-      { code: "nr", name: "South Ndebele", nativeName: "isiNdebele" },
-      { code: "oc", name: "Occitan", nativeName: "Occitan" },
-      { code: "oj", name: "Ojibwe, Ojibwa", nativeName: "ᐊᓂᔑᓈᐯᒧᐎᓐ" },
-      {
-        code: "cu",
-        name:
-          "Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic",
-        nativeName: "ѩзыкъ словѣньскъ"
-      },
-      { code: "om", name: "Oromo", nativeName: "Afaan Oromoo" },
-      { code: "or", name: "Oriya", nativeName: "ଓଡ଼ିଆ" },
-      { code: "os", name: "Ossetian, Ossetic", nativeName: "ирон æвзаг" },
-      {
-        code: "pa",
-        name: "Panjabi, Punjabi",
-        nativeName: "ਪੰਜਾਬੀ, پنجابی‎"
-      },
-      { code: "pi", name: "Pāli", nativeName: "पाऴि" },
-      { code: "fa", name: "Persian", nativeName: "فارسی" },
-      { code: "pl", name: "Polish", nativeName: "polski" },
-      { code: "ps", name: "Pashto, Pushto", nativeName: "پښتو" },
-      { code: "pt", name: "Portuguese", nativeName: "Português" },
-      { code: "qu", name: "Quechua", nativeName: "Runa Simi, Kichwa" },
-      { code: "rm", name: "Romansh", nativeName: "rumantsch grischun" },
-      { code: "rn", name: "Kirundi", nativeName: "kiRundi" },
-      {
-        code: "ro",
-        name: "Romanian, Moldavian, Moldovan",
-        nativeName: "română"
-      },
-      { code: "ru", name: "Russian", nativeName: "русский язык" },
-      {
-        code: "sa",
-        name: "Sanskrit (Saṁskṛta)",
-        nativeName: "संस्कृतम्"
-      },
-      { code: "sc", name: "Sardinian", nativeName: "sardu" },
-      { code: "sd", name: "Sindhi", nativeName: "सिन्धी, سنڌي، سندھی‎" },
-      {
-        code: "se",
-        name: "Northern Sami",
-        nativeName: "Davvisámegiella"
-      },
-      { code: "sm", name: "Samoan", nativeName: "gagana faa Samoa" },
-      { code: "sg", name: "Sango", nativeName: "yângâ tî sängö" },
-      { code: "sr", name: "Serbian", nativeName: "српски језик" },
-      {
-        code: "gd",
-        name: "Scottish Gaelic; Gaelic",
-        nativeName: "Gàidhlig"
-      },
-      { code: "sn", name: "Shona", nativeName: "chiShona" },
-      { code: "si", name: "Sinhala, Sinhalese", nativeName: "සිංහල" },
-      { code: "sk", name: "Slovak", nativeName: "slovenčina" },
-      { code: "sl", name: "Slovene", nativeName: "slovenščina" },
-      {
-        code: "so",
-        name: "Somali",
-        nativeName: "Soomaaliga, af Soomaali"
-      },
-      { code: "st", name: "Southern Sotho", nativeName: "Sesotho" },
-      {
-        code: "es",
-        name: "Spanish",
-        nativeName: "español, castellano"
-      },
-      { code: "su", name: "Sundanese", nativeName: "Basa Sunda" },
-      { code: "sw", name: "Swahili", nativeName: "Kiswahili" },
-      { code: "ss", name: "Swati", nativeName: "SiSwati" },
-      { code: "sv", name: "Swedish", nativeName: "svenska" },
-      { code: "ta", name: "Tamil", nativeName: "தமிழ்" },
-      { code: "te", name: "Telugu", nativeName: "తెలుగు" },
-      {
-        code: "tg",
-        name: "Tajik",
-        nativeName: "тоҷикӣ, toğikī, تاجیکی‎"
-      },
-      { code: "th", name: "Thai", nativeName: "ไทย" },
-      { code: "ti", name: "Tigrinya", nativeName: "ትግርኛ" },
-      {
-        code: "bo",
-        name: "Tibetan",
-        nativeName: "བོད་ཡིག"
-      },
-      { code: "tk", name: "Turkmen", nativeName: "Türkmen, Түркмен" },
-      {
-        code: "tl",
-        name: "Tagalog",
-        nativeName: "Wikang Tagalog, ᜏᜒᜃᜅ᜔ ᜆᜄᜎᜓᜄ᜔"
-      },
-      { code: "tn", name: "Tswana", nativeName: "Setswana" },
-      {
-        code: "to",
-        name: "Tonga",
-        nativeName: "faka Tonga"
-      },
-      { code: "tr", name: "Turkish", nativeName: "Türkçe" },
-      { code: "ts", name: "Tsonga", nativeName: "Xitsonga" },
-      {
-        code: "tt",
-        name: "Tatar",
-        nativeName: "татарча, tatarça, تاتارچا‎"
-      },
-      { code: "tw", name: "Twi", nativeName: "Twi" },
-      { code: "ty", name: "Tahitian", nativeName: "Reo Tahiti" },
-      {
-        code: "ug",
-        name: "Uighur",
-        nativeName: "Uyƣurqə, ئۇيغۇرچە‎"
-      },
-      {
-        code: "ug",
-        name: "Uyghur",
-        nativeName: "Uyƣurqə, ئۇيغۇرچە‎"
-      },
-      { code: "uk", name: "Ukrainian", nativeName: "українська" },
-      { code: "ur", name: "Urdu", nativeName: "اردو" },
-      { code: "uz", name: "Uzbek", nativeName: "zbek, Ўзбек, أۇزبېك‎" },
-      { code: "ve", name: "Venda", nativeName: "Tshivenḓa" },
-      { code: "vi", name: "Vietnamese", nativeName: "Tiếng Việt" },
-      { code: "vo", name: "Volapük", nativeName: "Volapük" },
-      { code: "wa", name: "Walloon", nativeName: "Walon" },
-      { code: "cy", name: "Welsh", nativeName: "Cymraeg" },
-      { code: "wo", name: "Wolof", nativeName: "Wollof" },
-      { code: "xh", name: "Xhosa", nativeName: "isiXhosa" },
-      { code: "yi", name: "Yiddish", nativeName: "ייִדיש" },
-      { code: "yo", name: "Yoruba", nativeName: "Yorùbá" },
-      {
-        code: "za",
-        name: "Zhuang",
-        nativeName: "Saɯ cueŋƅ, Saw cuengh"
-      }
+    // language codes
+    const language_code = [
+      { code: "ab", name: "abkhaz" },
+      { code: "aa", name: "afar" },
+      { code: "af", name: "afrikaans" },
+      { code: "ak", name: "akan" },
+      { code: "sq", name: "albanian" },
+      { code: "am", name: "amharic" },
+      { code: "ar", name: "arabic" },
+      { code: "an", name: "aragonese" },
+      { code: "hy", name: "armenian" },
+      { code: "as", name: "assamese" },
+      { code: "av", name: "avaric" },
+      { code: "ae", name: "avestan" },
+      { code: "ay", name: "aymara" },
+      { code: "az", name: "azerbaijani" },
+      { code: "bm", name: "bambara" },
+      { code: "ba", name: "bashkir" },
+      { code: "eu", name: "basque" },
+      { code: "be", name: "belarusian" },
+      { code: "bn", name: "bengali" },
+      { code: "bh", name: "bihari" },
+      { code: "bi", name: "bislama" },
+      { code: "bs", name: "bosnian" },
+      { code: "br", name: "breton" },
+      { code: "bg", name: "bulgarian" },
+      { code: "my", name: "burmese" },
+      { code: "ca", name: "catalan; valencian" },
+      { code: "ch", name: "chamorro" },
+      { code: "ce", name: "chechen" },
+      { code: "ny", name: "chichewa; chewa; nyanja" },
+      { code: "zh-CN", name: "chinese" },
+      { code: "cv", name: "chuvash" },
+      { code: "kw", name: "cornish" },
+      { code: "co", name: "corsican" },
+      { code: "cr", name: "cree" },
+      { code: "hr", name: "croatian" },
+      { code: "cs", name: "czech" },
+      { code: "da", name: "danish" },
+      { code: "dv", name: "divehi" },
+      { code: "nl", name: "dutch" },
+      { code: "en", name: "english" },
+      { code: "eo", name: "esperanto" },
+      { code: "et", name: "estonian" },
+      { code: "ee", name: "ewe" },
+      { code: "fo", name: "faroese" },
+      { code: "fj", name: "fijian" },
+      { code: "fi", name: "finnish" },
+      { code: "fr", name: "french" },
+      { code: "ff", name: "fula" },
+      { code: "gl", name: "galician" },
+      { code: "ka", name: "georgian" },
+      { code: "de", name: "german" },
+      { code: "el", name: "greek" },
+      { code: "gn", name: "guaran\u00ed" },
+      { code: "gu", name: "gujarati" },
+      { code: "ht", name: "haitian" },
+      { code: "ha", name: "hausa" },
+      { code: "he", name: "hebrew" },
+      { code: "hz", name: "herero" },
+      { code: "hi", name: "hindi" },
+      { code: "ho", name: "hiri motu" },
+      { code: "hu", name: "hungarian" },
+      { code: "ia", name: "interlingua" },
+      { code: "id", name: "indonesian" },
+      { code: "ie", name: "interlingue" },
+      { code: "ga", name: "irish" },
+      { code: "ig", name: "igbo" },
+      { code: "ik", name: "inupiaq" },
+      { code: "io", name: "ido" },
+      { code: "is", name: "icelandic" },
+      { code: "it", name: "italian" },
+      { code: "iu", name: "inuktitut" },
+      { code: "ja", name: "japanese" },
+      { code: "jv", name: "javanese" },
+      { code: "kl", name: "kalaallisut, greenlandic" },
+      { code: "kn", name: "kannada" },
+      { code: "kr", name: "kanuri" },
+      { code: "ks", name: "kashmiri" },
+      { code: "kk", name: "kazakh" },
+      { code: "km", name: "khmer" },
+      { code: "ki", name: "kikuyu, gikuyu" },
+      { code: "rw", name: "kinyarwanda" },
+      { code: "ky", name: "kirghiz, kyrgyz" },
+      { code: "kv", name: "komi" },
+      { code: "kg", name: "kongo" },
+      { code: "ko", name: "korean" },
+      { code: "ku", name: "kurdish" },
+      { code: "kj", name: "kwanyama, kuanyama" },
+      { code: "la", name: "latin" },
+      { code: "lb", name: "luxembourgish, letzeburgesch" },
+      { code: "lg", name: "luganda" },
+      { code: "li", name: "limburgish, limburgan, limburger" },
+      { code: "ln", name: "lingala" },
+      { code: "lo", name: "lao" },
+      { code: "lt", name: "lithuanian" },
+      { code: "lu", name: "luba-katanga" },
+      { code: "lv", name: "latvian" },
+      { code: "gv", name: "manx" },
+      { code: "mk", name: "macedonian" },
+      { code: "mg", name: "malagasy" },
+      { code: "ms", name: "malay" },
+      { code: "ml", name: "malayalam" },
+      { code: "mt", name: "maltese" },
+      { code: "mi", name: "m\u0101ori" },
+      { code: "mr", name: "marathi (mar\u0101\u1e6dh\u012b)" },
+      { code: "mh", name: "marshallese" },
+      { code: "mn", name: "mongolian" },
+      { code: "na", name: "nauru" },
+      { code: "nv", name: "navajo, navaho" },
+      { code: "nb", name: "norwegian bokm\u00e5l" },
+      { code: "nd", name: "north ndebele" },
+      { code: "ne", name: "nepali" },
+      { code: "ng", name: "ndonga" },
+      { code: "nn", name: "norwegian nynorsk" },
+      { code: "no", name: "norwegian" },
+      { code: "ii", name: "nuosu" },
+      { code: "nr", name: "south ndebele" },
+      { code: "oc", name: "occitan" },
+      { code: "oj", name: "ojibwe, ojibwa" },
+
+      { code: "om", name: "oromo" },
+      { code: "or", name: "oriya" },
+      { code: "os", name: "ossetian, ossetic" },
+      { code: "pa", name: "panjabi, punjabi" },
+
+      { code: "fa", name: "persian" },
+      { code: "pl", name: "polish" },
+      { code: "ps", name: "pashto, pushto" },
+      { code: "pt", name: "portuguese" },
+      { code: "qu", name: "quechua" },
+      { code: "rm", name: "romansh" },
+      { code: "rn", name: "kirundi" },
+      { code: "ro", name: "romanian" },
+      { code: "ru", name: "russian" },
+      { code: "sa", name: "sanskrit" },
+      { code: "sc", name: "sardinian" },
+      { code: "sd", name: "sindhi" },
+      { code: "se", name: "northern sami" },
+      { code: "sm", name: "samoan" },
+      { code: "sg", name: "sango" },
+      { code: "sr", name: "serbian" },
+      { code: "gd", name: "scottish" },
+      { code: "sn", name: "shona" },
+      { code: "si", name: "sinhala" },
+      { code: "sk", name: "slovak" },
+      { code: "sl", name: "slovene" },
+      { code: "so", name: "somali" },
+      { code: "st", name: "southern sotho" },
+      { code: "es", name: "spanish" },
+      { code: "su", name: "sundanese" },
+      { code: "sw", name: "swahili" },
+      { code: "ss", name: "swati" },
+      { code: "sv", name: "swedish" },
+      { code: "ta", name: "tamil" },
+      { code: "te", name: "telugu" },
+      { code: "tg", name: "tajik" },
+      { code: "th", name: "thai" },
+      { code: "ti", name: "tigrinya" },
+      { code: "bo", name: "tibetan" },
+      { code: "tk", name: "turkmen" },
+      { code: "tl", name: "tagalog" },
+      { code: "tn", name: "tswana" },
+      { code: "to", name: "tonga (tonga islands)" },
+      { code: "tr", name: "turkish" },
+      { code: "ts", name: "tsonga" },
+      { code: "tt", name: "tatar" },
+      { code: "tw", name: "twi" },
+      { code: "ty", name: "tahitian" },
+      { code: "ug", name: "uighur, uyghur" },
+      { code: "uk", name: "ukrainian" },
+      { code: "ur", name: "urdu" },
+      { code: "uz", name: "uzbek" },
+      { code: "ve", name: "venda" },
+      { code: "vi", name: "vietnamese" },
+      { code: "wa", name: "walloon" },
+      { code: "cy", name: "welsh" },
+      { code: "wo", name: "wolof" },
+      { code: "fy", name: "western frisian" },
+      { code: "xh", name: "xhosa" },
+      { code: "yi", name: "yiddish" },
+      { code: "yo", name: "yoruba" },
+      { code: "za", name: "zhuang, chuang" }
     ];
+
     var lang;
-    var index = command.search("into");
+    var index = command.search("into"); //get index for 'into' keyword
+
+    //if into is not used, 'to' might be used
     if (index < 0) {
       index = command.search("to");
 
-      var cmd = command.substring(0, index);
+      var sentense = command.substring(0, index); //grab text to translate
       index += 3;
     } else {
-      cmd = command.substring(0, index);
+      sentense = command.substring(0, index); //grab text to translate
 
       index = index + 5;
     }
-    lang = command.substring(index).replace(/\w\S*/g, function(txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
-    console.log(cmd);
+    //get langauge to translate to
+    lang = command.substring(index);
 
-    for (var i of json) {
+    for (var i of language_code) {
       if (i.name == lang) {
         chrome.tabs.create({
-          url: "https://translate.google.com/#auto/" + i.code + "/" + cmd
+          url: "https://translate.google.com/#auto/" + i.code + "/" + sentense
         });
 
         break;
