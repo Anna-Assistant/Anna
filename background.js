@@ -603,15 +603,9 @@ $(document).ready(function() {
             .console.log(data.result.parameters);
           translate_(data.result.parameters.any);
         } else if (data.result.metadata.intentName === "lyrics") {
-          chrome.extension
-            .getBackgroundPage()
-            .console.log(data.result.parameters);
-          chrome.tabs.create({
-            url:
-              "https://mail.google.com/mail/?view=cm&fs=1&body=" +
-              data.result.parameters.any
-          });
-          // get_lyrics(data.result.parameters.any);
+          get_lyrics(
+            data.result.resolvedQuery.replace("lyrics", "").replace(/\s/g, "")
+          );
         } else if (data.result.metadata.intentName === "mail") {
           chrome.tabs.create({
             url:
