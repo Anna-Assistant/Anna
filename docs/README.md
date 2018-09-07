@@ -50,23 +50,24 @@ All you need to do is say "Hey" before your requests. Feel free to [add to this 
 
 | Function | What to say |
 |:-:|:-:|
-| Screenshot | Hey, take a screenshot |
-| Translate | Hey, translate bonjour |
-| Directions | Hey, Delhi to Mumbai |
-| Music | Hey, play Whatever it takes |
-| Open Websites | Hey, open facebook |
-| Close tabs | Hey, close|
-| Bookmark | Hey, bookmark |
-| Show Download | Hey, downloads |
-| History | Hey, history |
-| Reload | Hey, reload |
-| Incognito mode | Hey, safe mode |
-| Play random video on Youtube| Hey, play Whatever it Takes |
-| To divide 10 by 2 | Hey, 10 divided by 2 |
-| Weather of your Current location | Hey, what is the weather? |
-| Weather of New Delhi | Hey, what is the weather in New Delhi? |
-| Draft email with the message | Hey, mail life is awesome |
-| open up Twitter and post "life is awesome" | Hey, post life is awesome |
+| Screenshot | Ok, take a screenshot |
+| Translate | Ok, translate bonjour |
+| Directions | Ok, Delhi to Mumbai |
+| Music | Ok, play Whatever it takes |
+| Open Websites | Ok, open facebook |
+| Close tabs | Ok, close|
+| Bookmark | Ok, bookmark |
+| Show Download | Ok, downloads |
+| History | Ok, history |
+| Reload | Ok, reload |
+| Incognito mode | Ok, safe mode |
+| Play random video on Youtube| Ok, play Whatever it Takes |
+| To divide 10 by 2 | Ok, 10 divided by 2 |
+| Weather of your Current location | Ok, what is the weather? |
+| Weather of New Delhi | Ok, what is the weather in New Delhi? |
+| Draft email with the message | Ok, mail life is awesome |
+| open up Twitter and post "life is awesome" | Ok, post life is awesome |
+| show lyrics  | Ok, give me the lyrics for yellow coldplay |
 
 You can also, ask a joke, have a conversation, and much, much more. To find a full list of Anna's functions [click here](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowItWorks.md)
 
