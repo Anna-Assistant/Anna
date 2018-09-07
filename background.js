@@ -9,6 +9,7 @@ $(document).ready(function() {
   var talking = true;
   var recognition;
   var txt;
+
   var screenshotId = 1;
   var status = "active"; //for storing listening status
   var debug = false;
@@ -309,6 +310,22 @@ $(document).ready(function() {
       tasks();
     }
   }
+  async function get_lyrics(command) {
+    var obj = await fetch(
+      "http://api.genius.com/search?q=" + command,
+
+      {
+        headers: {
+          Authorization:
+            "Bearer dp7sB4-Li2skNwHMdBuXz2yQYKm2moTTW7aVLI1yLBxVnB479rf3HFDJbB9hoDe0"
+        }
+      }
+    );
+    var data = await obj.json();
+    chrome.tabs.create({
+      url: data.response.hits[0].result.url
+    });
+  }
   function translate_(command) {
     // language codes
     const language_code = [
@@ -581,7 +598,20 @@ $(document).ready(function() {
             url: "chrome://downloads"
           });
         } else if (data.result.metadata.intentName === "translate") {
+          chrome.extension
+            .getBackgroundPage()
+            .console.log(data.result.parameters);
           translate_(data.result.parameters.any);
+        } else if (data.result.metadata.intentName === "lyrics") {
+          chrome.extension
+            .getBackgroundPage()
+            .console.log(data.result.parameters);
+          chrome.tabs.create({
+            url:
+              "https://mail.google.com/mail/?view=cm&fs=1&body=" +
+              data.result.parameters.any
+          });
+          // get_lyrics(data.result.parameters.any);
         } else if (data.result.metadata.intentName === "mail") {
           chrome.tabs.create({
             url:
