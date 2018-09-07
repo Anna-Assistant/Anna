@@ -603,11 +603,11 @@ $(document).ready(function() {
             .console.log(data.result.parameters);
           translate_(data.result.parameters.any);
         } else if (data.result.metadata.intentName === "lyrics") {
-          get_lyrics(
-            data.result.resolvedQuery
-              .replace("lyrics", "")
-              .replace(/(^[ '\^\$\*#&]+)|([ '\^\$\*#&]+$)/g, "")
-          );
+          var query_ = data.result.resolvedQuery;
+
+          var song = query_.substring(query_.search("lyrics for") + 11);
+          chrome.extension.getBackgroundPage().console.log(song);
+          get_lyrics(song);
         } else if (data.result.metadata.intentName === "mail") {
           chrome.tabs.create({
             url:
