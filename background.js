@@ -604,7 +604,9 @@ $(document).ready(function() {
           translate_(data.result.parameters.any);
         } else if (data.result.metadata.intentName === "lyrics") {
           get_lyrics(
-            data.result.resolvedQuery.replace("lyrics", "").replace(/\s/g, "")
+            data.result.resolvedQuery
+              .replace("lyrics", "")
+              .replace(/(^[ '\^\$\*#&]+)|([ '\^\$\*#&]+$)/g, "")
           );
         } else if (data.result.metadata.intentName === "mail") {
           chrome.tabs.create({
