@@ -4,7 +4,7 @@
 ![alt-image](https://github.com/Anna-Assistant/Anna/blob/master/img/Tile%20Image(1400x560).png)
 
 [![Zulip Chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://anna.zulipchat.com/)
-[![Download From Chrome-Webstore](https://img.shields.io/badge/download-chrome--westore-brightgreen.svg)](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
+[![Download From Chrome-Webstore](https://img.shields.io/badge/download-chrome--webstore-brightgreen.svg)](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog)
 [![HitCount](http://hits.dwyl.io/gauthamzz/Anna-Assistant/Anna.svg)](http://hits.dwyl.io/gauthamzz/Anna-Assistant/Anna)
 [![Code Helpers Badge](https://www.codetriage.com/anna-assistant/anna/badges/users.svg)](https://www.codetriage.com/anna-assistant/anna)
 
