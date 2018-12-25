@@ -12,13 +12,13 @@ Anna is a community driven ambitious virtual assistant on Google Chrome to help 
 
 Sounds boring. Let's try again.
 
-Meet Anna, your very own personal assistant on [Google Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog). It will make your life so effort less. You don't have to open broswer and type your broswer what to do. Instead just talk to your computer, like it is your best friend. 
+Meet Anna, your very own personal assistant on [Google Chrome Webstore](https://chrome.google.com/webstore/detail/anna-assistant/kmkkgdkinnjokklbfloikdbdohbiklog). It will make your life so effortless. You don't have to open browser and type your browser what to do. Instead just talk to your computer, like it is your best friend. 
 
 It won't do everything, but it will reduce the time to do certain things. You want to take a screenshot, say "hey, screenshot". You want to open a website like facebook, say "hey, open facebook". It can do so much [more](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowItWorks.md). **When you have a voice, speak up. Don't type.**
 
 Anna is still in alpha, that means she is still learning and won't work sometimes. But if you love the idea, you could make her amazing. You can teach her things, help others teach her things or just installing her and giving us your valuable feedback and ideas. **Dicuss on [Product hunt](https://www.producthunt.com/posts/anna-assistant)** about Anna.
 
-If you love to support Anna consider Buying me a Coffee to help build Anna. You support can go a long away. Lets not make all the assistants owned by big MNC, lets build our own and make tech better. :star:
+If you love to support Anna consider buying me a coffee to help build Anna. You support can go a long way. Lets not make all the assistants owned by big MNC, lets build our own and make tech better. :star:
 
 <a href="https://www.buymeacoffee.com/MqTYEIw" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
