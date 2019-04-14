@@ -404,6 +404,12 @@ $(document).ready(function() {
               } else if (data.result.metadata.intentName == "horoscope") {
                   getHoroscope(data.result.parameters.any);
               }
+              else if(data.result.metadata.intentName=="internet speed")
+              {
+                chrome.tabs.create({
+                    'url': 'https://fast.com/'
+                });
+              }
               else if (data.result.metadata.intentName == "wotd") {
                   getWOTD();
               } else {
