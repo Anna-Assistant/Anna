@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/hilowgame.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/hilowgame.js"></script>
+
+    <title>Guess the number!</title>
+  </head>
+
+  <body>
+    <div class="container">
+
+
+      <div id="usergame">
+        <h1>Anna's Number Game</h1>
+        <p>Guess a number, and Anna will tell you whether the number she has in mind is higher or lower. You will be given a fixed number of guesses. If you guess the correct number before your given number of chances finish you win, else you lose.</p>
+        <h3>You have 7 chances. Good Luck! </h3>
+        <div class="row">
+          <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <input id="usernum" type="text" class="form-control" placeholder="Enter a number 1-100"></input>
+            </div>
+            <div id="btn-col" class="col-sm-4">
+                <button id="submit" class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </div>
+      </div>
+
+      <div id="output">
+        <div id="userguess">
+        </div>
+      </div>
+
+      <button id="restartbtn" class="btn btn-danger" type="reset">Restart</button>
+
+      </div>
+    </div>
+  </body>
+
+</html>
