@@ -413,7 +413,7 @@ $(document).ready(function() {
               else if(data.result.metadata.intentName=="numbergame")
               {
                 chrome.tabs.create({
-                    'url': '.'
+                    'url': './hilowgame.html'
                 });
               }
               else if (data.result.metadata.intentName == "wotd") {
