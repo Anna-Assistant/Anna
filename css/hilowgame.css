@@ -1,0 +1,52 @@
+#restartbtn {
+  display: none;
+}
+
+#userguess {
+  line-height: 1em;
+  color: blanchedalmond;
+}
+
+#btn-col{
+  text-align: left;
+}
+
+#submit{
+  margin-left: 15px;
+}
+
+#usernum{
+  position: absolute;
+  
+}
+#output{
+  margin-top: 5px;
+}
+body {
+  font-family: 'Ubuntu', sans-serif;
+      position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    opacity: .9;
+    -webkit-backface-visibility: hidden;
+    background-color: #52d3aa;
+background-image: repeating-linear-gradient(to bottom right, #3f95ea 0%, #52d3aa 100%);
+  text-align: center;
+}
+
+h1{
+  color: white;
+  font-size: 50px;
+}
+h2{
+
+  color: black;
+}
+p{
+  color: beige;
+  font-size: 18px;
+}
+

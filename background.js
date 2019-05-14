@@ -410,6 +410,12 @@ $(document).ready(function() {
                     'url': 'https://fast.com/'
                 });
               }
+              else if(data.result.metadata.intentName=="numbergame")
+              {
+                chrome.tabs.create({
+                    'url': './hilowgame.html'
+                });
+              }
               else if (data.result.metadata.intentName == "wotd") {
                   getWOTD();
               } else {
