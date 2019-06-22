@@ -16,7 +16,7 @@ Meet Anna, your very own personal assistant on [Google Chrome Webstore](https://
 
 Anna will be there to help you do what you want. You want to take a screenshot, say "hey, screenshot". You want to open a website like facebook, say "hey, open facebook". Not only this, it can do much [more](https://github.com/Anna-Assistant/Anna/blob/master/docs/HowItWorks.md). **Why to type when you can just speak**
 
-Anna is still in alpha, that means she is still learning and won't work sometimes. But if you love the idea, you could make her amazing. You can teach her things, help others teach her things or just installing her and giving us your valuable feedback and ideas. **Dicuss on [Product hunt](https://www.producthunt.com/posts/anna-assistant)** about Anna.
+Anna is still in alpha, that means she is still learning and won't work sometimes. But if you love the idea, you could make her amazing. You can teach her things, help others teach her things or just installing her and giving us your valuable feedback and ideas. **Discuss on [Product hunt](https://www.producthunt.com/posts/anna-assistant)** about Anna.
 
 If you love to support Anna consider buying me a coffee to help build Anna. Your support can make her go a long way. Let's not make all the assistants owned by big MNC, lets build our own and make tech better. :star:
 
