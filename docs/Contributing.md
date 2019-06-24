@@ -6,7 +6,7 @@ Please help us follow the best practice to make it easy for the reviewer as well
 
 - [People before code](http://hintjens.com/blog:95): If any of the following rules are violated, the pull-requests must not be rejected. This is to create an easy and joyful onboarding process for new programmers and first-time contributors.
 
-- Commit messaged should be meaningful, example: `Add <-issue-name-and-number->`.
+- Commit messages should be meaningful, example: `Add <-issue-name-and-number->`.
 
 -  Make commit messaged like a command not in past tense. For example `Add feature` not `Adding feature or Added feature`.
 
